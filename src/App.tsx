@@ -8,7 +8,6 @@ import Challenges from './sections/Challenges';
 import Offerings from './sections/Offerings';
 import WhyUs from './sections/WhyUs';
 import Founders from './sections/Founders';
-import { DoctorProfileCards } from './components/DoctorProfileCards';
 import Contact from './pages/Contact';
 import Preloader from './components/Preloader';
 
@@ -50,7 +49,6 @@ const HomePage = () => (
     <Challenges />
     <Offerings />
     <WhyUs />
-    <DoctorProfileCards />
     <Founders />
   </main>
 );
