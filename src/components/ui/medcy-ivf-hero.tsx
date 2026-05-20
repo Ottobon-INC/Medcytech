@@ -1,14 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, X, CheckCircle2, Loader2 } from "lucide-react";
 import { submitLead } from "../../services/leadService";
-import KeyStats from "../../sections/KeyStats";
 
 import InteractiveBackground from "./InteractiveBackground";
+
+function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?: number }) {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        let startTime: number | null = null;
+
+        const animate = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            // Ease out quad
+            const easeProgress = progress * (2 - progress);
+            setCount(Math.floor(easeProgress * value));
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        };
+
+        requestAnimationFrame(animate);
+    }, [value, duration]);
+
+    return <>{count.toLocaleString()}</>;
+}
 
 export default function MedcyIvfHero() {
     const navigate = useNavigate();
@@ -51,33 +74,30 @@ export default function MedcyIvfHero() {
     return (
         <InteractiveBackground
             className="min-h-0"
-            exclusionArea={{ width: '900px', height: '450px' }}
+            exclusionArea={{ width: '1300px', height: '650px', left: '50%' }}
         >
-            {/* Hero Centered Stack */}
-            <div className="relative z-10 flex flex-col items-center px-6 text-center max-w-4xl mx-auto w-full pt-32 pb-16 md:pt-40 md:pb-20">
+            {/* Hero Two-Column Layout */}
+            <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between gap-12 px-6 md:px-12 lg:px-16 text-left max-w-7xl mx-auto w-full pt-32 pb-16 md:pt-40 md:pb-20">
+                {/* Left Column: Content */}
                 <motion.div
                     initial="hidden"
                     animate="visible"
                     variants={{
                         visible: { transition: { staggerChildren: 0.15 } }
                     }}
-                    className="flex flex-col items-center"
+                    className="w-full lg:w-[55%] flex flex-col items-start text-left"
                 >
                     <motion.h1
                         variants={staggerVariants}
                         className="text-[42px] md:text-[64px] lg:text-[76px] leading-[1.1] md:leading-[1.15] mb-6 text-[#38423f] tracking-tight"
                         style={{ fontFamily: "'Playfair Display', serif", fontWeight: 300 }}
                     >
-                        Your Clinic’s Digital <br className="hidden md:block" /> Growth Partner
+                        Your Clinic’s Digital <br className="hidden md:block" /> Front Office
                     </motion.h1>
 
-                    <motion.p variants={staggerVariants} className="text-[#5b6e68] text-base md:text-lg lg:text-[19px] max-w-[800px] font-normal leading-[1.7] mb-10 tracking-wide text-center">
-                        We take care of marketing, leads, and appointments while you focus on your patients.
+                    <motion.p variants={staggerVariants} className="text-[#5b6e68] text-base md:text-lg lg:text-[19px] max-w-[800px] font-normal leading-[1.7] mb-10 tracking-wide text-left">
+                        Helping clinics attract, convert & manage patients intelligently.
                     </motion.p>
-
-                    <motion.div variants={staggerVariants}>
-                        <KeyStats />
-                    </motion.div>
 
                     {/* Primary CTA */}
                     <motion.button
@@ -91,6 +111,101 @@ export default function MedcyIvfHero() {
                     >
                         Partner with us? <ArrowRight className="w-5 h-5" />
                     </motion.button>
+
+                    {/* Horizontal Stats Section */}
+                    <motion.div
+                        variants={staggerVariants}
+                        className="mt-16 flex flex-row items-center gap-3 sm:gap-6 md:gap-10 w-full flex-nowrap overflow-visible whitespace-nowrap"
+                    >
+                        {/* Clinics Stat */}
+                        <div className="flex items-center gap-2 sm:gap-4">
+                            <div className="flex items-center justify-center w-10 h-10 sm:w-12 h-12 text-blue-600">
+                                <svg className="w-8 h-8 sm:w-10 h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M4 42h40" />
+                                    <path d="M14 42V18a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v24" />
+                                    <path d="M14 26H8v16M34 26h6v16" />
+                                    <rect x="20" y="8" width="8" height="8" rx="1.5" />
+                                    <path d="M24 10v4M22 12h4" />
+                                    <path d="M21 42v-5a3 3 0 0 1 6 0v5" />
+                                    <circle cx="11" cy="30" r="1" fill="currentColor" />
+                                    <circle cx="11" cy="36" r="1" fill="currentColor" />
+                                    <circle cx="37" cy="30" r="1" fill="currentColor" />
+                                    <circle cx="37" cy="36" r="1" fill="currentColor" />
+                                </svg>
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-lg sm:text-2xl md:text-[28px] font-bold text-blue-600 leading-none">
+                                    <AnimatedCounter value={500} />+
+                                </span>
+                                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Clinics</span>
+                            </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="h-8 w-px bg-slate-300/60" />
+
+                        {/* Doctors Stat */}
+                        <div className="flex items-center gap-2 sm:gap-4">
+                            <div className="flex items-center justify-center w-10 h-10 sm:w-12 h-12 text-blue-600">
+                                <svg className="w-8 h-8 sm:w-10 h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="24" cy="15" r="7" />
+                                    <path d="M17 15a7 7 0 0 1 14 0" />
+                                    <path d="M10 42c0-5 4-9 9-9h10c5 0 9 4 9 9" />
+                                    <path d="M18 33v2a6 6 0 0 0 12 0v-2" />
+                                    <path d="M24 39v3" />
+                                    <circle cx="24" cy="43" r="1" fill="currentColor" />
+                                </svg>
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-lg sm:text-2xl md:text-[28px] font-bold text-blue-600 leading-none">
+                                    <AnimatedCounter value={1200} />+
+                                </span>
+                                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Doctors</span>
+                            </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div className="h-8 w-px bg-slate-300/60" />
+
+                        {/* Patients Stat */}
+                        <div className="flex items-center gap-2 sm:gap-4">
+                            <div className="flex items-center justify-center w-10 h-10 sm:w-12 h-12 text-blue-600">
+                                <svg className="w-8 h-8 sm:w-10 h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                    <circle cx="24" cy="22" r="6" />
+                                    <path d="M14 38c0-4.5 4-8 10-8s10 3.5 10 8" />
+                                    <circle cx="14" cy="18" r="4.5" />
+                                    <path d="M6 31.5c0-3 3-5.5 8-5.5" />
+                                    <circle cx="34" cy="18" r="4.5" />
+                                    <path d="M34 26c5 0 8 2.5 8 5.5" />
+                                </svg>
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-lg sm:text-2xl md:text-[28px] font-bold text-blue-600 leading-none">
+                                    <AnimatedCounter value={50000} />+
+                                </span>
+                                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Patients</span>
+                            </div>
+                        </div>
+                    </motion.div>
+                </motion.div>
+
+                {/* Right Column: Image Graphic */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95, x: 30 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+                    className="w-full lg:w-[42%] flex justify-center items-center relative z-20"
+                >
+                    <div className="relative w-full max-w-[500px]">
+                        {/* Decorative glow behind image */}
+                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-[#2f8f83]/10 rounded-[40px] blur-2xl opacity-75" />
+                        
+                        <img
+                            src="/core_digital_network.png"
+                            alt="Core Digital Network"
+                            className="relative w-full h-auto rounded-[32px] shadow-[0_20px_50px_rgba(15,61,50,0.12)] border border-white/40"
+                        />
+                    </div>
                 </motion.div>
             </div>
 
