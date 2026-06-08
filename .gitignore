@@ -35,3 +35,14 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Production build outputs
+dist/
+dist-ssr/
+out/
+build/
+
+# Build logs/errors
+build_error.txt
+*.log
+
