@@ -51,7 +51,7 @@ const Challenges = ({ content, hideCTA }: { content: any; hideCTA?: boolean }) =
 
             {/* Progress dots */}
             <div className="flex gap-3 items-center">
-              {challenges.map((_, i) => (
+              {challenges.map((_: any, i: number) => (
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
