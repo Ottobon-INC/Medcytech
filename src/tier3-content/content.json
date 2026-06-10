@@ -1,0 +1,587 @@
+{
+  "hero": {
+    "title": "Your Clinic’s Digital <br className=\"hidden md:block\" /> Front Office",
+    "subtitle": "Helping clinics attract, convert & manage patients intelligently.",
+    "ctaText": "Partner with us?",
+    "stats": [
+      {
+        "value": 500,
+        "label": "Clinics"
+      },
+      {
+        "value": 1200,
+        "label": "Doctors"
+      },
+      {
+        "value": 50000,
+        "label": "Patients"
+      }
+    ],
+    "image": "/core_digital_network.png"
+  },
+  "brands": {
+    "sectionTag": "The Ecosystem",
+    "sectionTitle": "Our Brands",
+    "sectionSubtitle": "Specialized clinical environments designed to bridge the gap between technology and patient care.",
+    "items": [
+      {
+        "name": "Janma Sethu",
+        "tagline": "Precision tech for the path to parenthood",
+        "content": "Empowering fertility and maternal care with precision-driven technology. Janmasethu supports clinics across IVF, gynecology, and neonatal care by streamlining patient journeys, improving treatment outcomes, and enabling better clinical decisions.\n\nFrom first consultation to postnatal care, we ensure every step is connected, data-informed, and patient-centric.",
+        "highlights": [
+          "End-to-end IVF cycle tracking",
+          "Smart patient journey management",
+          "Integrated neonatal and maternal records",
+          "Outcome-focused clinical insights"
+        ],
+        "icon": "Baby",
+        "color": "from-brand-teal/20 to-brand-teal/5",
+        "frontImage": "/.png/janmasethu.png"
+      },
+      {
+        "name": "Kalpa Sethu",
+        "tagline": "Data-backed transformation and aesthetics",
+        "content": "Kalpasethu brings precision and personalization to dermatology, nutrition, and weight management. By combining data insights with lifestyle tracking, it enables providers to deliver measurable and sustainable transformations.\n\nFrom aesthetic treatments to wellness journeys, everything is tracked, optimized, and results-driven.",
+        "highlights": [
+          "Personalized treatment and nutrition plans",
+          "Progress tracking with measurable outcomes",
+          "AI-driven insights for better recommendations",
+          "Integrated wellness and aesthetic workflows"
+        ],
+        "icon": "Hourglass",
+        "color": "from-[#4ABFB0]/20 to-[#4ABFB0]/5",
+        "frontImage": "/.png/kalpasethu.png"
+      },
+      {
+        "name": "Akshaya Sethu",
+        "tagline": "Proactive care coordination for longevity",
+        "content": "Designed for continuous and long-term care, Akshayasethu enables providers to manage geriatric and chronic conditions with proactive monitoring and coordinated care.\n\nIt helps clinicians stay ahead of complications, improve patient adherence, and deliver consistent, personalized care experiences over time.",
+        "highlights": [
+          "Chronic disease management workflows",
+          "Remote monitoring and follow-ups",
+          "Longitudinal patient health records",
+          "Care coordination across providers"
+        ],
+        "icon": "Activity",
+        "color": "from-brand-emerald/20 to-brand-emerald/5",
+        "frontImage": "/.png/Akshayasethu.png"
+      }
+    ]
+  },
+  "challenges": {
+    "sectionTag": "Real Challenges",
+    "sectionTitle": "The challenges<br />slowing down<br />your clinic growth",
+    "sectionSubtitle": "These are not system problems — these are everyday realities in most clinics.",
+    "items": [
+      {
+        "title": "Dominated by big hospitals",
+        "description": "Large hospital chains make it hard for small clinics to reach patients.",
+        "image": "/challenges/missed-calls.png"
+      },
+      {
+        "title": "Overloaded clinic staff",
+        "description": "Doctors and staff handle calls and marketing, reducing patient care time.",
+        "image": "/challenges/overloaded-desk.png"
+      },
+      {
+        "title": "Missing proactive patients",
+        "description": "Clinics focus only on treatment seekers and miss wellness-focused patients.",
+        "image": "/challenges/empty-waiting-room.png"
+      },
+      {
+        "title": "Disconnected tools",
+        "description": "Different systems don’t work together, causing inefficiency.",
+        "image": "/challenges/poor-followups.png"
+      },
+      {
+        "title": "Limited growth potential",
+        "description": "Operational issues make it hard for clinics to scale.",
+        "image": "/challenges/limited-growth.png"
+      }
+    ]
+  },
+  "services": {
+    "sectionTag": "Our Services",
+    "sectionTitle": "Services that drive clinical growth",
+    "sectionSubtitle": "End-to-end solutions designed to attract patients, optimize operations, and elevate your digital identity.",
+    "items": [
+      {
+        "id": "clinic-awareness",
+        "title": "Clinic Awareness & Brand Building",
+        "shortDescription": "Build trust before a patient ever walks through your doors.",
+        "icon": "Globe",
+        "detailedDescription": "Today’s patients don't choose a healthcare provider blindly. Before booking an appointment, they search online, read reviews, visit websites, and compare options. If your clinic lacks a strong digital presence, potential patients may never consider your services—even if you provide exceptional care.\n\nWe help healthcare practices establish a credible and recognizable digital presence that positions them as the preferred choice within their community.",
+        "table": {
+          "headers": ["The Reality", "The Result with Us"],
+          "rows": [
+            ["Patients research clinics online before making healthcare decisions.", "Your clinic creates a strong first impression across every digital touchpoint."],
+            ["Many clinics struggle to clearly communicate their expertise and services.", "Patients immediately understand your specialties and value."],
+            ["Lack of consistent branding reduces trust and credibility.", "A professional digital presence builds confidence before the first visit."],
+            ["Competitors with stronger online visibility attract more patient inquiries.", "Your clinic stands out and remains top-of-mind when care is needed."]
+          ]
+        },
+        "featuresTitle": "What We Handle For Your Clinic",
+        "featuresSubtitle": "We don't just create content—we build a digital presence that helps patients recognize, remember, and trust your clinic.",
+        "features": [
+          {
+            "name": "Professional Website & Landing Pages",
+            "description": "We design modern, patient-focused websites that clearly communicate your services, specialties, doctors, and patient care philosophy while creating a seamless user experience."
+          },
+          {
+            "name": "Doctor & Clinic Branding",
+            "description": "We highlight your expertise, credentials, treatment capabilities, and unique strengths to position your practice as a trusted healthcare provider."
+          },
+          {
+            "name": "Content & Educational Assets",
+            "description": "We create informative content that helps patients understand their health concerns while demonstrating your clinic's knowledge and authority in your specialty."
+          },
+          {
+            "name": "Reputation & Trust Building",
+            "description": "From patient testimonials and success stories to professional imagery and clinic showcases, we help establish credibility that encourages patient confidence."
+          },
+          {
+            "name": "Consistent Digital Presence",
+            "description": "We ensure your branding, messaging, and patient experience remain consistent across your website, social platforms, directories, and patient communication channels."
+          }
+        ],
+        "bottomLine": "A strong digital identity doesn’t just attract patients; it builds lasting trust before their first visit."
+      },
+      {
+        "id": "gbp-optimization",
+        "title": "Google Business Profile (GBP) Optimization",
+        "shortDescription": "Stop losing local patients to your competitors down the street.",
+        "icon": "MapPin",
+        "detailedDescription": "When someone in your neighborhood searches for a \"dentist near me,\" a \"pediatrician in [City],\" or an \"urgent care clinic,\" they rarely look past the top 3 results on Google Maps. If your clinic isn’t there, you are invisible to hundreds of active patients every single month.\n\nWe specialize in optimizing and managing Google Business Profiles specifically for healthcare practices to ensure you rank where patients are looking.",
+        "table": {
+          "headers": [
+            "The Reality",
+            "The Result with Us"
+          ],
+          "rows": [
+            [
+              "80%+ of patients use Google to find local care.",
+              "You appear right at the top when they search."
+            ],
+            [
+              "Friction: Missing hours or wrong phone numbers lose patients.",
+              "Clean, accurate, verified data builds instant trust."
+            ],
+            [
+              "Review Gap: Low or rare reviews push you down the algorithm.",
+              "A systematic approach to getting authentic 5-star patient feedback."
+            ]
+          ]
+        },
+        "featuresTitle": "What We Handle For Your Clinic",
+        "featuresSubtitle": "We don’t just fill out a profile; we turn your Google Business Profile into a patient-generating machine.",
+        "features": [
+          {
+            "name": "Strategic Category & Keyword Setup",
+            "description": "We map your specific medical specialties (e.g., Dermatologist, Skin Care Clinic) to Google’s algorithm so you rank for the exact treatments you offer."
+          },
+          {
+            "name": "Review Generation Systems",
+            "description": "We help your team legally and ethically collect consistent, positive patient reviews to build massive social proof."
+          },
+          {
+            "name": "Local SEO Boost",
+            "description": "We optimize your business description, services menu, and location data to push your clinic into the coveted \"Map Pack\" top 3."
+          },
+          {
+            "name": "Active Profile Management",
+            "description": "Regular updates, posting clinical hours (including holidays), uploading high-quality photos, and answering patient FAQs."
+          }
+        ],
+        "bottomLine": "A properly optimized Google Business Profile acts like a billboard right at the moment a patient needs your care. Let us handle the algorithm while you handle the patients."
+      },
+      {
+        "id": "whatsapp-automation",
+        "title": "WhatsApp Automation",
+        "shortDescription": "Reduce patient no-shows and streamline your front-desk operations.",
+        "icon": "MessageSquare",
+        "detailedDescription": "Managing patient appointments via manual phone calls is time-consuming for your administrative staff. Our WhatsApp automation services integrate directly into your clinic's daily workflow, handling routine patient communication efficiently and automatically. By reaching patients on an app they already use daily, you improve response rates and operational efficiency.",
+        "featuresTitle": "Core Automation Features",
+        "featuresSubtitle": "",
+        "features": [
+          {
+            "name": "Appointment Confirmations & Reminders",
+            "description": "Automatically send an instant confirmation when a booking is made, followed by 24-hour and 2-hour reminders. This systematically reduces expensive patient no-shows."
+          },
+          {
+            "name": "24/7 Automated Responses",
+            "description": "Program customized chatbot workflows to instantly answer frequently asked questions regarding clinic timings, precise locations, and lists of medical services, even after business hours."
+          },
+          {
+            "name": "Post-Consultation Follow-ups",
+            "description": "Schedule automated messages to send necessary aftercare instructions for patient feedback and Google reviews."
+          },
+          {
+            "name": "Easy Rescheduling",
+            "description": "Allow patients to cancel or request a reschedule through simple automated prompts, ensuring your calendar stays updated without tying up the phone lines."
+          }
+        ],
+        "bottomLine": "Shifting routine administrative communication to WhatsApp drastically reduces the workload on your front desk. This allows your staff to focus entirely on in-person patient care while simultaneously improving overall patient satisfaction through fast, reliable communication."
+      },
+      {
+        "id": "patient-management-dfo",
+        "title": "Patient Management (Digital Front Office)",
+        "shortDescription": "Stop losing track of patient messages and missing critical health risks.",
+        "icon": "Users",
+        "detailedDescription": "When your clinic or research group is busy, managing patient questions, appointments, and medical charts gets messy fast. If your team is constantly juggling phone calls, reading text messages, and checking health risks manually, important details get lost. This stresses your staff, frustrates patients, and slows down clinical trials.\n\nWe build an intelligent Digital Front Office (DFO) specifically for Doctors, Nurses, and Clinical Trial Managers (CROs) to handle the complete patient journey safely and automatically.",
+        "table": {
+          "headers": ["The Reality", "The Result with Us"],
+          "rows": [
+            ["Messy Inboxes: Patient messages are scattered across different apps, causing long delays.", "A single, smart inbox that reads texts and shows who needs help first."],
+            ["Hidden Risks: Dangerous health updates or vital sign changes get missed in a busy inbox.", "A built-in Risk Engine that automatically flags urgent patient dangers with bright colors."],
+            ["Compliance Stress: Tracking doctor notes and trial records manually causes legal mistakes.", "Strict, automatic audit logs that save every single action to keep your trials 100% compliant."]
+          ]
+        },
+        "featuresTitle": "What We Handle For Your Clinic",
+        "featuresSubtitle": "We don’t just store medical charts; we turn your daily operations into a smooth, automated workflow machine.",
+        "features": [
+          {
+            "name": "Role-Based Smart Dashboards",
+            "description": "We set up custom screens for Doctors, Nurses, and Trial Managers. It shows a live tracker of patient wait times (e.g., \"Patient Anya waiting 22 mins\") and highlights urgent health updates instantly."
+          },
+          {
+            "name": "Patient & Trial Lead CRM",
+            "description": "Get a complete view of every patient’s medical history, past text chats, and health status in one click. It also includes a specialized pipeline to help trial managers track and enroll new clinical trial participants."
+          },
+          {
+            "name": "AI-Powered Risk Monitor",
+            "description": "A safety tool that automatically categorizes patient dangers based on medical severity (RED for emergencies, YELLOW for warnings, BLUE for information) so you catch emergencies early."
+          },
+          {
+            "name": "Clinical Operations & Audit Logs",
+            "description": "Easily book visits, log doctor consultation notes, and use secure audit logs that track every system change to keep your clinic 100% legally compliant."
+          },
+          {
+            "name": "Built-in AI Assistant",
+            "description": "A smart helper bot integrated into the system. Your staff can ask it to instantly summarize a patient's history or check for scheduling mistakes, saving hours of typing."
+          }
+        ],
+        "bottomLine": "Shifting your daily operations to our Digital Front Office eliminates administrative chaos. This allows your staff to focus entirely on in-person patient care while ensuring no medical emergency or trial record is ever missed."
+      }
+    ]
+  },
+  "offerings": {
+    "sectionTag": "Pricing & Strategy",
+    "sectionTitle": "Choose the Perfect Pricing Plan",
+    "sectionSubtitle": "\"Your digital identity is your clinical legacy. Professional journey orchestration designed for superior outcomes.\"",
+    "items": [
+      {
+        "id": "starter",
+        "name": "Starter Pack",
+        "tagline": "Perfect for clinics getting started online",
+        "priceRange": "₹2,999",
+        "features": [
+          "Landing page for digital identity",
+          "Google Business Profile management",
+          "Review reply & rating improvement",
+          "WhatsApp appointment + reminders",
+          "Monthly visibility report",
+          "Basic social content (2–4 posts)"
+        ],
+        "color": "from-indigo-100/40 to-indigo-50/20",
+        "accent": "bg-indigo-400",
+        "btn": "bg-[#ede9fe] text-[#6366f1] hover:bg-[#6366f1] hover:text-white"
+      },
+      {
+        "id": "growth",
+        "name": "Growth Pack",
+        "tagline": "For clinics ready to scale patient inflow",
+        "priceRange": "₹12,000",
+        "features": [
+          "Landing page for digital identity (SEO Optimized)",
+          "Everything in Starter",
+          "Lead capture across channels",
+          "Missed call recovery",
+          "WhatsApp automation (flows + follow-ups)",
+          "Simple CRM view",
+          "Review & reputation management"
+        ],
+        "color": "from-rose-100/40 to-rose-50/20",
+        "accent": "bg-rose-400",
+        "btn": "bg-[#ffe4e6] text-[#e11d48] hover:bg-[#e11d48] hover:text-white"
+      },
+      {
+        "id": "orchestration",
+        "name": "Orchestration Pack",
+        "tagline": "End-to-end patient journey management",
+        "priceRange": "₹40,000",
+        "features": [
+          "Landing page for digital identity (Premium Suite)",
+          "Multi-channel orchestration",
+          "Call center scripts + knowledge base",
+          "Journey design (pre + post OPD)",
+          "Reporting dashboards",
+          "Multi-location support (add-on)",
+          "Specialist clinical workflows"
+        ],
+        "color": "from-sky-100/40 to-sky-50/20",
+        "accent": "bg-sky-400",
+        "btn": "bg-[#e0f2fe] text-[#0ea5e9] hover:bg-[#0ea5e9] hover:text-white"
+      }
+    ]
+  },
+  "whyUs": {
+    "sectionTag": "Why Us",
+    "sectionTitle": "Built for your clinic — not a generic system",
+    "sectionSubtitle": "Every clinic operates differently. Your patients, your specialty, and your workflows are unique — so your front office system should be too.",
+    "footerText": "“A system that works with your clinic — not something your clinic has to adjust to.”",
+    "items": [
+      {
+        "title": "Designed for your specialty",
+        "description": "We don’t use one approach for all clinics. Each solution is tailored to your treatment area, patient behavior, and growth goals.",
+        "icon": "Target"
+      },
+      {
+        "title": "We manage execution, not just provide tools",
+        "description": "This is not just software. We actively handle bookings, follow-ups, and patient interactions — so your team doesn’t have to.",
+        "icon": "Users"
+      },
+      {
+        "title": "Built around real clinic workflows",
+        "description": "Everything is designed around how clinics actually operate — reducing manual work instead of adding complexity.",
+        "icon": "Shield"
+      },
+      {
+        "title": "Focused on outcomes, not features",
+        "description": "We measure success by what matters to you — more confirmed patients, better conversion, and reduced operational load.",
+        "icon": "Zap"
+      }
+    ]
+  },
+  "founders": {
+    "sectionTag": "The Visionaries",
+    "sectionTitle": "Our Founders",
+    "sectionSubtitle": "A perfect synergy of clinical expertise and engineering excellence, dedicated to building the future of healthcare infrastructure.",
+    "items": [
+      {
+        "id": "founder-sireesha",
+        "name": "Dr. B. Sireesha Rani",
+        "role": "Founder & Managing Director",
+        "specialization": "Infertility Specialist and Obstetrician & Gynecologist",
+        "subtitle": "MBBS, DNB, DRM (Germany)",
+        "image": "/.png/founder1.png",
+        "cardImage": "/.png/Enterprise Architect & Technology Leader (1) (2).png",
+        "bio": "Infertility Specialist | Obstetrician & Gynecologist. 16+ years specializing in reproductive medicine and advanced gynecological care.",
+        "detailedBio": "Dr. B. Sireesha Rani is the Founder and Managing Director of Medcy Hospitals, as well as the Founder of Vizag IVF Centre and Lancet Laparoscopy Centre. With over 16+ years of experience in fertility management, she is widely recognized for her expertise in reproductive medicine and advanced gynecological care.\n\nShe completed her MBBS from Andhra Medical College, Visakhapatnam, and pursued her DNB in Obstetrics & Gynecology from the National Board of Examinations, New Delhi. Further strengthening her specialization, she obtained a Diploma in Reproductive Medicine and Embryology from Kiel University, Germany.\n\nDr. Sireesha Rani is actively involved in both government and private medical bodies across Andhra Pradesh and continues to contribute significantly to advancing fertility care standards.",
+        "leadershipVision": "Built upon the strong clinical excellence and ethical foundation established by Dr. Sireesha Rani through Medcy IVF, Medcy Hospitals extends this commitment into a comprehensive multi-specialty healthcare ecosystem.\n\nLocated in Arilova, Visakhapatnam, the hospital spans over 1,00,000+ sq. ft. of advanced medical infrastructure and is designed as a 108-bed tertiary care facility, focused on patient-centered care, innovation, and clinical precision.",
+        "positionsAwards": [
+          "Founder & Managing Director — Medcy Hospitals",
+          "Founder & Managing Director — Vizag IVF Centre & Lancet Laparoscopy Centre",
+          "Vice President — AP ISAR Chapter",
+          "Joint Organizing Secretary — Andhra Medical College Century Celebrations",
+          "Vice President — OGSV (2024–2025)",
+          "Secretary — AP Nursing Homes & Hospitals Association (APNA), Visakhapatnam",
+          "Secretary — OGSV (Obstetrics & Gynecological Society of Visakhapatnam) (2022–2023)",
+          "Secretary — IMA Women’s Wing, Visakhapatnam",
+          "Joint Organizing Secretary — YUVA, FOGSI South Zone",
+          "Recipient of the prestigious “Most Preferred IVF Doctor in Andhra Pradesh” award",
+          "Award presented by Dr. M. Venkaiah Naidu (Former Vice President of India) on September 3rd, 2023"
+        ],
+        "research": [
+          "Published research on CASA-derived human sperm abnormalities, focusing on chromatin packing and DNA fragmentation",
+          "Actively contributes to academic conferences and medical advancements in reproductive health"
+        ],
+        "specializationList": [
+          "Infertility & Fertility Management",
+          "IVF & Assisted Reproductive Technologies (ART)",
+          "High-risk Obstetrics",
+          "Advanced Gynecological Treatments",
+          "Laparoscopic Procedures"
+        ],
+        "whyConsult": "At Medcy Hospitals, Dr. Sireesha Rani leads with a patient-first philosophy, combining clinical expertise with compassionate care. Her approach integrates advanced reproductive technologies, evidence-based treatments, and personalized care plans, ensuring the best outcomes for every patient.",
+        "expertise": [
+          "Infertility & Fertility Management",
+          "IVF & Assisted Reproductive Technologies (ART)",
+          "High-risk Obstetrics",
+          "Advanced Gynecological Treatments",
+          "Laparoscopic Procedures"
+        ],
+        "languages": [
+          "Telugu",
+          "English",
+          "Hindi"
+        ],
+        "contactInfo": [
+          "+91 70707 60909",
+          "+91 70709 60909",
+          "+91 77799 40909"
+        ],
+        "email": "contact@medcyhospitals.com",
+        "address": "Medcy Hospitals, Arilova, Visakhapatnam, Andhra Pradesh",
+        "modalImage": "/.png/profile1.png"
+      },
+      {
+        "id": "founder2",
+        "name": "Bhanu Prasad",
+        "role": "Enterprise Architect & Technology Leader",
+        "specialization": "Enterprise Architect and Digital Strategist",
+        "subtitle": "Enterprise Architect & Technology Leader",
+        "image": "/.png/bhanu_sir.png",
+        "cardImage": "/.png/Enterprise Architect & Technology Leader (3).png",
+        "bio": "Enterprise Architect & Technology Leader with over 20 years of experience in building scalable digital platforms and enterprise ecosystems.",
+        "detailedBio": "Bhanu Prasad is a seasoned enterprise architect and technology leader with over 20 years of experience in building scalable digital platforms, enterprise integrations, and end-to-end business solutions. With deep expertise in B2B commerce, CRM, and cloud-based ecosystems, he has consistently driven innovation and revenue growth across global organizations.\n\nCurrently serving as the Founder of Ottobon Inc, he focuses on building next-generation digital solutions that bridge business and technology seamlessly.",
+        "expertise": [
+          "Enterprise Architecture & Solution Design",
+          "B2B Commerce & Lead-to-Cash Platforms",
+          "CRM & ERP Integrations (Oracle, Salesforce)",
+          "Cloud & Middleware Solutions",
+          "Business Process Automation (BPM, SOA)",
+          "Digital Transformation & Application Modernization",
+          "Cross-functional Team Leadership & Delivery"
+        ],
+        "positionsAwards": [
+          "Founder — Ottobon Inc (Oct 2024 – Present): Driving innovation in digital platforms and enterprise solutions with a focus on scalable, future-ready architectures.",
+          "Principal Architect — Keste (Jan 2018 – Aug 2024): Led presales and architecture for lead-to-cash solutions, enabling enterprise modernization and integration. Played a key role in increasing business revenue through innovative solution design.",
+          "Senior Solution Architect — Keste (Sep 2014 – Jan 2018): Delivered end-to-end B2B eCommerce solutions, managing multi-project teams and focusing on Oracle and Salesforce ecosystems.",
+          "Solution Architect — ROLTA | Americas (Jun 2013 – Sep 2014): Designed and implemented integration solutions using Oracle Fusion stack, primarily for the utilities sector.",
+          "Senior Consultant — Deloitte Consulting (Apr 2007 – Jun 2013): Architected CRM and SCM solutions while leading delivery teams to ensure high-quality enterprise implementations.",
+          "Software Engineer — Oracle Corporation (Apr 2006 – Apr 2007): Worked on Fusion Integration Services within JD Edwards, focusing on service enablement frameworks.",
+          "Software Engineer — Cordys R&D (Aug 2004 – Apr 2006): Contributed to product development in BPM and SOA-based process engines."
+        ],
+        "research": [
+          "Technical Expertise: Java, HTML, JavaScript",
+          "BPM (Business Process Management)",
+          "SOA (Service-Oriented Architecture)",
+          "X-Forms & Integration Frameworks",
+          "Oracle & Salesforce Ecosystems"
+        ],
+        "whyConsult": "At Ottobon, Bhanu Prasad brings strategic vision and deep technical expertise to build scalable healthcare and enterprise platforms. His approach combines business-first thinking with robust technology architecture, ensuring impactful, efficient, and future-ready solutions.",
+        "languages": [
+          "English",
+          "Telugu",
+          "Hindi"
+        ],
+        "contactInfo": [
+          "+91 90000 00000"
+        ],
+        "email": "bhanu@ottobon.com",
+        "address": "Vishakapatnam, Andhra Pradesh, India",
+        "modalImage": "/.png/profile2.png",
+        "imagePosition": "center 5%"
+      }
+    ]
+  },
+  "brandsPage": {
+    "headerTag": "The Medcy Ecosystem",
+    "headerTitle": "Unifying Care Across <br className=\"hidden md:block\"/> Every Specialty",
+    "headerSubtitle": "Discover our comprehensive suite of specialized clinical environments. Each brand is meticulously designed to bridge the gap between advanced medical technology and compassionate patient care, ensuring seamless workflows and enhanced outcomes.",
+    "deepDives": [
+      {
+        "title": "Janma Sethu",
+        "subtitle": "The Path to Parenthood, Perfected.",
+        "description": "Fertility journeys are deeply personal and medically complex. Janma Sethu is engineered specifically for IVF clinics and maternity hospitals to provide absolute clarity across the entire patient lifecycle.",
+        "highlights": [
+          "Automated cycle tracking and stimulation protocols.",
+          "Embryology lab management and cryopreservation tracking.",
+          "Integrated patient portals for real-time updates and anxiety reduction.",
+          "Seamless handover from fertility success to neonatal care."
+        ],
+        "image": "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "colorDot": "bg-brand-teal"
+      },
+      {
+        "title": "Kalpa Sethu",
+        "subtitle": "Data-Backed Transformation.",
+        "description": "In dermatology, aesthetics, and wellness, results are visual and longitudinal. Kalpa Sethu empowers clinics with advanced imaging integration, lifestyle tracking, and highly personalized treatment roadmaps.",
+        "highlights": [
+          "High-resolution before/after progression timelines.",
+          "Integrated inventory management for clinical products.",
+          "Smart appointment scheduling for multi-session treatments.",
+          "Dietary and lifestyle adherence monitoring algorithms."
+        ],
+        "image": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "colorDot": "bg-[#0f3d32]"
+      },
+      {
+        "title": "Akshaya Sethu",
+        "subtitle": "Proactive Care for Longevity.",
+        "description": "Chronic care and geriatric management require vigilance. Akshaya Sethu shifts the clinical paradigm from reactive treatments to proactive health maintenance through continuous monitoring and predictive alerts.",
+        "highlights": [
+          "Remote patient monitoring (RPM) dashboard integration.",
+          "Automated flag alerts for critical biometric changes.",
+          "Caregiver access portals for family coordination.",
+          "Medication adherence tracking and refill automation."
+        ],
+        "image": "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        "colorDot": "bg-brand-emerald"
+      }
+    ]
+  },
+  "challengesPage": {
+    "headerTitle": "Overcoming Clinical Hurdles",
+    "headerSubtitle": "Independent clinics face immense pressure from large corporate hospital chains, disconnected technological systems, and overwhelmed administrative staff. We have identified these exact pain points through years of hands-on experience and have engineered Medcy Tech to solve them at their core.",
+    "footerTitle": "From Overwhelmed to Optimized",
+    "footerSubtitle": "By consolidating your digital front office, we eliminate the friction of managing multiple fragmented tools. This allows your clinical staff to transition from administrative firefighters to patient care specialists.",
+    "footerImage": "https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  },
+  "offeringsPage": {
+    "headerTitle": "Comprehensive Solutions",
+    "headerSubtitle": "Our offerings are designed to cover every aspect of the patient journey and clinic management. We don't just provide software; we provide a complete growth partnership that integrates seamlessly into your existing operations.",
+    "footerTitle": "End-to-End Clinic Automation",
+    "footerSubtitle": "From the moment a patient discovers your clinic online to their post-treatment follow-ups, our systems automate communication, scheduling, and billing. This drastically reduces drop-off rates and ensures a premium experience for every patient.",
+    "footerImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  },
+  "whyUsPage": {
+    "headerTitle": "The Medcy Difference",
+    "headerSubtitle": "We are not just a software vendor. We are an operational partner embedded in the daily reality of modern medical practice. Our systems are built by clinical leaders, for clinical leaders.",
+    "ctaTitle": "Ready to transform your <br className=\"hidden md:block\"/> clinic's operations?",
+    "ctaButtonText": "Partner With Us"
+  },
+  "foundersPage": {
+    "headerTitle": "Clinical & Engineering Leadership",
+    "headerSubtitle": "Medcy Tech was born from the unique intersection of decades of frontline medical expertise and world-class enterprise architecture. Discover the minds driving the future of health tech infrastructure."
+  },
+  "digitalIdentityPage": {
+    "hero": {
+      "tag": "Professional Excellence",
+      "titleLine1": "Your Digital Identity,",
+      "titleLine2": "Defined by Medcy.",
+      "subtitle": "In the modern clinical landscape, your digital presence is your strongest referral tool. We build high-performance digital identities that reflect your clinical expertise and build patient trust.",
+      "cta1": "Claim Your Profile",
+      "cta2": "View Demo"
+    },
+    "features": [
+      {
+        "icon": "Globe",
+        "title": "SEO-Optimized Presence",
+        "description": "Be found by patients when they need you most. Our profiles are built with search-first architecture."
+      },
+      {
+        "icon": "Shield",
+        "title": "Trust & Credibility",
+        "description": "Showcase your credentials, patient reviews, and clinical outcomes in a verified professional environment."
+      },
+      {
+        "icon": "Zap",
+        "title": "Seamless Booking",
+        "description": "Convert visitors into patients with integrated appointment scheduling and WhatsApp automation."
+      }
+    ],
+    "showcase": {
+      "titleLine1": "A Patient Experience",
+      "titleLine2": "Designed for Trust.",
+      "description": "We don't just build websites; we design patient journeys. Every pixel is optimized to convey professionalism and facilitate the first step towards care.",
+      "points": [
+        "Mobile-first responsive design",
+        "High-speed performance & accessibility",
+        "Integrated patient testimonials",
+        "Direct clinical outcome showcases"
+      ],
+      "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "floatingCard": {
+        "tag": "Live Profile",
+        "name": "Dr. Sarah Mitchell",
+        "role": "Senior Fertility Specialist"
+      }
+    },
+    "cta": {
+      "title": "Ready to secure your clinical legacy?",
+      "subtitle": "Join the elite network of specialists who are redefining healthcare delivery through a premium digital identity.",
+      "buttonText": "Start Your Journey"
+    }
+  }
+}

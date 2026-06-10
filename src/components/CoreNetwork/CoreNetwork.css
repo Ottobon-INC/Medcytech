@@ -1,0 +1,62 @@
+.core-network-container {
+  position: relative;
+  overflow: visible;
+  margin: 0 auto;
+  width: 100%;
+  height: 700px;
+}
+
+@media (max-width: 1023px) {
+  .core-network-container {
+    height: 600px;
+  }
+}
+
+@media (max-width: 767px) {
+  .core-network-container {
+    height: 450px;
+  }
+}
+
+/* Hub Label */
+.hubLabel {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+  line-height: 1.25;
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
+.nodeLabel {
+  font-family: 'Inter', 'DM Sans', -apple-system, sans-serif;
+  color: #1e293b;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100px;
+}
+
+.nodeTitle {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.nodeSubtitle {
+  font-size: 9px;
+  font-weight: 600;
+  color: #334155;
+  text-align: center;
+  line-height: 1.2;
+  margin: 0;
+}

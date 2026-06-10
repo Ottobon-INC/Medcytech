@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -6,6 +6,8 @@ import MedcyIvfHero from './components/ui/medcy-ivf-hero';
 import Brands from './sections/Brands';
 import Challenges from './sections/Challenges';
 import Offerings from './sections/Offerings';
+import Services from './sections/Services';
+import DigitalIdentity from './sections/DigitalIdentity';
 import WhyUs from './sections/WhyUs';
 import Founders from './sections/Founders';
 import Contact from './pages/Contact';
@@ -15,10 +17,10 @@ import BrandsPage from './pages/BrandsPage';
 import ChallengesPage from './pages/ChallengesPage';
 import OfferingsPage from './pages/OfferingsPage';
 import WhyUsPage from './pages/WhyUsPage';
-import FoundersPage from './pages/FoundersPage';
 import DigitalIdentityPage from './pages/DigitalIdentityPage';
 
 import BackToTop from './components/BackToTop';
+import content from './tier3-content/content.json';
 
 const Footer = () => (
   <footer className="pt-0 pb-6 border-t border-white/5 bg-background">
@@ -44,21 +46,23 @@ const Footer = () => (
 
 const HomePage = () => (
   <main>
-    <MedcyIvfHero />
-    <Brands />
-    <Challenges />
-    <Offerings />
-    <WhyUs />
-    <Founders />
+    <MedcyIvfHero content={content.hero} />
+    <Brands content={content.brands} />
+    <Challenges content={content.challenges} />
+    <Services content={content.services} />
+    <Offerings content={content.offerings} />
+    <DigitalIdentity content={content.digitalIdentityPage} />
+    <WhyUs content={content.whyUs} />
+    <Founders content={content.founders} />
   </main>
 );
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
-
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
 
   return null;
 };
@@ -78,17 +82,35 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
 
 const AnimatedRoutes = () => {
   const location = useLocation();
+  const navType = useNavigationType();
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence 
+      mode="wait" 
+      onExitComplete={() => {
+        if (navType === 'POP' || !window.location.hash) {
+          window.scrollTo(0, 0);
+        } else {
+          setTimeout(() => {
+            const id = window.location.hash.substring(1);
+            const element = document.getElementById(id);
+            if (element) {
+              const navbarOffset = 100;
+              const elementPosition = element.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.scrollY - navbarOffset;
+              window.scrollTo({ top: offsetPosition, behavior: 'auto' });
+            }
+          }, 10);
+        }
+      }}
+    >
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
-        <Route path="/our-brands" element={<PageTransition><BrandsPage /></PageTransition>} />
-        <Route path="/challenges" element={<PageTransition><ChallengesPage /></PageTransition>} />
-        <Route path="/offerings" element={<PageTransition><OfferingsPage /></PageTransition>} />
-        <Route path="/why-us" element={<PageTransition><WhyUsPage /></PageTransition>} />
-        <Route path="/founders" element={<PageTransition><FoundersPage /></PageTransition>} />
-        <Route path="/digital-identity" element={<PageTransition><DigitalIdentityPage /></PageTransition>} />
+        <Route path="/our-brands" element={<PageTransition><BrandsPage content={content} /></PageTransition>} />
+        <Route path="/challenges" element={<PageTransition><ChallengesPage content={content} /></PageTransition>} />
+        <Route path="/offerings" element={<PageTransition><OfferingsPage content={content} /></PageTransition>} />
+        <Route path="/why-us" element={<PageTransition><WhyUsPage content={content} /></PageTransition>} />
+        <Route path="/digital-identity" element={<PageTransition><DigitalIdentityPage content={content} /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>
     </AnimatePresence>

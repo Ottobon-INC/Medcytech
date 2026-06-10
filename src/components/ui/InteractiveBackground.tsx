@@ -107,6 +107,7 @@ export default function InteractiveBackground({
                     className="absolute z-[1]"
                     style={{
                         width: exclusionArea.width,
+                        maxWidth: '100%',
                         height: exclusionArea.height,
                         backgroundColor,
                         left: exclusionArea.left || '50%',

@@ -1,40 +1,17 @@
 "use client";
 import { motion } from 'framer-motion';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, ArrowRight } from 'lucide-react';
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const challenges = [
-  {
-    title: "Dominated by big hospitals",
-    description: "Large hospital chains make it hard for small clinics to reach patients.",
-    image: "/challenges/missed-calls.png"
-  },
-  {
-    title: "Overloaded clinic staff",
-    description: "Doctors and staff handle calls and marketing, reducing patient care time.",
-    image: "/challenges/overloaded-desk.png"
-  },
-  {
-    title: "Missing proactive patients",
-    description: "Clinics focus only on treatment seekers and miss wellness-focused patients.",
-    image: "/challenges/empty-waiting-room.png"
-  },
-  {
-    title: "Disconnected tools",
-    description: "Different systems don’t work together, causing inefficiency.",
-    image: "/challenges/poor-followups.png"
-  },
-  {
-    title: "Limited growth potential",
-    description: "Operational issues make it hard for clinics to scale.",
-    image: "/challenges/limited-growth.png"
-  }
-];
 
-const Challenges = () => {
+
+const Challenges = ({ content, hideCTA }: { content: any; hideCTA?: boolean }) => {
+  const challenges = content.items;
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const navigate = useNavigate();
 
   const advance = useCallback(() => {
     setActiveIndex(prev => (prev + 1) % challenges.length);
@@ -52,7 +29,7 @@ const Challenges = () => {
   }, [isPaused, advance]);
 
   return (
-    <section id="challenges" className="pt-0 pb-0 relative overflow-hidden bg-[#CFE8E5]">
+    <section id="challenges" className="pt-0 pb-16 relative overflow-hidden bg-[#CFE8E5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center min-h-[560px]">
 
@@ -65,13 +42,11 @@ const Challenges = () => {
             className="w-full lg:w-[42%] flex-shrink-0 lg:sticky lg:top-28 self-start"
           >
             <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-5 bg-[#0f3d32]/5 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full">
-              Real Challenges
+              {content.sectionTag}
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-[#0f3d32] leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-              The challenges<br />slowing down<br />your clinic growth
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-[#0f3d32] leading-tight" style={{ fontFamily: "'Playfair Display', serif" }} dangerouslySetInnerHTML={{ __html: content.sectionTitle }} />
             <p className="text-lg text-[#2a6a5a] font-light leading-relaxed mb-8">
-              These are not system problems — these are everyday realities in most clinics.
+              {content.sectionSubtitle}
             </p>
 
             {/* Progress dots */}
@@ -97,7 +72,7 @@ const Challenges = () => {
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
-              {challenges.map((challenge, i) => {
+              {challenges.map((challenge: any, i: number) => {
                 // Compute position relative to activeIndex
                 const total = challenges.length;
                 let offset = (i - activeIndex + total) % total;
@@ -157,6 +132,22 @@ const Challenges = () => {
             </p>
           </div>
         </div>
+
+        {/* Section Know More Button */}
+        {!hideCTA && (
+          <div className="flex justify-center mt-8">
+            <button 
+              onClick={() => navigate('/challenges')}
+              className="group relative flex items-center gap-3 bg-[#0f3d32] text-white px-8 py-4 rounded-full font-bold overflow-hidden shadow-[0_8px_30px_rgb(15,61,50,0.2)] hover:shadow-[0_8px_30px_rgb(74,191,176,0.3)] transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="absolute inset-0 bg-[#4ABFB0] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0" />
+              <span className="relative z-10 flex items-center gap-3">
+                Explore All Challenges
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

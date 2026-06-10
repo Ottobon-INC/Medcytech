@@ -83,7 +83,7 @@ const Contact = () => {
             <span className="inline-block text-xs font-bold tracking-[0.2em] uppercase text-[#0f3d32]/60 mb-6 bg-white/50 border border-[#0f3d32]/10 px-6 py-2 rounded-full shadow-sm">
               Contact us
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#0f3d32] mb-6 leading-tight tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#0f3d32] mb-6 leading-tight tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
               Book Appointment
             </h1>
             <p className="text-lg md:text-xl text-[#2a6a5a] font-light leading-relaxed max-w-md">

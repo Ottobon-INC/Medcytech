@@ -1,23 +1,73 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
+
+const navLinks = ["Our Brands", "Challenges", "Our Services", "Pricing Plans", "Digital Identity", "Why Us", "Founders"];
+
+const getNavPath = (link: string) => {
+  if (link === "Digital Identity") return "/#digital-identity";
+  if (link === "Our Brands") return "/#our-brands";
+  if (link === "Challenges") return "/#challenges";
+  if (link === "Our Services") return "/#services";
+  if (link === "Pricing Plans") return "/#pricing";
+  if (link === "Why Us") return "/#why-us";
+  if (link === "Founders") return "/#our-founders";
+  return "/";
+};
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80);
+
+      const sections = navLinks.map(link => getNavPath(link).substring(2)).filter(Boolean);
+      let current = "";
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            current = section;
+          }
+        }
+      }
+      setActiveSection(current);
     };
+
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ["Home", "Our Brands", "Challenges", "Offerings", "Digital Identity", "Why Us", "Founders"];
+  const handleNavClick = (e: React.MouseEvent, link: string) => {
+    const path = getNavPath(link);
+    if (path.startsWith("/#")) {
+      const id = path.substring(2);
+      if (location.pathname === "/") {
+        e.preventDefault();
+        const element = document.getElementById(id);
+        if (element) {
+          const navbarOffset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - navbarOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          setActiveSection(id);
+        }
+      }
+    }
+  };
 
   return (
     <>
@@ -69,11 +119,20 @@ const Navbar = () => {
                 className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2 gap-[28px] pointer-events-auto"
               >
                 {navLinks.map(link => {
-                  const path = link === "Home" ? "/" : `/${link.toLowerCase().replace(/ /g, '-')}`;
+                  const path = getNavPath(link);
+                  const sectionId = path.substring(2);
+                  const isActive = activeSection === sectionId || location.pathname === path || location.hash === path.substring(1);
                   return (
-                    <Link key={link} to={path} className="relative text-white font-semibold text-sm hover:text-[#4ABFB0] transition-colors group pointer-events-auto tracking-wide">
+                    <Link 
+                      key={link} 
+                      to={path} 
+                      onClick={(e) => handleNavClick(e, link)}
+                      className={`relative font-semibold text-sm transition-colors group pointer-events-auto tracking-wide whitespace-nowrap ${
+                        isActive ? 'text-[#4ABFB0]' : 'text-white hover:text-[#4ABFB0]'
+                      }`}
+                    >
                       {link}
-                      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#4ABFB0] transition-all duration-300 group-hover:w-full"></span>
+                      <span className={`absolute -bottom-1 left-0 h-[2px] bg-[#4ABFB0] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                     </Link>
                   );
                 })}
@@ -116,11 +175,13 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[40] bg-black pt-32 px-10 lg:hidden"
+            className="fixed inset-0 z-[40] bg-black pt-32 px-6 md:px-10 lg:hidden"
           >
             <div className="flex flex-col gap-8">
               {navLinks.map((link, i) => {
-                const path = link === "Home" ? "/" : `/${link.toLowerCase().replace(/ /g, '-')}`;
+                const path = getNavPath(link);
+                const sectionId = path.substring(2);
+                const isActive = activeSection === sectionId || location.pathname === path || location.hash === path.substring(1);
                 return (
                   <motion.div
                     key={link}
@@ -130,8 +191,13 @@ const Navbar = () => {
                   >
                     <Link
                       to={path}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-4xl font-light text-white hover:text-[#4ABFB0] transition-colors"
+                      onClick={(e) => {
+                        handleNavClick(e, link);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`text-3xl sm:text-4xl font-light transition-colors whitespace-normal ${
+                        isActive ? 'text-[#4ABFB0]' : 'text-white hover:text-[#4ABFB0]'
+                      }`}
                       style={{ fontFamily: "'Playfair Display', serif" }}
                     >
                       {link}

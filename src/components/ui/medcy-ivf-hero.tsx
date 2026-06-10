@@ -8,6 +8,7 @@ import { ArrowRight, X, CheckCircle2, Loader2 } from "lucide-react";
 import { submitLead } from "../../services/leadService";
 
 import InteractiveBackground from "./InteractiveBackground";
+import CoreNetwork from "../CoreNetwork/CoreNetwork";
 
 function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?: number }) {
     const [count, setCount] = useState(0);
@@ -33,7 +34,7 @@ function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?:
     return <>{count.toLocaleString()}</>;
 }
 
-export default function MedcyIvfHero() {
+export default function MedcyIvfHero({ content }: { content: any }) {
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,7 +78,7 @@ export default function MedcyIvfHero() {
             exclusionArea={{ width: '1300px', height: '650px', left: '50%' }}
         >
             {/* Hero Two-Column Layout */}
-            <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between gap-12 px-6 md:px-12 lg:px-16 text-left max-w-7xl mx-auto w-full pt-32 pb-16 md:pt-40 md:pb-20">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 px-6 md:px-12 lg:px-16 text-left max-w-[1440px] mx-auto w-full pt-16 pb-12 md:pt-16 md:pb-16 lg:pt-12 lg:pb-8">
                 {/* Left Column: Content */}
                 <motion.div
                     initial="hidden"
@@ -85,18 +86,17 @@ export default function MedcyIvfHero() {
                     variants={{
                         visible: { transition: { staggerChildren: 0.15 } }
                     }}
-                    className="w-full lg:w-[55%] flex flex-col items-start text-left"
+                    className="w-full lg:w-[48%] flex flex-col items-start text-left"
                 >
                     <motion.h1
                         variants={staggerVariants}
-                        className="text-[42px] md:text-[64px] lg:text-[76px] leading-[1.1] md:leading-[1.15] mb-6 text-[#38423f] tracking-tight"
+                        className="text-4xl sm:text-[42px] md:text-[64px] lg:text-[76px] leading-[1.1] md:leading-[1.15] mb-6 text-[#38423f] tracking-tight"
                         style={{ fontFamily: "'Playfair Display', serif", fontWeight: 300 }}
-                    >
-                        Your Clinic’s Digital <br className="hidden md:block" /> Front Office
-                    </motion.h1>
+                        dangerouslySetInnerHTML={{ __html: content.title }}
+                    />
 
                     <motion.p variants={staggerVariants} className="text-[#5b6e68] text-base md:text-lg lg:text-[19px] max-w-[800px] font-normal leading-[1.7] mb-10 tracking-wide text-left">
-                        Helping clinics attract, convert & manage patients intelligently.
+                        {content.subtitle}
                     </motion.p>
 
                     {/* Primary CTA */}
@@ -109,13 +109,13 @@ export default function MedcyIvfHero() {
                         onClick={() => navigate('/contact')}
                         className="flex items-center gap-3 px-8 py-4 rounded-full bg-[#0f3d32] text-white font-medium text-lg shadow-[0_20px_40px_rgba(15,61,50,0.35)] transition-all duration-300"
                     >
-                        Partner with us? <ArrowRight className="w-5 h-5" />
+                        {content.ctaText} <ArrowRight className="w-5 h-5" />
                     </motion.button>
 
                     {/* Horizontal Stats Section */}
                     <motion.div
                         variants={staggerVariants}
-                        className="mt-16 flex flex-row items-center gap-3 sm:gap-6 md:gap-10 w-full flex-nowrap overflow-visible whitespace-nowrap"
+                        className="mt-16 flex flex-row items-center gap-3 sm:gap-6 md:gap-10 w-full flex-wrap sm:flex-nowrap overflow-visible"
                     >
                         {/* Clinics Stat */}
                         <div className="flex items-center gap-2 sm:gap-4">
@@ -135,9 +135,9 @@ export default function MedcyIvfHero() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-lg sm:text-2xl md:text-[28px] font-bold text-blue-600 leading-none">
-                                    <AnimatedCounter value={500} />+
+                                    <AnimatedCounter value={content.stats[0].value} />+
                                 </span>
-                                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Clinics</span>
+                                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">{content.stats[0].label}</span>
                             </div>
                         </div>
 
@@ -158,9 +158,9 @@ export default function MedcyIvfHero() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-lg sm:text-2xl md:text-[28px] font-bold text-blue-600 leading-none">
-                                    <AnimatedCounter value={1200} />+
+                                    <AnimatedCounter value={content.stats[1].value} />+
                                 </span>
-                                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Doctors</span>
+                                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">{content.stats[1].label}</span>
                             </div>
                         </div>
 
@@ -181,30 +181,22 @@ export default function MedcyIvfHero() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-lg sm:text-2xl md:text-[28px] font-bold text-blue-600 leading-none">
-                                    <AnimatedCounter value={50000} />+
+                                    <AnimatedCounter value={content.stats[2].value} />+
                                 </span>
-                                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Patients</span>
+                                <span className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">{content.stats[2].label}</span>
                             </div>
                         </div>
                     </motion.div>
                 </motion.div>
 
-                {/* Right Column: Image Graphic */}
+                {/* Right Column: Interactive 3D Diagram */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95, x: 30 }}
                     animate={{ opacity: 1, scale: 1, x: 0 }}
-                    transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-                    className="w-full lg:w-[42%] flex justify-center items-center relative z-20"
+                    className="w-full lg:w-[50%] flex justify-center items-center relative z-20 lg:translate-x-4"
                 >
-                    <div className="relative w-full max-w-[500px]">
-                        {/* Decorative glow behind image */}
-                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-[#2f8f83]/10 rounded-[40px] blur-2xl opacity-75" />
-                        
-                        <img
-                            src="/core_digital_network.png"
-                            alt="Core Digital Network"
-                            className="relative w-full h-auto rounded-[32px] shadow-[0_20px_50px_rgba(15,61,50,0.12)] border border-white/40"
-                        />
+                    <div className="relative w-full flex justify-center origin-center">
+                        <CoreNetwork />
                     </div>
                 </motion.div>
             </div>
@@ -229,7 +221,7 @@ export default function MedcyIvfHero() {
                             onClick={(e) => e.stopPropagation()}
                         >
                             {/* Left Column: Vision & Branding */}
-                            <div className="flex-1 p-8 md:p-16 lg:p-20 bg-[#f0f9f8] relative overflow-hidden flex flex-col justify-center">
+                            <div className="flex-1 p-6 md:p-16 lg:p-20 bg-[#f0f9f8] relative overflow-hidden flex flex-col justify-center">
                                 {/* Large Subtle Logo Pattern Background */}
                                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
                                     backgroundImage: 'url("/lotus_icon_transparent.png")',
@@ -244,7 +236,7 @@ export default function MedcyIvfHero() {
                                         Contact us
                                     </div>
 
-                                    <h2 className="text-5xl md:text-7xl font-light text-[#13443e] mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+                                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light text-[#13443e] mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
                                         Book Appointment
                                     </h2>
 
@@ -258,7 +250,7 @@ export default function MedcyIvfHero() {
                             <div className="flex-1 bg-[#13443e] relative flex items-center justify-center overflow-hidden">
                                 <motion.div
                                     whileHover={{ y: -5 }}
-                                    className="w-full h-full flex flex-col justify-center p-8 md:p-12 lg:p-16 relative"
+                                    className="w-full h-full flex flex-col justify-center p-6 sm:p-8 md:p-12 lg:p-16 relative"
                                     style={{
                                         background: 'linear-gradient(180deg, #2f8f83, #13443e)',
                                         backdropFilter: 'blur(12px)',

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import Offerings from '../sections/Offerings';
 
-const OfferingsPage = () => {
+const OfferingsPage = ({ content }: { content: any }) => {
+  const pageData = content.offeringsPage;
   return (
     <main className="pt-24 min-h-screen bg-[#CFE8E5]">
       <div className="max-w-7xl mx-auto px-6 pt-12 pb-8">
@@ -11,16 +12,16 @@ const OfferingsPage = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl font-bold text-[#0f3d32] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Comprehensive Solutions
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f3d32] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            {pageData.headerTitle}
           </h1>
           <p className="text-lg text-[#2a6a5a] font-light leading-relaxed">
-            Our offerings are designed to cover every aspect of the patient journey and clinic management. We don't just provide software; we provide a complete growth partnership that integrates seamlessly into your existing operations.
+            {pageData.headerSubtitle}
           </p>
         </motion.div>
       </div>
       
-      <Offerings />
+      <Offerings content={content.offerings} />
       
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -30,7 +31,7 @@ const OfferingsPage = () => {
             viewport={{ once: true }}
             className="rounded-[32px] overflow-hidden shadow-xl order-2 md:order-1"
           >
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Clinical technology" className="w-full h-[300px] object-cover" />
+            <img src={pageData.footerImage} alt="Clinical technology" className="w-full h-[300px] object-cover" />
           </motion.div>
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
@@ -39,10 +40,10 @@ const OfferingsPage = () => {
             className="space-y-6 order-1 md:order-2"
           >
             <h2 className="text-3xl font-bold text-[#0f3d32]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              End-to-End Clinic Automation
+              {pageData.footerTitle}
             </h2>
             <p className="text-[#2a6a5a] leading-relaxed">
-              From the moment a patient discovers your clinic online to their post-treatment follow-ups, our systems automate communication, scheduling, and billing. This drastically reduces drop-off rates and ensures a premium experience for every patient.
+              {pageData.footerSubtitle}
             </p>
           </motion.div>
         </div>
