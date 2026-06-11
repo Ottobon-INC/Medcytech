@@ -78,7 +78,7 @@ export default function MedcyIvfHero({ content }: { content: any }) {
             exclusionArea={{ width: '1300px', height: '650px', left: '50%' }}
         >
             {/* Hero Two-Column Layout */}
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 px-6 md:px-12 lg:px-16 text-left max-w-[1440px] mx-auto w-full pt-32 pb-12 sm:pt-40 md:pt-32 lg:pt-28 lg:pb-8">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 px-6 md:px-12 lg:px-16 text-left max-w-[1440px] mx-auto w-full pt-32 pb-12 sm:pt-40 md:pt-24 lg:pt-20 lg:pb-8">
                 {/* Left Column: Content */}
                 <motion.div
                     initial="hidden"
@@ -115,7 +115,7 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                     {/* Horizontal Stats Section */}
                     <motion.div
                         variants={staggerVariants}
-                        className="mt-12 sm:mt-16 flex flex-row items-center justify-between sm:justify-start gap-2 sm:gap-6 md:gap-10 w-full overflow-visible"
+                        className="mt-8 sm:mt-10 flex flex-row items-center justify-between sm:justify-start gap-2 sm:gap-6 md:gap-10 w-full overflow-visible"
                     >
                         {/* Clinics Stat */}
                         <div className="flex items-center gap-1.5 sm:gap-4 flex-1 sm:flex-none">
@@ -193,7 +193,7 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95, x: 30 }}
                     animate={{ opacity: 1, scale: 1, x: 0 }}
-                    className="w-full lg:w-[50%] flex justify-center items-center relative z-20 lg:translate-x-4 mt-8 lg:mt-0 min-h-[350px] sm:min-h-0"
+                    className="w-full lg:w-[50%] flex justify-center items-center relative z-20 lg:translate-x-4 mt-8 lg:mt-0 min-h-[500px] sm:min-h-[600px] lg:min-h-0"
                 >
                     <div className="relative w-full h-full flex justify-center origin-center">
                         <CoreNetwork />

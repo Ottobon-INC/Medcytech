@@ -79,7 +79,7 @@ const BrandCard = ({ brand }: { brand: any }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full h-[300px] sm:h-[420px] group rounded-[24px] overflow-hidden shadow-lg border border-[#0f3d32]/10 bg-white cursor-pointer"
+          className="relative w-full h-[220px] sm:h-[300px] md:h-[420px] group rounded-[24px] overflow-hidden shadow-lg border border-[#0f3d32]/10 bg-white cursor-pointer"
           onClick={() => setIsModalOpen(true)}
         >
           {/* Main Image Background */}
@@ -88,7 +88,7 @@ const BrandCard = ({ brand }: { brand: any }) => {
               <img
                 src={brand.frontImage}
                 alt={brand.name}
-                className="w-full h-full object-contain p-4 sm:p-0 sm:object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center">

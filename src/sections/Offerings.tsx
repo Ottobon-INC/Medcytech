@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, X, ArrowRight, ExternalLink } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
+import { CheckCircle2, X, ArrowRight } from 'lucide-react';
 
 
 const PricingCard = ({ tier }: { tier: any }) => {
@@ -28,35 +26,35 @@ const PricingCard = ({ tier }: { tier: any }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#0f3d32]/10 bg-white p-6 sm:p-8 flex flex-col h-full"
+          className="relative w-full rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 p-6 sm:p-8 flex flex-col h-full"
         >
           <div className="space-y-4 mb-8">
             <div className={`w-12 h-1.5 rounded-full ${tier.accent} opacity-40`} />
             <h3
-              className="text-3xl font-bold text-[#0f3d32] tracking-tight"
+              className="text-3xl font-bold text-white tracking-tight"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               {tier.name}
             </h3>
-            <p className="text-[#5b6e68] text-sm font-semibold leading-relaxed italic">
+            <p className="text-white/70 text-sm font-semibold leading-relaxed italic">
               {tier.tagline}
             </p>
           </div>
 
           <div className="flex flex-col gap-1 mt-auto">
             <div className="flex items-center gap-2 mb-6">
-              <span className="text-4xl md:text-5xl font-bold text-[#0f3d32] tracking-tighter">
+              <span className="text-4xl md:text-5xl font-bold text-white tracking-tighter">
                 {tier.priceRange}
               </span>
               <div className="flex flex-col">
-                <span className="text-[#5b6e68]/40 font-bold leading-none text-xl">|</span>
-                <span className="text-slate-400 font-bold text-xs uppercase tracking-widest leading-none mt-1">Month</span>
+                <span className="text-white/40 font-bold leading-none text-xl">|</span>
+                <span className="text-white/50 font-bold text-xs uppercase tracking-widest leading-none mt-1">Month</span>
               </div>
             </div>
             
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="w-full py-3.5 rounded-xl font-bold text-sm bg-[#CFE8E5]/50 text-[#0f3d32] hover:bg-[#0f3d32] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-xl font-bold text-sm bg-[#4ABFB0] text-[#0f3d32] hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_8px_30px_rgb(74,191,176,0.2)]"
             >
               Explore Features
               <ArrowRight className="w-4 h-4" />
@@ -119,13 +117,7 @@ const PricingCard = ({ tier }: { tier: any }) => {
                   ))}
                 </ul>
                 
-                <Link 
-                  to="/digital-identity" 
-                  className="text-center text-[12px] font-bold text-[#0f3d32]/60 hover:text-[#4ABFB0] transition-colors mb-6 flex items-center justify-center gap-1.5"
-                  onClick={() => setIsModalOpen(false)}
-                >
-                  Explore Digital Identity <ExternalLink className="w-3 h-3" />
-                </Link>
+
 
                 <button className={`w-full py-4 rounded-xl font-bold text-sm transition-all duration-300 flex items-center justify-center gap-2 group/btn ${tier.btn}`}>
                   Purchase Plan
@@ -145,7 +137,7 @@ const PricingCard = ({ tier }: { tier: any }) => {
 const Offerings = ({ content }: { content: any }) => {
   const pricingTiers = content.items;
   return (
-    <section id="pricing" className="pt-12 pb-20 relative overflow-hidden bg-[#CFE8E5]">
+    <section id="pricing" className="pt-12 pb-20 relative overflow-hidden bg-[#0f3d32] text-white">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 
         {/* Section Header */}
@@ -154,7 +146,7 @@ const Offerings = ({ content }: { content: any }) => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-5 bg-[#0f3d32]/5 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full"
+            className="inline-block text-xs font-semibold tracking-widest uppercase text-[#4ABFB0] mb-5 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full"
           >
             {content.sectionTag}
           </motion.span>
@@ -162,12 +154,12 @@ const Offerings = ({ content }: { content: any }) => {
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-[#0f3d32] tracking-tight"
+            className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             {content.sectionTitle}
           </motion.h2>
-          <p className="text-[#0f3d32]/60 max-w-xl mx-auto font-medium text-sm md:text-base italic">
+          <p className="text-white/70 max-w-xl mx-auto font-medium text-sm md:text-base italic">
             {content.sectionSubtitle}
           </p>
         </div>
@@ -183,7 +175,7 @@ const Offerings = ({ content }: { content: any }) => {
       </div>
 
       {/* Background radial glow matching Brands section */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-teal/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#4ABFB0]/10 blur-[150px] rounded-full pointer-events-none" />
     </section>
   );
 };

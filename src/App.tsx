@@ -7,7 +7,7 @@ import Brands from './sections/Brands';
 import Challenges from './sections/Challenges';
 import Offerings from './sections/Offerings';
 import Services from './sections/Services';
-import DigitalIdentity from './sections/DigitalIdentity';
+
 import WhyUs from './sections/WhyUs';
 import Founders from './sections/Founders';
 import Contact from './pages/Contact';
@@ -17,7 +17,7 @@ import BrandsPage from './pages/BrandsPage';
 import ChallengesPage from './pages/ChallengesPage';
 import OfferingsPage from './pages/OfferingsPage';
 import WhyUsPage from './pages/WhyUsPage';
-import DigitalIdentityPage from './pages/DigitalIdentityPage';
+
 
 import BackToTop from './components/BackToTop';
 import content from './tier3-content/content.json';
@@ -51,7 +51,7 @@ const HomePage = () => (
     <Challenges content={content.challenges} />
     <Services content={content.services} />
     <Offerings content={content.offerings} />
-    <DigitalIdentity content={content.digitalIdentityPage} />
+
     <WhyUs content={content.whyUs} />
     <Founders content={content.founders} />
   </main>
@@ -110,7 +110,7 @@ const AnimatedRoutes = () => {
         <Route path="/challenges" element={<PageTransition><ChallengesPage content={content} /></PageTransition>} />
         <Route path="/offerings" element={<PageTransition><OfferingsPage content={content} /></PageTransition>} />
         <Route path="/why-us" element={<PageTransition><WhyUsPage content={content} /></PageTransition>} />
-        <Route path="/digital-identity" element={<PageTransition><DigitalIdentityPage content={content} /></PageTransition>} />
+
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>
     </AnimatePresence>

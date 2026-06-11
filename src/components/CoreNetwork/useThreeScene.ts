@@ -315,8 +315,8 @@ export function useThreeScene(
       
       // Calculate dynamic frustum to guarantee component is never cut off
       let targetWidth = 11.5; // Enough width for the entire ring and nodes on desktop
-      if (window.innerWidth < 1024) targetWidth = 12.5; // Wider bounds on tablet to scale down
-      if (window.innerWidth < 600) targetWidth = 14.5;  // Even wider bounds on mobile so it scales down properly and doesn't get cut
+      if (window.innerWidth < 1024) targetWidth = 9.5; // Wider bounds on tablet to scale down
+      if (window.innerWidth < 600) targetWidth = 8.5;  // Even wider bounds on mobile so it scales down properly and doesn't get cut
       
       const targetHeight = 10;
       
