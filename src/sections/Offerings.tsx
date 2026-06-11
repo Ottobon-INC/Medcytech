@@ -28,7 +28,7 @@ const PricingCard = ({ tier }: { tier: any }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#0f3d32]/10 bg-white p-8 flex flex-col h-full"
+          className="relative w-full rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#0f3d32]/10 bg-white p-6 sm:p-8 flex flex-col h-full"
         >
           <div className="space-y-4 mb-8">
             <div className={`w-12 h-1.5 rounded-full ${tier.accent} opacity-40`} />

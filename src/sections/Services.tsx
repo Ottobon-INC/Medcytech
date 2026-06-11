@@ -26,25 +26,39 @@ const ServiceCard = ({ service }: { service: any }) => {
 
   return (
     <>
-      <div className="w-[320px] md:w-[400px] flex-shrink-0 snap-start flex">
+      <div className="w-[85vw] sm:w-[320px] md:w-[400px] flex-shrink-0 snap-start flex">
         <motion.div
           whileHover={{ y: -8 }}
-          className="relative w-full rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#0f3d32]/10 bg-white p-8 flex flex-col h-full cursor-pointer group"
+          className="relative w-full rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#0f3d32]/10 p-6 sm:p-8 flex flex-col h-full cursor-pointer group"
           onClick={() => setIsModalOpen(true)}
         >
-          <div className="w-16 h-16 rounded-2xl bg-[#CFE8E5]/50 text-[#0f3d32] flex items-center justify-center mb-6">
-            {iconMap[service.icon]}
-          </div>
-          <h3 className="text-2xl font-bold text-[#0f3d32] tracking-tight mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            {service.title}
-          </h3>
-          <p className="text-[#5b6e68] text-sm font-medium leading-relaxed mb-8 flex-1">
-            {service.shortDescription}
-          </p>
-          <div className="flex items-center gap-2 text-sm font-bold text-[#0f3d32] mt-auto">
-            Read Full Details
-            <div className="w-8 h-8 rounded-full bg-[#0f3d32]/5 flex items-center justify-center group-hover:bg-[#0f3d32] group-hover:text-white transition-colors">
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          {service.image ? (
+            <>
+              <div 
+                className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url('${service.image}')` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f3d32] via-[#0f3d32]/80 to-[#0f3d32]/40 z-0 transition-opacity duration-300 group-hover:opacity-90" />
+            </>
+          ) : (
+            <div className="absolute inset-0 bg-white z-0" />
+          )}
+
+          <div className="relative z-10 flex flex-col h-full">
+            <div className={`w-16 h-16 rounded-2xl ${service.image ? 'bg-white/10 text-white backdrop-blur-md border border-white/20' : 'bg-[#CFE8E5]/50 text-[#0f3d32]'} flex items-center justify-center mb-6`}>
+              {iconMap[service.icon]}
+            </div>
+            <h3 className={`text-xl sm:text-2xl font-bold ${service.image ? 'text-white' : 'text-[#0f3d32]'} tracking-tight mb-3 sm:mb-4`} style={{ fontFamily: "'Playfair Display', serif" }}>
+              {service.title}
+            </h3>
+            <p className={`${service.image ? 'text-white/80' : 'text-[#5b6e68]'} text-sm font-medium leading-relaxed mb-8 flex-1`}>
+              {service.shortDescription}
+            </p>
+            <div className={`flex items-center gap-2 text-sm font-bold ${service.image ? 'text-white' : 'text-[#0f3d32]'} mt-auto`}>
+              Read Full Details
+              <div className={`w-8 h-8 rounded-full ${service.image ? 'bg-white/20 text-white group-hover:bg-white group-hover:text-[#0f3d32]' : 'bg-[#0f3d32]/5 text-[#0f3d32] group-hover:bg-[#0f3d32] group-hover:text-white'} flex items-center justify-center transition-colors`}>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </div>
             </div>
           </div>
         </motion.div>

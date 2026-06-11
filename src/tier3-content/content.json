@@ -108,6 +108,7 @@
       {
         "id": "clinic-awareness",
         "title": "Clinic Awareness & Brand Building",
+        "image": "/Offerings/Brand building.png",
         "shortDescription": "Build trust before a patient ever walks through your doors.",
         "icon": "Globe",
         "detailedDescription": "Today’s patients don't choose a healthcare provider blindly. Before booking an appointment, they search online, read reviews, visit websites, and compare options. If your clinic lacks a strong digital presence, potential patients may never consider your services—even if you provide exceptional care.\n\nWe help healthcare practices establish a credible and recognizable digital presence that positions them as the preferred choice within their community.",
@@ -149,6 +150,7 @@
       {
         "id": "gbp-optimization",
         "title": "Google Business Profile (GBP) Optimization",
+        "image": "/Offerings/GBP.png",
         "shortDescription": "Stop losing local patients to your competitors down the street.",
         "icon": "MapPin",
         "detailedDescription": "When someone in your neighborhood searches for a \"dentist near me,\" a \"pediatrician in [City],\" or an \"urgent care clinic,\" they rarely look past the top 3 results on Google Maps. If your clinic isn’t there, you are invisible to hundreds of active patients every single month.\n\nWe specialize in optimizing and managing Google Business Profiles specifically for healthcare practices to ensure you rank where patients are looking.",
@@ -197,6 +199,7 @@
       {
         "id": "whatsapp-automation",
         "title": "WhatsApp Automation",
+        "image": "/Offerings/Whatsapp Automation.png",
         "shortDescription": "Reduce patient no-shows and streamline your front-desk operations.",
         "icon": "MessageSquare",
         "detailedDescription": "Managing patient appointments via manual phone calls is time-consuming for your administrative staff. Our WhatsApp automation services integrate directly into your clinic's daily workflow, handling routine patient communication efficiently and automatically. By reaching patients on an app they already use daily, you improve response rates and operational efficiency.",
@@ -225,6 +228,7 @@
       {
         "id": "patient-management-dfo",
         "title": "Patient Management (Digital Front Office)",
+        "image": "/Offerings/Patient management.png",
         "shortDescription": "Stop losing track of patient messages and missing critical health risks.",
         "icon": "Users",
         "detailedDescription": "When your clinic or research group is busy, managing patient questions, appointments, and medical charts gets messy fast. If your team is constantly juggling phone calls, reading text messages, and checking health risks manually, important details get lost. This stresses your staff, frustrates patients, and slows down clinical trials.\n\nWe build an intelligent Digital Front Office (DFO) specifically for Doctors, Nurses, and Clinical Trial Managers (CROs) to handle the complete patient journey safely and automatically.",
