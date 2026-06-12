@@ -13,7 +13,7 @@ const WhyUs = ({ content }: { content: any }) => {
 
 
     return (
-        <section id="why-us" className="py-24 bg-[#CFE8E5] relative overflow-hidden">
+        <section id="business-proposition" className="py-32 bg-[#CFE8E5] relative overflow-hidden">
             {/* Subtle background flair similar to other sections */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-emerald/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -32,7 +32,7 @@ const WhyUs = ({ content }: { content: any }) => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-bold mb-6 text-[#0f3d32] tracking-tight"
+                        className="text-4xl md:text-5xl font-medium mb-6 text-[#0f3d32] tracking-tight"
                         style={{ fontFamily: "'Playfair Display', serif" }}
                     >
                         {content.sectionTitle}
@@ -58,13 +58,16 @@ const WhyUs = ({ content }: { content: any }) => {
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
                             whileHover={{ scale: 1.05, transition: { duration: 0.3 }, boxShadow: "0 15px 35px rgba(15, 61, 50, 0.1)" }}
-                            className="group p-8 rounded-[28px] bg-white/60 border border-[#0f3d32]/5 transition-all duration-500 flex flex-col gap-5 shadow-sm"
+                            className="group p-8 rounded-[28px] bg-white/80 backdrop-blur-sm border border-[#0f3d32]/5 transition-all duration-500 flex flex-col gap-5 shadow-[0_15px_30px_rgba(15,61,50,0.05)]"
                         >
-                            <div className="w-12 h-12 rounded-xl bg-[#0f3d32]/5 flex items-center justify-center text-[#0f3d32] group-hover:bg-[#0f3d32] group-hover:text-white transition-all duration-500">
+                            <div className="w-12 h-12 rounded-xl bg-[#0f3d32] flex items-center justify-center transition-transform duration-500 group-hover:scale-110 shadow-lg shadow-[#0f3d32]/20">
                                 {iconMap[point.icon]}
                             </div>
                             <div className="space-y-3">
-                                <h3 className="text-xl font-bold text-[#0f3d32] tracking-tight">
+                                <h3 
+                                    className="text-xl md:text-2xl font-bold text-[#0f3d32] tracking-tight"
+                                    style={{ fontFamily: "'Playfair Display', serif" }}
+                                >
                                     {point.title}
                                 </h3>
                                 <p className="text-[#2a6a5a] leading-relaxed font-light text-base">

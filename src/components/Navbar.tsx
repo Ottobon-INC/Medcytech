@@ -3,13 +3,13 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 
-const navLinks = ["Our Brands", "Challenges", "Our Services", "Pricing Plans", "Why Us", "Founders"];
+const navLinks = ["Our Brands", "Challenges", "Our Services", "Pricing Plans", "Business Proposition", "Founders"];
 const getNavPath = (link: string) => {
   if (link === "Our Brands") return "/#our-brands";
   if (link === "Challenges") return "/#challenges";
   if (link === "Our Services") return "/#services";
   if (link === "Pricing Plans") return "/#pricing";
-  if (link === "Why Us") return "/#why-us";
+  if (link === "Business Proposition") return "/#business-proposition";
   if (link === "Founders") return "/#our-founders";
   return "/";
 };

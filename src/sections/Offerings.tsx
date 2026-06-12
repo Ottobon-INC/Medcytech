@@ -26,12 +26,12 @@ const PricingCard = ({ tier }: { tier: any }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 p-6 sm:p-8 flex flex-col h-full"
+          className="relative w-full rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.3)] transition-all duration-300 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/10 p-6 sm:p-8 flex flex-col h-full"
         >
           <div className="space-y-4 mb-8">
             <div className={`w-12 h-1.5 rounded-full ${tier.accent} opacity-40`} />
             <h3
-              className="text-3xl font-bold text-white tracking-tight"
+              className="text-3xl font-medium text-white tracking-tight"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               {tier.name}
@@ -42,14 +42,13 @@ const PricingCard = ({ tier }: { tier: any }) => {
           </div>
 
           <div className="flex flex-col gap-1 mt-auto">
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-baseline gap-2 mb-6">
               <span className="text-4xl md:text-5xl font-bold text-white tracking-tighter">
                 {tier.priceRange}
               </span>
-              <div className="flex flex-col">
-                <span className="text-white/40 font-bold leading-none text-xl">|</span>
-                <span className="text-white/50 font-bold text-xs uppercase tracking-widest leading-none mt-1">Month</span>
-              </div>
+              <span className="text-white/50 font-bold text-sm uppercase tracking-widest">
+                / Month
+              </span>
             </div>
             
             <button 
@@ -89,7 +88,7 @@ const PricingCard = ({ tier }: { tier: any }) => {
                   <X className="w-5 h-5" />
                 </button>
                 <div className={`w-12 h-1.5 rounded-full ${tier.accent} opacity-40 mb-4`} />
-                <h3 className="text-2xl font-bold text-[#0f3d32] tracking-tight mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                <h3 className="text-2xl font-medium text-[#0f3d32] tracking-tight mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                   {tier.name}
                 </h3>
                 <div className="flex items-center gap-2">
@@ -137,7 +136,7 @@ const PricingCard = ({ tier }: { tier: any }) => {
 const Offerings = ({ content }: { content: any }) => {
   const pricingTiers = content.items;
   return (
-    <section id="pricing" className="pt-12 pb-20 relative overflow-hidden bg-[#0f3d32] text-white">
+    <section id="pricing" className="pt-20 pb-32 relative overflow-hidden bg-[#0f3d32] text-white">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 
         {/* Section Header */}
@@ -154,7 +153,7 @@ const Offerings = ({ content }: { content: any }) => {
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight"
+            className="text-4xl md:text-5xl font-medium mb-6 text-white tracking-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             {content.sectionTitle}

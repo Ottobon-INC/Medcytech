@@ -40,7 +40,7 @@ const BrandModal = ({ brand, onClose }: { brand: any, onClose: () => void }) => 
           <X className="w-5 h-5" />
         </button>
 
-        <div className="p-8 md:p-12 overflow-y-auto no-scrollbar">
+        <div className="p-8 md:p-12 overflow-y-auto">
           <h3
             className="text-3xl md:text-4xl font-bold mb-2 text-[#0f3d32] tracking-wider"
             style={{ fontFamily: "'Playfair Display', serif" }}
@@ -53,7 +53,7 @@ const BrandModal = ({ brand, onClose }: { brand: any, onClose: () => void }) => 
             {brand.content.split('\n\n').map((p: string, i: number) => <p key={i}>{p}</p>)}
           </div>
 
-          <ul className="space-y-4 pt-6 border-t border-[#0f3d32]/10">
+          <ul className="space-y-4 pt-6 border-t border-[#0f3d32]/10 mb-8">
             {brand.highlights.map((h: string, i: number) => (
               <li key={i} className="flex items-start gap-3 text-base md:text-lg text-[#08241e] font-semibold leading-snug">
                 <span className="text-[#4ABFB0] text-sm mt-1.5">●</span>
@@ -61,6 +61,26 @@ const BrandModal = ({ brand, onClose }: { brand: any, onClose: () => void }) => 
               </li>
             ))}
           </ul>
+
+          {(brand.isComingSoon || brand.name === "Janma Sethu") && (
+            <div className="pt-6 border-t border-[#0f3d32]/10 flex flex-col sm:flex-row items-center gap-4">
+              {brand.isComingSoon ? (
+                <div className="inline-flex bg-[#0f3d32] text-white px-8 py-3.5 rounded-full font-bold text-base md:text-lg shadow-[0_8px_30px_rgb(15,61,50,0.2)]">
+                  Launching in {brand.comingSoonDate}
+                </div>
+              ) : brand.name === "Janma Sethu" ? (
+                <a 
+                  href="https://janmasethu.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#0f3d32] text-white px-8 py-3.5 rounded-full font-bold text-base md:text-lg shadow-[0_8px_30px_rgb(15,61,50,0.2)] hover:shadow-[0_8px_30px_rgb(74,191,176,0.3)] hover:-translate-y-1 transition-all flex items-center gap-3 w-full sm:w-auto justify-center"
+                >
+                  Visit Janmasethu.com
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              ) : null}
+            </div>
+          )}
         </div>
       </motion.div>
     </div>,
@@ -79,7 +99,7 @@ const BrandCard = ({ brand }: { brand: any }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full h-[220px] sm:h-[300px] md:h-[420px] group rounded-[24px] overflow-hidden shadow-lg border border-[#0f3d32]/10 bg-white cursor-pointer"
+          className="relative w-full h-[220px] sm:h-[300px] md:h-[420px] group rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(15,61,50,0.1)] border border-[#0f3d32]/5 bg-white cursor-pointer"
           onClick={() => setIsModalOpen(true)}
         >
           {/* Main Image Background */}
@@ -98,7 +118,7 @@ const BrandCard = ({ brand }: { brand: any }) => {
               </div>
             )}
             
-            {/* Hover Overlay Desktop (Slides up from bottom, no full image blur) */}
+            {/* Hover Overlay Desktop */}
             <div className="hidden md:flex absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0f3d32]/90 via-[#0f3d32]/50 to-transparent flex-col items-center justify-end pb-8 opacity-0 group-hover:opacity-100 transition-all duration-400 z-10 translate-y-8 group-hover:translate-y-0">
               <span className="bg-white text-[#0f3d32] px-6 py-2.5 rounded-full font-bold shadow-xl flex items-center gap-2">
                 Know More
@@ -106,7 +126,7 @@ const BrandCard = ({ brand }: { brand: any }) => {
             </div>
 
             {/* Mobile visible 'Know More' pill */}
-            <div className="md:hidden absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+            <div className="md:hidden absolute bottom-6 left-1/2 -translate-x-1/2 z-10 w-[90%] flex justify-center">
               <span className="bg-white/95 backdrop-blur text-[#0f3d32] px-5 py-2.5 rounded-full font-bold shadow-[0_8px_16px_rgba(0,0,0,0.15)] text-sm whitespace-nowrap border border-[#0f3d32]/10">
                 Tap to Know More
               </span>
@@ -127,13 +147,13 @@ const BrandCard = ({ brand }: { brand: any }) => {
 const Brands = ({ content, hideCTA }: { content: any; hideCTA?: boolean }) => {
   const navigate = useNavigate();
   return (
-    <section id="our-brands" className={`pt-4 ${hideCTA ? 'pb-12' : 'pb-24'} relative overflow-hidden bg-[#CFE8E5]`}>
+    <section id="our-brands" className={`pt-16 ${hideCTA ? 'pb-16' : 'pb-20'} relative overflow-hidden bg-[#CFE8E5]`}>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-4 bg-[#0f3d32]/5 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full">
             {content.sectionTag}
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#0f3d32]" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h2 className="text-4xl md:text-5xl font-medium mb-4 text-[#0f3d32]" style={{ fontFamily: "'Playfair Display', serif" }}>
             {content.sectionTitle}
           </h2>
           <p className="text-[#0f3d32]/80 max-w-2xl mx-auto font-medium leading-relaxed">

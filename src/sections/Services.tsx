@@ -29,7 +29,7 @@ const ServiceCard = ({ service }: { service: any }) => {
       <div className="w-[85vw] sm:w-[320px] md:w-[400px] flex-shrink-0 snap-start flex">
         <motion.div
           whileHover={{ y: -8 }}
-          className="relative w-full rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#0f3d32]/10 p-6 sm:p-8 flex flex-col h-full cursor-pointer group"
+          className="relative w-full rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(15,61,50,0.05)] hover:shadow-[0_25px_50px_rgba(15,61,50,0.15)] transition-all duration-300 border border-[#0f3d32]/10 p-6 sm:p-8 flex flex-col h-full cursor-pointer group"
           onClick={() => setIsModalOpen(true)}
         >
           {service.image ? (
@@ -48,7 +48,7 @@ const ServiceCard = ({ service }: { service: any }) => {
             <div className={`w-16 h-16 rounded-2xl ${service.image ? 'bg-white/10 text-white backdrop-blur-md border border-white/20' : 'bg-[#CFE8E5]/50 text-[#0f3d32]'} flex items-center justify-center mb-6`}>
               {iconMap[service.icon]}
             </div>
-            <h3 className={`text-xl sm:text-2xl font-bold ${service.image ? 'text-white' : 'text-[#0f3d32]'} tracking-tight mb-3 sm:mb-4`} style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h3 className={`text-xl sm:text-2xl font-medium ${service.image ? 'text-white' : 'text-[#0f3d32]'} tracking-tight mb-3 sm:mb-4`} style={{ fontFamily: "'Playfair Display', serif" }}>
               {service.title}
             </h3>
             <p className={`${service.image ? 'text-white/80' : 'text-[#5b6e68]'} text-sm font-medium leading-relaxed mb-8 flex-1`}>
@@ -93,7 +93,7 @@ const ServiceCard = ({ service }: { service: any }) => {
                   <div className="w-12 h-12 rounded-xl bg-white text-[#0f3d32] flex items-center justify-center mb-4 shadow-sm">
                     {iconMap[service.icon]}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#0f3d32] tracking-tight pr-8" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  <h3 className="text-2xl md:text-3xl font-medium text-[#0f3d32] tracking-tight pr-8" style={{ fontFamily: "'Playfair Display', serif" }}>
                     {service.title}
                   </h3>
                 </div>
@@ -175,7 +175,7 @@ const Services = ({ content }: { content: any }) => {
   };
 
   return (
-    <section id="services" className="pt-24 pb-16 relative overflow-hidden bg-[#CFE8E5]">
+    <section id="services" className="pt-20 pb-32 relative overflow-hidden bg-[#CFE8E5]">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -192,7 +192,7 @@ const Services = ({ content }: { content: any }) => {
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold mb-6 text-[#0f3d32] tracking-tight"
+              className="text-4xl md:text-5xl font-medium mb-6 text-[#0f3d32] tracking-tight"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               {content.sectionTitle}

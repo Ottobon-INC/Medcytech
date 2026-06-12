@@ -1,6 +1,7 @@
 {
   "hero": {
-    "title": "Your Clinic’s Digital <br className=\"hidden md:block\" /> Front Office",
+    "badge": "India's first AI-driven platform providing scale",
+    "title": "Your Clinic’s <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Digital <br className=\"hidden md:block\" /> Front Office</span>",
     "subtitle": "Helping clinics attract, convert & manage patients intelligently.",
     "ctaText": "Partner with us?",
     "stats": [
@@ -22,7 +23,7 @@
   "brands": {
     "sectionTag": "The Ecosystem",
     "sectionTitle": "Our Brands",
-    "sectionSubtitle": "Specialized clinical environments designed to bridge the gap between technology and patient care.",
+    "sectionSubtitle": "India's first specialized clinical environments designed to bridge the gap between technology and patient care, providing scale for your practice.",
     "items": [
       {
         "name": "Janma Sethu",
@@ -50,7 +51,9 @@
         ],
         "icon": "Hourglass",
         "color": "from-[#4ABFB0]/20 to-[#4ABFB0]/5",
-        "frontImage": "/.png/kalpasethu.png"
+        "frontImage": "/.png/kalpasethu.png",
+        "isComingSoon": true,
+        "comingSoonDate": "July 2026"
       },
       {
         "name": "Akshaya Sethu",
@@ -64,7 +67,9 @@
         ],
         "icon": "Activity",
         "color": "from-brand-emerald/20 to-brand-emerald/5",
-        "frontImage": "/.png/Akshayasethu.png"
+        "frontImage": "/.png/Akshayasethu.png",
+        "isComingSoon": true,
+        "comingSoonDate": "September 2026"
       }
     ]
   },
@@ -103,7 +108,7 @@
   "services": {
     "sectionTag": "Our Services",
     "sectionTitle": "Services that drive clinical growth",
-    "sectionSubtitle": "End-to-end solutions designed to attract patients, optimize operations, and elevate your digital identity.",
+    "sectionSubtitle": "End-to-end AI-driven solutions designed to attract patients, optimize operations, and provide unprecedented scale for your digital identity.",
     "items": [
       {
         "id": "clinic-awareness",
@@ -113,12 +118,27 @@
         "icon": "Globe",
         "detailedDescription": "Today’s patients don't choose a healthcare provider blindly. Before booking an appointment, they search online, read reviews, visit websites, and compare options. If your clinic lacks a strong digital presence, potential patients may never consider your services—even if you provide exceptional care.\n\nWe help healthcare practices establish a credible and recognizable digital presence that positions them as the preferred choice within their community.",
         "table": {
-          "headers": ["The Reality", "The Result with Us"],
+          "headers": [
+            "The Reality",
+            "The Result with Us"
+          ],
           "rows": [
-            ["Patients research clinics online before making healthcare decisions.", "Your clinic creates a strong first impression across every digital touchpoint."],
-            ["Many clinics struggle to clearly communicate their expertise and services.", "Patients immediately understand your specialties and value."],
-            ["Lack of consistent branding reduces trust and credibility.", "A professional digital presence builds confidence before the first visit."],
-            ["Competitors with stronger online visibility attract more patient inquiries.", "Your clinic stands out and remains top-of-mind when care is needed."]
+            [
+              "Patients research clinics online before making healthcare decisions.",
+              "Your clinic creates a strong first impression across every digital touchpoint."
+            ],
+            [
+              "Many clinics struggle to clearly communicate their expertise and services.",
+              "Patients immediately understand your specialties and value."
+            ],
+            [
+              "Lack of consistent branding reduces trust and credibility.",
+              "A professional digital presence builds confidence before the first visit."
+            ],
+            [
+              "Competitors with stronger online visibility attract more patient inquiries.",
+              "Your clinic stands out and remains top-of-mind when care is needed."
+            ]
           ]
         },
         "featuresTitle": "What We Handle For Your Clinic",
@@ -233,11 +253,23 @@
         "icon": "Users",
         "detailedDescription": "When your clinic or research group is busy, managing patient questions, appointments, and medical charts gets messy fast. If your team is constantly juggling phone calls, reading text messages, and checking health risks manually, important details get lost. This stresses your staff, frustrates patients, and slows down clinical trials.\n\nWe build an intelligent Digital Front Office (DFO) specifically for Doctors, Nurses, and Clinical Trial Managers (CROs) to handle the complete patient journey safely and automatically.",
         "table": {
-          "headers": ["The Reality", "The Result with Us"],
+          "headers": [
+            "The Reality",
+            "The Result with Us"
+          ],
           "rows": [
-            ["Messy Inboxes: Patient messages are scattered across different apps, causing long delays.", "A single, smart inbox that reads texts and shows who needs help first."],
-            ["Hidden Risks: Dangerous health updates or vital sign changes get missed in a busy inbox.", "A built-in Risk Engine that automatically flags urgent patient dangers with bright colors."],
-            ["Compliance Stress: Tracking doctor notes and trial records manually causes legal mistakes.", "Strict, automatic audit logs that save every single action to keep your trials 100% compliant."]
+            [
+              "Messy Inboxes: Patient messages are scattered across different apps, causing long delays.",
+              "A single, smart inbox that reads texts and shows who needs help first."
+            ],
+            [
+              "Hidden Risks: Dangerous health updates or vital sign changes get missed in a busy inbox.",
+              "An AI-driven Risk Engine that automatically flags urgent patient dangers, giving your team the scale to handle more patients safely."
+            ],
+            [
+              "Compliance Stress: Tracking doctor notes and trial records manually causes legal mistakes.",
+              "Strict, automatic audit logs that save every single action to keep your trials 100% compliant."
+            ]
           ]
         },
         "featuresTitle": "What We Handle For Your Clinic",
@@ -329,14 +361,14 @@
     ]
   },
   "whyUs": {
-    "sectionTag": "Why Us",
-    "sectionTitle": "Built for your clinic — not a generic system",
-    "sectionSubtitle": "Every clinic operates differently. Your patients, your specialty, and your workflows are unique — so your front office system should be too.",
-    "footerText": "“A system that works with your clinic — not something your clinic has to adjust to.”",
+    "sectionTag": "Multiple Business Proposition",
+    "sectionTitle": "India's first system built exclusively for healthcare scalability",
+    "sectionSubtitle": "Every healthcare organization operates uniquely. Patient demographics, specialties, and workflows vary — your operational infrastructure should adapt to your scale.",
+    "footerText": "“A system that adapts to your organizational scale — not the other way around.”",
     "items": [
       {
         "title": "Designed for your specialty",
-        "description": "We don’t use one approach for all clinics. Each solution is tailored to your treatment area, patient behavior, and growth goals.",
+        "description": "We don’t use one approach for all. Each solution is tailored to your treatment area, patient behavior, and growth goals.",
         "icon": "Target"
       },
       {
@@ -345,8 +377,8 @@
         "icon": "Users"
       },
       {
-        "title": "Built around real clinic workflows",
-        "description": "Everything is designed around how clinics actually operate — reducing manual work instead of adding complexity.",
+        "title": "Built around real operational workflows",
+        "description": "Everything is designed around how medical practices actually operate — reducing manual work instead of adding complexity.",
         "icon": "Shield"
       },
       {
@@ -497,6 +529,8 @@
           "Smart appointment scheduling for multi-session treatments.",
           "Dietary and lifestyle adherence monitoring algorithms."
         ],
+        "isComingSoon": true,
+        "comingSoonDate": "July 2026",
         "image": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         "colorDot": "bg-[#0f3d32]"
       },
@@ -510,6 +544,8 @@
           "Caregiver access portals for family coordination.",
           "Medication adherence tracking and refill automation."
         ],
+        "isComingSoon": true,
+        "comingSoonDate": "September 2026",
         "image": "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         "colorDot": "bg-brand-emerald"
       }

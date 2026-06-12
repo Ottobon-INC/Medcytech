@@ -42,8 +42,8 @@ export default function MedcyIvfHero({ content }: { content: any }) {
     const [formData, setFormData] = useState({ name: "", email: "", phone: "", reason: "", message: "" });
 
     const staggerVariants: Variants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+        hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
+        visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: "easeOut" } }
     };
 
     const handleInviteSubmit = async (e: React.FormEvent) => {
@@ -78,7 +78,7 @@ export default function MedcyIvfHero({ content }: { content: any }) {
             exclusionArea={{ width: '1300px', height: '650px', left: '50%' }}
         >
             {/* Hero Two-Column Layout */}
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 px-6 md:px-12 lg:px-16 text-left max-w-[1440px] mx-auto w-full pt-32 pb-12 sm:pt-40 md:pt-24 lg:pt-20 lg:pb-8">
+            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 px-6 md:px-12 lg:px-16 text-left max-w-[1440px] mx-auto w-full pt-28 pb-8 sm:pt-32 md:pt-20 lg:pt-16 lg:pb-6">
                 {/* Left Column: Content */}
                 <motion.div
                     initial="hidden"
@@ -88,14 +88,24 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                     }}
                     className="w-full lg:w-[48%] flex flex-col items-start text-left"
                 >
+                    {content.badge && (
+                        <motion.div 
+                            variants={staggerVariants} 
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0f3d32]/5 border border-[#0f3d32]/10 text-[#0f3d32] text-xs sm:text-sm font-bold tracking-widest mb-4 uppercase"
+                        >
+                            <span className="text-[#4ABFB0]">✦</span>
+                            {content.badge}
+                        </motion.div>
+                    )}
+
                     <motion.h1
                         variants={staggerVariants}
-                        className="text-4xl sm:text-[42px] md:text-[64px] lg:text-[76px] leading-[1.1] md:leading-[1.15] mb-6 text-[#38423f] tracking-tight break-words"
+                        className="text-4xl sm:text-[42px] md:text-[64px] lg:text-[76px] leading-[1.1] md:leading-[1.15] mb-4 text-[#38423f] tracking-tight break-words"
                         style={{ fontFamily: "'Playfair Display', serif", fontWeight: 300 }}
                         dangerouslySetInnerHTML={{ __html: content.title }}
                     />
 
-                    <motion.p variants={staggerVariants} className="text-[#5b6e68] text-base md:text-lg lg:text-[19px] max-w-[800px] font-normal leading-[1.7] mb-10 tracking-wide text-left">
+                    <motion.p variants={staggerVariants} className="text-[#5b6e68] text-base md:text-lg lg:text-[19px] max-w-[800px] font-normal leading-[1.7] mb-6 tracking-wide text-left">
                         {content.subtitle}
                     </motion.p>
 
@@ -115,12 +125,12 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                     {/* Horizontal Stats Section */}
                     <motion.div
                         variants={staggerVariants}
-                        className="mt-8 sm:mt-10 flex flex-row items-center justify-between sm:justify-start gap-2 sm:gap-6 md:gap-10 w-full overflow-visible"
+                        className="mt-6 sm:mt-8 flex flex-row items-center justify-between sm:justify-start gap-2 sm:gap-8 px-4 sm:px-10 py-4 sm:py-5 rounded-3xl sm:rounded-full bg-white/60 backdrop-blur-md border border-white/40 shadow-sm w-full sm:w-auto"
                     >
                         {/* Clinics Stat */}
                         <div className="flex items-center gap-1.5 sm:gap-4 flex-1 sm:flex-none">
-                            <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 text-blue-600 shrink-0">
-                                <svg className="w-7 h-7 sm:w-10 sm:h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <div className="flex items-center justify-center w-6 h-6 sm:w-12 sm:h-12 text-[#2a6a5a] shrink-0">
+                                <svg className="w-5 h-5 sm:w-10 sm:h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M4 42h40" />
                                     <path d="M14 42V18a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v24" />
                                     <path d="M14 26H8v16M34 26h6v16" />
@@ -134,10 +144,10 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                                 </svg>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-[17px] sm:text-2xl md:text-[28px] font-bold text-blue-600 leading-none">
+                                <span className="text-[15px] sm:text-2xl md:text-[28px] font-bold text-[#2a6a5a] leading-none">
                                     <AnimatedCounter value={content.stats[0].value} />+
                                 </span>
-                                <span className="text-[10px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{content.stats[0].label}</span>
+                                <span className="text-[9px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{content.stats[0].label}</span>
                             </div>
                         </div>
 
@@ -146,8 +156,8 @@ export default function MedcyIvfHero({ content }: { content: any }) {
 
                         {/* Doctors Stat */}
                         <div className="flex items-center gap-1.5 sm:gap-4 flex-1 sm:flex-none border-l border-slate-300/60 sm:border-none pl-3 sm:pl-0">
-                            <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 text-blue-600 shrink-0">
-                                <svg className="w-7 h-7 sm:w-10 sm:h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <div className="flex items-center justify-center w-6 h-6 sm:w-12 sm:h-12 text-[#2a6a5a] shrink-0">
+                                <svg className="w-5 h-5 sm:w-10 sm:h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                     <circle cx="24" cy="15" r="7" />
                                     <path d="M17 15a7 7 0 0 1 14 0" />
                                     <path d="M10 42c0-5 4-9 9-9h10c5 0 9 4 9 9" />
@@ -157,10 +167,10 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                                 </svg>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-[17px] sm:text-2xl md:text-[28px] font-bold text-blue-600 leading-none">
+                                <span className="text-[15px] sm:text-2xl md:text-[28px] font-bold text-[#2a6a5a] leading-none">
                                     <AnimatedCounter value={content.stats[1].value} />+
                                 </span>
-                                <span className="text-[10px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{content.stats[1].label}</span>
+                                <span className="text-[9px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{content.stats[1].label}</span>
                             </div>
                         </div>
 
@@ -169,8 +179,8 @@ export default function MedcyIvfHero({ content }: { content: any }) {
 
                         {/* Patients Stat */}
                         <div className="flex items-center gap-1.5 sm:gap-4 flex-1 sm:flex-none border-l border-slate-300/60 sm:border-none pl-3 sm:pl-0">
-                            <div className="flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 text-blue-600 shrink-0">
-                                <svg className="w-7 h-7 sm:w-10 sm:h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <div className="flex items-center justify-center w-6 h-6 sm:w-12 sm:h-12 text-[#2a6a5a] shrink-0">
+                                <svg className="w-5 h-5 sm:w-10 sm:h-10" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                     <circle cx="24" cy="22" r="6" />
                                     <path d="M14 38c0-4.5 4-8 10-8s10 3.5 10 8" />
                                     <circle cx="14" cy="18" r="4.5" />
@@ -180,10 +190,10 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                                 </svg>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-[17px] sm:text-2xl md:text-[28px] font-bold text-blue-600 leading-none">
+                                <span className="text-[15px] sm:text-2xl md:text-[28px] font-bold text-[#2a6a5a] leading-none">
                                     <AnimatedCounter value={content.stats[2].value} />+
                                 </span>
-                                <span className="text-[10px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{content.stats[2].label}</span>
+                                <span className="text-[9px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{content.stats[2].label}</span>
                             </div>
                         </div>
                     </motion.div>

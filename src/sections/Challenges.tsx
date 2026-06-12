@@ -29,7 +29,7 @@ const Challenges = ({ content, hideCTA }: { content: any; hideCTA?: boolean }) =
   }, [isPaused, advance]);
 
   return (
-    <section id="challenges" className="pt-0 pb-16 relative overflow-hidden bg-[#CFE8E5]">
+    <section id="challenges" className="pt-16 pb-32 relative overflow-hidden bg-[#CFE8E5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center min-h-[560px]">
 
@@ -44,7 +44,7 @@ const Challenges = ({ content, hideCTA }: { content: any; hideCTA?: boolean }) =
             <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-5 bg-[#0f3d32]/5 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full">
               {content.sectionTag}
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-[#0f3d32] leading-tight" style={{ fontFamily: "'Playfair Display', serif" }} dangerouslySetInnerHTML={{ __html: content.sectionTitle }} />
+            <h2 className="text-4xl md:text-5xl font-medium mb-6 tracking-tight text-[#0f3d32] leading-tight" style={{ fontFamily: "'Playfair Display', serif" }} dangerouslySetInnerHTML={{ __html: content.sectionTitle }} />
             <p className="text-lg text-[#2a6a5a] font-light leading-relaxed mb-8">
               {content.sectionSubtitle}
             </p>
@@ -92,7 +92,7 @@ const Challenges = ({ content, hideCTA }: { content: any; hideCTA?: boolean }) =
                     onMouseLeave={() => setIsPaused(false)}
                     onClick={() => setActiveIndex(i)}
                   >
-                    <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-xl">
+                    <div className="relative w-full h-full rounded-[2rem] overflow-hidden shadow-[0_20px_40px_rgba(15,61,50,0.15)]">
                       {/* Background image */}
                       <div
                         className="absolute inset-0 bg-cover bg-center scale-100 hover:scale-105 transition-transform duration-700"
@@ -108,7 +108,7 @@ const Challenges = ({ content, hideCTA }: { content: any; hideCTA?: boolean }) =
                           <div className="w-8 h-8 rounded-full bg-[#4ABFB0]/30 border border-[#4ABFB0]/60 flex items-center justify-center backdrop-blur-md shrink-0">
                             <AlertCircle className="w-4 h-4 text-[#4ABFB0]" />
                           </div>
-                          <h3 className="text-2xl font-bold text-white tracking-tight leading-tight">
+                          <h3 className="text-2xl font-medium text-white tracking-tight leading-tight">
                             {challenge.title}
                           </h3>
                         </div>

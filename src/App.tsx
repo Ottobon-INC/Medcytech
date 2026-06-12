@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import MedcyIvfHero from './components/ui/medcy-ivf-hero';
 import Brands from './sections/Brands';
-import Challenges from './sections/Challenges';
+// import Challenges from './sections/Challenges';
 import Offerings from './sections/Offerings';
 import Services from './sections/Services';
 
@@ -48,7 +48,7 @@ const HomePage = () => (
   <main>
     <MedcyIvfHero content={content.hero} />
     <Brands content={content.brands} />
-    <Challenges content={content.challenges} />
+    {/* <Challenges content={content.challenges} /> */}
     <Services content={content.services} />
     <Offerings content={content.offerings} />
 
