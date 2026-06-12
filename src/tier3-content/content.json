@@ -1,20 +1,20 @@
 {
   "hero": {
     "badge": "India's first AI-driven platform providing scale",
-    "title": "Your Clinic’s <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Digital <br className=\"hidden md:block\" /> Front Office</span>",
-    "subtitle": "Helping clinics attract, convert & manage patients intelligently.",
+    "title": "Your <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Digital <br className=\"hidden md:block\" /> Front Office</span>",
+    "subtitle": "Intelligent patient acquisition, conversion & management for mid-size hospitals & clinics",
     "ctaText": "Partner with us?",
     "stats": [
       {
-        "value": 500,
+        "value": 20,
         "label": "Clinics"
       },
       {
-        "value": 1200,
+        "value": 40,
         "label": "Doctors"
       },
       {
-        "value": 50000,
+        "value": 500,
         "label": "Patients"
       }
     ],
@@ -247,7 +247,7 @@
       },
       {
         "id": "patient-management-dfo",
-        "title": "Patient Management (Digital Front Office)",
+        "title": "Patient Management",
         "image": "/Offerings/Patient management.png",
         "shortDescription": "Stop losing track of patient messages and missing critical health risks.",
         "icon": "Users",
@@ -301,7 +301,7 @@
     ]
   },
   "offerings": {
-    "sectionTag": "Pricing & Strategy",
+    "sectionTag": "Pricing Packages",
     "sectionTitle": "Choose the Perfect Pricing Plan",
     "sectionSubtitle": "\"Your digital identity is your clinical legacy. Professional journey orchestration designed for superior outcomes.\"",
     "items": [
@@ -361,32 +361,28 @@
     ]
   },
   "whyUs": {
-    "sectionTag": "Multiple Business Proposition",
-    "sectionTitle": "India's first system built exclusively for healthcare scalability",
-    "sectionSubtitle": "Every healthcare organization operates uniquely. Patient demographics, specialties, and workflows vary — your operational infrastructure should adapt to your scale.",
+    "sectionTag": "Pricing & Business Propositions",
+    "sectionTitle": "Flexible Partnership Models",
+    "sectionSubtitle": "Either you pay us directly, or if you don't want to pay upfront, we will help you get the business, and you give us a percentage of that business.",
     "footerText": "“A system that adapts to your organizational scale — not the other way around.”",
-    "items": [
-      {
-        "title": "Designed for your specialty",
-        "description": "We don’t use one approach for all. Each solution is tailored to your treatment area, patient behavior, and growth goals.",
-        "icon": "Target"
-      },
-      {
-        "title": "We manage execution, not just provide tools",
-        "description": "This is not just software. We actively handle bookings, follow-ups, and patient interactions — so your team doesn’t have to.",
-        "icon": "Users"
-      },
-      {
-        "title": "Built around real operational workflows",
-        "description": "Everything is designed around how medical practices actually operate — reducing manual work instead of adding complexity.",
-        "icon": "Shield"
-      },
-      {
-        "title": "Focused on outcomes, not features",
-        "description": "We measure success by what matters to you — more confirmed patients, better conversion, and reduced operational load.",
-        "icon": "Zap"
-      }
-    ]
+    "retainerModel": {
+      "title": "Retainer-based (Fixed Packages)",
+      "description": "Pay directly for our comprehensive digital orchestration services.",
+      "features": [
+        "Predictable fixed monthly costs",
+        "Full suite of digital growth tools",
+        "Dedicated account management"
+      ]
+    },
+    "outcomeModel": {
+      "title": "Outcome/Commission-based",
+      "description": "Don't want to pay upfront? We will help you get the business, and you give us a percentage of that business.",
+      "features": [
+        "Zero upfront fixed costs",
+        "Performance-driven patient acquisition",
+        "Shared risk and aligned incentives"
+      ]
+    }
   },
   "founders": {
     "sectionTag": "The Visionaries",

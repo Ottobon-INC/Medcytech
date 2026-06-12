@@ -167,19 +167,19 @@ export function useThreeScene(
     // --- NODE STATIONS ---
     const nodesData = [
       { 
-        id: 'attract', angle: 225, color: 0x3b82f6, title: 'Attract', sub: 'Smart Marketing<br/>& Visibility',
+        id: 'attract', angle: 225, color: 0x3b82f6, title: 'Attract', sub: '',
         icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
       },
       { 
-        id: 'convert', angle: 315, color: 0x14b8a6, title: 'Convert', sub: 'Lead Capture &<br/>Patient Conversion',
+        id: 'convert', angle: 315, color: 0x14b8a6, title: 'Convert', sub: '',
         icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>'
       },
       { 
-        id: 'manage', angle: 135, color: 0x8b5cf6, title: 'Manage', sub: 'Appointments &<br/>Operations',
+        id: 'manage', angle: 135, color: 0x8b5cf6, title: 'Manage', sub: '',
         icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>'
       },
       { 
-        id: 'engage', angle: 45, color: 0xf97316, title: 'Engage', sub: 'Patient Communication<br/>& Retention',
+        id: 'engage', angle: 45, color: 0xf97316, title: 'Engage', sub: '',
         icon: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>'
       },
     ];
@@ -194,18 +194,22 @@ export function useThreeScene(
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         
-        ctx.font = 'bold 320px Inter, sans-serif'; // Absolute maximum size for title
+        ctx.font = 'bold 360px Inter, sans-serif'; // Increased size slightly for better alignment when alone
         ctx.fillStyle = '#000000'; // Pure black
-        ctx.fillText(title, 1024, 300);
         
-        ctx.font = 'bold 180px Inter, sans-serif'; // Absolute maximum size for subtext!
-        ctx.fillStyle = '#000000'; // Pure black for subtext too
-        const lines = sub.split('<br/>');
-        if (lines.length === 1) {
-          ctx.fillText(lines[0], 1024, 660);
+        if (sub) {
+          ctx.fillText(title, 1024, 300);
+          ctx.font = 'bold 180px Inter, sans-serif'; // Absolute maximum size for subtext!
+          ctx.fillStyle = '#000000'; // Pure black for subtext too
+          const lines = sub.split('<br/>');
+          if (lines.length === 1) {
+            ctx.fillText(lines[0], 1024, 660);
+          } else {
+            ctx.fillText(lines[0], 1024, 600);
+            ctx.fillText(lines[1], 1024, 800);
+          }
         } else {
-          ctx.fillText(lines[0], 1024, 600);
-          ctx.fillText(lines[1], 1024, 800);
+          ctx.fillText(title, 1024, 512); // Perfectly align in the center
         }
       }
       

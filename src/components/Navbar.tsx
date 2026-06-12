@@ -3,14 +3,11 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 
-const navLinks = ["Our Brands", "Challenges", "Our Services", "Pricing Plans", "Business Proposition", "Founders"];
+const navLinks = ["Brands", "Services", "Pricing Plans"];
 const getNavPath = (link: string) => {
-  if (link === "Our Brands") return "/#our-brands";
-  if (link === "Challenges") return "/#challenges";
-  if (link === "Our Services") return "/#services";
+  if (link === "Brands") return "/#our-brands";
+  if (link === "Services") return "/#services";
   if (link === "Pricing Plans") return "/#pricing";
-  if (link === "Business Proposition") return "/#business-proposition";
-  if (link === "Founders") return "/#our-founders";
   return "/";
 };
 
@@ -84,8 +81,8 @@ const Navbar = () => {
           onMouseLeave={() => setIsHovered(false)}
           initial={false}
           animate={{
-            width: isScrolled && !isHovered ? "min(750px, 90vw)" : "min(1200px, 95vw)",
-            maxWidth: "1200px",
+            width: isScrolled && !isHovered ? "min(650px, 90vw)" : "min(850px, 95vw)",
+            maxWidth: "850px",
             padding: isScrolled && !isHovered ? "8px 8px 8px 16px" : "10px 10px 10px 20px",
             backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.98)" : "rgba(0, 0, 0, 0.95)",
             backdropFilter: isScrolled ? "blur(30px)" : "blur(15px)",

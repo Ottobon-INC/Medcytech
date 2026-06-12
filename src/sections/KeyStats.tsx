@@ -12,23 +12,23 @@ const stats: StatItem[] = [
     {
         id: 'clinics',
         label: 'Clinics Operating',
-        targetValue: 500,
+        targetValue: 20,
         suffix: '+',
-        ariaLabel: '500 clinics operating on the Medcy platform',
+        ariaLabel: '20 clinics operating on the Medcy platform',
     },
     {
         id: 'doctors',
         label: 'Doctors in the System',
-        targetValue: 1200,
+        targetValue: 40,
         suffix: '+',
-        ariaLabel: '1,200 doctors in the Medcy system',
+        ariaLabel: '40 doctors in the Medcy system',
     },
     {
         id: 'patients',
         label: 'Patients Served',
-        targetValue: 50000,
+        targetValue: 500,
         suffix: '+',
-        ariaLabel: '50,000 patients served through Medcy',
+        ariaLabel: '500 patients served through Medcy',
     },
 ];
 
