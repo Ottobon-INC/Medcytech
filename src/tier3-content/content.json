@@ -1,8 +1,8 @@
 {
   "hero": {
     "badge": "India's first AI-driven platform providing scale",
-    "title": "Your <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Digital <br className=\"hidden md:block\" /> Front Office</span>",
-    "subtitle": "Intelligent patient acquisition, conversion & management for mid-size hospitals & clinics",
+    "title": "Your complete <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Health Tech <br className=\"hidden md:block\" /> Infrastructure</span>",
+    "subtitle": "Empowering healthcare with intelligent Digital Front Office, state-of-the-art DLabs-LIMS, and comprehensive HIMS.",
     "ctaText": "Partner with us?",
     "stats": [
       {
@@ -20,10 +20,56 @@
     ],
     "image": "/core_digital_network.png"
   },
+  "coreSolutions": {
+    "sectionTag": "Our Core Offerings",
+    "sectionTitle": "The Infrastructure of Modern Healthcare",
+    "sectionSubtitle": "End-to-end solutions designed to seamlessly manage the complete patient journey.",
+    "items": [
+      {
+        "id": "dfo",
+        "title": "Digital Front Office",
+        "description": "Patient acquisition, conversion & management.",
+        "icon": "Users",
+        "image": "/solutions/dfo.png",
+        "bullets": [
+          "Clinic Awareness & Brand Building",
+          "Google Business Profile Optimization",
+          "WhatsApp Automation & Patient Reminders",
+          "Intelligent Patient Triage & CRM"
+        ]
+      },
+      {
+        "id": "lims",
+        "title": "DLabs - LIMS",
+        "description": "Laboratory Information Management System.",
+        "icon": "Activity",
+        "image": "/solutions/lims.png",
+        "bullets": [
+          "End-to-end Lab Sample Tracking",
+          "Automated Results Processing",
+          "Quality Control & Compliance",
+          "Integrated Equipment Data Capture"
+        ]
+      },
+      {
+        "id": "hims",
+        "title": "HIMS",
+        "description": "Healthcare Information Management System.",
+        "icon": "Building",
+        "image": "/solutions/hims.png",
+        "bullets": [
+          "Complete Hospital Operations Management",
+          "Electronic Medical Records (EMR)",
+          "Billing, Insurance & Revenue Cycle",
+          "Multi-location Clinic Administration"
+        ]
+      }
+    ]
+  },
   "brands": {
-    "sectionTag": "The Ecosystem",
+    "sectionTag": "Supporting Our Ecosystem",
     "sectionTitle": "Our Brands",
-    "sectionSubtitle": "India's first specialized clinical environments designed to bridge the gap between technology and patient care, providing scale for your practice.",
+    "sectionSubtitle": "Our specialized clinical environments serve as the foundation of our technology, supporting the core Medcy brand and bridging the gap between advanced tech and patient care.",
     "items": [
       {
         "name": "Janma Sethu",
