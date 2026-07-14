@@ -368,7 +368,8 @@
           },
           {
             "name": "Basic social content (2–4 posts)",
-            "price": 999
+            "price": 0,
+            "isComplementary": true
           },
           {
             "name": "Review reply & rating improvement",

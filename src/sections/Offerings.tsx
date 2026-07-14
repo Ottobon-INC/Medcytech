@@ -8,7 +8,11 @@ import { submitLead } from '../services/leadService';
 const PricingCard = ({ tier }: { tier: any }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAddons, setSelectedAddons] = useState<string[]>(
-    tier.isCustomizable ? tier.addons.map((a: any) => a.name) : [] // Default to all selected, or empty? Let's default to empty.
+    tier.isCustomizable ? [
+      "Landing page for digital identity",
+      "Google Business Profile management",
+      "WhatsApp appointment + reminders"
+    ] : []
   );
   
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
@@ -103,7 +107,12 @@ const PricingCard = ({ tier }: { tier: any }) => {
                       <div className={`w-5 h-5 rounded border flex items-center justify-center shrink-0 transition-colors ${selectedAddons.includes(opt.name) ? 'bg-[#4ABFB0] border-[#4ABFB0]' : 'border-white/30 group-hover:border-white/60'}`}>
                         {selectedAddons.includes(opt.name) && <CheckCircle2 className="w-3.5 h-3.5 text-[#0f3d32]" strokeWidth={4} />}
                       </div>
-                      <span className="text-white/90 font-medium text-sm leading-snug group-hover:text-white transition-colors pt-[1px]">{opt.name}</span>
+                      <div className="flex-1 flex justify-between items-start gap-2">
+                        <span className="text-white/90 font-medium text-sm leading-snug group-hover:text-white transition-colors pt-[1px]">{opt.name}</span>
+                        {opt.isComplementary && (
+                          <span className="text-[10px] font-bold uppercase tracking-wider bg-[#4ABFB0]/20 text-[#4ABFB0] px-2 py-0.5 rounded-full shrink-0">Complementary</span>
+                        )}
+                      </div>
                       <input 
                         type="checkbox" 
                         className="hidden" 
