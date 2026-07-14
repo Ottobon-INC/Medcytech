@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createPortal } from 'react-dom';
 import { ArrowRight, X, MapPin, MessageSquare, CheckCircle2, Globe, Users } from 'lucide-react';
@@ -26,7 +26,7 @@ const ServiceCard = ({ service }: { service: any }) => {
 
   return (
     <>
-      <div className="w-[85vw] sm:w-[320px] md:w-[400px] flex-shrink-0 snap-start flex">
+      <div className="w-full h-full min-h-[350px] flex flex-col">
         <motion.div
           whileHover={{ y: -8 }}
           className="relative w-full rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(15,61,50,0.05)] hover:shadow-[0_25px_50px_rgba(15,61,50,0.15)] transition-all duration-300 border border-[#0f3d32]/10 p-6 sm:p-8 flex flex-col h-full cursor-pointer group"
@@ -44,17 +44,15 @@ const ServiceCard = ({ service }: { service: any }) => {
             <div className="absolute inset-0 bg-white z-0" />
           )}
 
-          <div className="relative z-10 flex flex-col h-full">
-            <div className={`w-16 h-16 rounded-2xl ${service.image ? 'bg-white/10 text-white backdrop-blur-md border border-white/20' : 'bg-[#CFE8E5]/50 text-[#0f3d32]'} flex items-center justify-center mb-6`}>
-              {iconMap[service.icon]}
-            </div>
-            <h3 className={`text-xl sm:text-2xl font-medium ${service.image ? 'text-white' : 'text-[#0f3d32]'} tracking-tight mb-3 sm:mb-4`} style={{ fontFamily: "'Playfair Display', serif" }}>
+          <div className="relative z-10 flex flex-col h-full justify-end">
+
+            <h3 className={`text-xl sm:text-2xl font-medium ${service.image ? 'text-white' : 'text-[#0f3d32]'} tracking-tight mb-3 sm:mb-4 mt-auto`} style={{ fontFamily: "'Playfair Display', serif" }}>
               {service.title}
             </h3>
-            <p className={`${service.image ? 'text-white/80' : 'text-[#5b6e68]'} text-sm font-medium leading-relaxed mb-8 flex-1`}>
+            <p className={`${service.image ? 'text-white/80' : 'text-[#5b6e68]'} text-sm font-medium leading-relaxed mb-8`}>
               {service.shortDescription}
             </p>
-            <div className={`flex items-center gap-2 text-sm font-bold ${service.image ? 'text-white' : 'text-[#0f3d32]'} mt-auto`}>
+            <div className={`flex items-center gap-2 text-sm font-bold ${service.image ? 'text-white' : 'text-[#0f3d32]'}`}>
               Read Full Details
               <div className={`w-8 h-8 rounded-full ${service.image ? 'bg-white/20 text-white group-hover:bg-white group-hover:text-[#0f3d32]' : 'bg-[#0f3d32]/5 text-[#0f3d32] group-hover:bg-[#0f3d32] group-hover:text-white'} flex items-center justify-center transition-colors`}>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -165,83 +163,15 @@ const ServiceCard = ({ service }: { service: any }) => {
 };
 
 const Services = ({ content }: { content: any }) => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const scrollLeft = () => {
-    if (scrollRef.current) scrollRef.current.scrollBy({ left: -350, behavior: 'smooth' });
-  };
-  const scrollRight = () => {
-    if (scrollRef.current) scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
-  };
-
   return (
-    <section id="services" className="pt-20 pb-32 relative overflow-hidden bg-[#CFE8E5]">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section id="services" className="pt-0 pb-32 relative overflow-hidden bg-[#CFE8E5]">
+      <div className="max-w-[90rem] mx-auto px-6 relative z-10">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="max-w-2xl">
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-5 bg-[#CFE8E5]/50 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full"
-            >
-              {content.sectionTag}
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-medium mb-6 text-[#0f3d32] tracking-tight"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
-              {content.sectionTitle}
-            </motion.h2>
-            <p className="text-[#0f3d32]/60 font-medium text-sm md:text-base italic max-w-xl">
-              {content.sectionSubtitle}
-            </p>
-          </div>
-          
-          <div className="flex gap-4">
-            <button 
-              onClick={scrollLeft}
-              className="w-12 h-12 rounded-full border border-[#0f3d32]/20 flex items-center justify-center text-[#0f3d32] hover:bg-[#0f3d32] hover:text-white transition-colors"
-            >
-              <ArrowRight className="w-5 h-5 rotate-180" />
-            </button>
-            <button 
-              onClick={scrollRight}
-              className="w-12 h-12 rounded-full border border-[#0f3d32]/20 flex items-center justify-center text-[#0f3d32] hover:bg-[#0f3d32] hover:text-white transition-colors"
-            >
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 pb-8">
+          {content.items.map((service: any) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
         </div>
-
-        <div className="relative -mx-6 px-6">
-          <div 
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 [&::-webkit-scrollbar]:hidden"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {content.items.map((service: any) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
-            {/* Empty element to add padding to the end of the scroll container */}
-            <div className="w-6 flex-shrink-0" />
-          </div>
-        </div>
-
-        {/* Scroll Indication */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex items-center justify-center mt-2 gap-2 text-[#0f3d32]/50"
-        >
-          <span className="text-xs font-bold uppercase tracking-widest">Swipe or scroll to explore more</span>
-          <ArrowRight className="w-4 h-4 animate-pulse" />
-        </motion.div>
 
       </div>
     </section>

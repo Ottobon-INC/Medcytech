@@ -121,7 +121,7 @@ const WhyUs = ({ content }: { content: any }) => {
                         </div>
                         
                         <button 
-                            onClick={() => window.location.href = 'mailto:manognya@ottobon.in'}
+                            onClick={() => window.location.href = 'mailto:gitika@medcytech.com'}
                             className="mt-auto relative z-10 w-full py-4 rounded-xl font-bold text-base bg-[#4ABFB0] text-[#0f3d32] hover:bg-white transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_8px_30px_rgb(74,191,176,0.2)] group"
                         >
                             Partner on Outcome Basis

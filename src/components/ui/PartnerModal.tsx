@@ -31,6 +31,25 @@ export default function PartnerModal({ isOpen, onClose }: PartnerModalProps) {
             organization: formData.clinicName,
             message: `Specialty: ${formData.specialty} | ${formData.message}`,
             role: "Partner"
+        }, {
+            // Uppercase (Exact Match)
+            Name: formData.name,
+            Phone: formData.phone,
+            Email: formData.email,
+            "Clinic Name": formData.clinicName,
+            Specality: formData.specialty,
+            Message: formData.message,
+            // Lowercase
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            "clinic name": formData.clinicName,
+            specialty: formData.specialty,
+            message: formData.message,
+            // Just in case they added trailing spaces in Google Sheets
+            "Name ": formData.name,
+            "Phone ": formData.phone,
+            "Email ": formData.email
         });
 
         setIsSubmitting(false);
@@ -144,7 +163,7 @@ export default function PartnerModal({ isOpen, onClose }: PartnerModalProps) {
                                                 <input
                                                     required
                                                     type="email"
-                                                    placeholder="clinic@example.com"
+                                                    placeholder="gitika@medcytech.com"
                                                     value={formData.email}
                                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                                     className="w-full px-5 py-3 rounded-2xl bg-white/20 border border-white/10 focus:border-[#44dbc9] focus:ring-4 focus:ring-[#44dbc9]/20 outline-none transition-all text-white text-sm placeholder:text-white/30 shadow-inner"

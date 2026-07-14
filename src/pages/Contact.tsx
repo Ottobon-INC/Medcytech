@@ -11,6 +11,8 @@ const Contact = () => {
     email: "",
     phone: "",
     reason: "",
+    clinicName: "",
+    specialty: "",
     message: ""
   });
 
@@ -25,6 +27,27 @@ const Contact = () => {
       organization: "Website Contact Form",
       message: `Reason: ${formData.reason} | ${formData.message}`,
       role: formData.reason === 'partnership' ? 'Partner' : 'Clinic Owner'
+    }, {
+      // Uppercase (Exact Match)
+      Name: formData.name,
+      Phone: formData.phone,
+      Email: formData.email,
+      "Reason for Contact": formData.reason,
+      "Clinic Name": formData.clinicName,
+      Specality: formData.specialty,
+      Message: formData.message,
+      // Lowercase
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      "reason for contact": formData.reason,
+      "clinic name": formData.clinicName,
+      specialty: formData.specialty,
+      message: formData.message,
+      // Just in case they added trailing spaces in Google Sheets
+      "Name ": formData.name,
+      "Phone ": formData.phone,
+      "Email ": formData.email
     });
 
     setIsSubmitting(false);
@@ -32,7 +55,7 @@ const Contact = () => {
       setIsSuccess(true);
       setTimeout(() => {
         setIsSuccess(false);
-        setFormData({ name: "", email: "", phone: "", reason: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", reason: "", clinicName: "", specialty: "", message: "" });
       }, 4000);
     } else {
       console.error("Supabase Submission Error:", error);
@@ -151,7 +174,7 @@ const Contact = () => {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        placeholder="you@example.com"
+                        placeholder="gitika@medcytech.com"
                         className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-[#4ABFB0] focus:border-[#4ABFB0] transition-all backdrop-blur-sm"
                       />
                     </div>
@@ -172,10 +195,33 @@ const Contact = () => {
                         </select>
                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
                           <svg width="10" height="6" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1.5L6 6.5L11 1.5" stroke="white" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </div>
                       </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="flex flex-col gap-1.5">
+                          <label className="text-white/90 text-[13px] font-medium tracking-wide">Clinic Name</label>
+                          <input
+                            type="text"
+                            value={formData.clinicName}
+                            onChange={(e) => setFormData({...formData, clinicName: e.target.value})}
+                            placeholder="Optional"
+                            className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-[#4ABFB0] focus:border-[#4ABFB0] transition-all backdrop-blur-sm"
+                          />
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                          <label className="text-white/90 text-[13px] font-medium tracking-wide">Specialty</label>
+                          <input
+                            type="text"
+                            value={formData.specialty}
+                            onChange={(e) => setFormData({...formData, specialty: e.target.value})}
+                            placeholder="Optional"
+                            className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-[#4ABFB0] focus:border-[#4ABFB0] transition-all backdrop-blur-sm"
+                          />
+                        </div>
                     </div>
 
                     <div className="flex flex-col gap-1.5">

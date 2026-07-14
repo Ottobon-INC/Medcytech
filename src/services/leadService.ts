@@ -11,11 +11,28 @@ export interface Lead {
     role?: 'Investor' | 'Clinic Owner' | 'Partner';
 }
 
-export const submitLead = async (leadData: Lead) => {
+export const submitLead = async (leadData: Lead, googleSheetsData?: any) => {
     try {
+        // 1. Submit to Google Sheets if Webhook is configured
+        const googleSheetsUrl = import.meta.env.VITE_GOOGLE_SHEETS_WEBHOOK;
+        if (googleSheetsUrl) {
+            try {
+                await fetch(googleSheetsUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'text/plain',
+                    },
+                    body: JSON.stringify(googleSheetsData || leadData),
+                });
+            } catch (sheetError) {
+                console.error("Error submitting to Google Sheets:", sheetError);
+            }
+        }
+
+        // 2. Submit to Supabase
         if (!import.meta.env.VITE_SUPABASE_URL || import.meta.env.VITE_SUPABASE_URL === 'https://dummy.supabase.co') {
             console.warn("MOCK SUBMISSION: Supabase keys are not set. Lead data:", leadData);
-            // Simulate a network request delay
             await new Promise(resolve => setTimeout(resolve, 800));
             return { data: [leadData], error: null };
         }

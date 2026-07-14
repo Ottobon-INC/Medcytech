@@ -3,10 +3,10 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 
-const navLinks = ["Offerings", "Services", "Our Brands"];
+const navLinks = ["Offerings", "Our Brands", "Pricing"];
 const getNavPath = (link: string) => {
   if (link === "Offerings") return "/#core-solutions";
-  if (link === "Services") return "/#services";
+  if (link === "Pricing") return "/#pricing";
   if (link === "Our Brands") return "/#our-brands";
   return "/";
 };
@@ -116,7 +116,7 @@ const Navbar = () => {
                 {navLinks.map(link => {
                   const path = getNavPath(link);
                   const sectionId = path.substring(2);
-                  const isActive = activeSection === sectionId || location.pathname === path || location.hash === path.substring(1);
+                  const isActive = activeSection ? activeSection === sectionId : (location.pathname === path || location.hash === path.substring(1));
                   return (
                     <Link 
                       key={link} 
@@ -176,7 +176,7 @@ const Navbar = () => {
               {navLinks.map((link, i) => {
                 const path = getNavPath(link);
                 const sectionId = path.substring(2);
-                const isActive = activeSection === sectionId || location.pathname === path || location.hash === path.substring(1);
+                const isActive = activeSection ? activeSection === sectionId : (location.pathname === path || location.hash === path.substring(1));
                 return (
                   <motion.div
                     key={link}

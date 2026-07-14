@@ -24,12 +24,7 @@ const SolutionCard = ({ solution, index }: { solution: any, index: number }) => 
           ))}
         </div>
 
-        {/* Action Area */}
-        <div className="flex items-center justify-end mt-auto pt-4 relative z-20">
-          <button className="bg-[#0f3d32] group-hover:bg-[#4ABFB0] text-white px-6 py-2.5 rounded-full text-[15px] font-semibold transition-colors duration-300 shadow-md flex items-center gap-2 hover:scale-105">
-            Explore
-          </button>
-        </div>
+
       </div>
 
       {/* Bottom Fluid Image Area */}
@@ -53,7 +48,7 @@ const CoreSolutions = ({ content }: { content: any }) => {
   if (!content) return null;
   
   return (
-    <section id="core-solutions" className="pt-24 pb-32 relative overflow-hidden bg-transparent">
+    <section id="core-solutions" className="pt-24 pb-12 relative overflow-hidden bg-[#CFE8E5]">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}

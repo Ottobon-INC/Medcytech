@@ -14,7 +14,6 @@ import Founders from './sections/Founders';
 import Contact from './pages/Contact';
 import Preloader from './components/Preloader';
 
-import BrandsPage from './pages/BrandsPage';
 import ChallengesPage from './pages/ChallengesPage';
 import OfferingsPage from './pages/OfferingsPage';
 import WhyUsPage from './pages/WhyUsPage';
@@ -52,9 +51,9 @@ const HomePage = () => (
     <Services content={content.services} />
     <Brands content={content.brands} />
     {/* <Challenges content={content.challenges} /> */}
+    <WhyUs content={content.whyUs} />
     <Offerings content={content.offerings} />
 
-    <WhyUs content={content.whyUs} />
     <Founders content={content.founders} />
   </main>
 );
@@ -108,7 +107,6 @@ const AnimatedRoutes = () => {
     >
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
-        <Route path="/our-brands" element={<PageTransition><BrandsPage content={content} /></PageTransition>} />
         <Route path="/challenges" element={<PageTransition><ChallengesPage content={content} /></PageTransition>} />
         <Route path="/offerings" element={<PageTransition><OfferingsPage content={content} /></PageTransition>} />
         <Route path="/why-us" element={<PageTransition><WhyUsPage content={content} /></PageTransition>} />

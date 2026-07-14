@@ -157,6 +157,55 @@
     "sectionSubtitle": "End-to-end AI-driven solutions designed to attract patients, optimize operations, and provide unprecedented scale for your digital identity.",
     "items": [
       {
+        "id": "gbp-optimization",
+        "title": "Google Business Profile (GBP) Optimization",
+        "image": "/Offerings/GBP.png",
+        "shortDescription": "Stop losing local patients to your competitors down the street.",
+        "icon": "MapPin",
+        "detailedDescription": "When someone in your neighborhood searches for a \"dentist near me,\" a \"pediatrician in [City],\" or an \"urgent care clinic,\" they rarely look past the top 3 results on Google Maps. If your clinic isn’t there, you are invisible to hundreds of active patients every single month.\n\nWe specialize in optimizing and managing Google Business Profiles specifically for healthcare practices to ensure you rank where patients are looking.",
+        "table": {
+          "headers": [
+            "The Reality",
+            "The Result with Us"
+          ],
+          "rows": [
+            [
+              "80%+ of patients use Google to find local care.",
+              "You appear right at the top when they search."
+            ],
+            [
+              "Friction: Missing hours or wrong phone numbers lose patients.",
+              "Clean, accurate, verified data builds instant trust."
+            ],
+            [
+              "Review Gap: Low or rare reviews push you down the algorithm.",
+              "A systematic approach to getting authentic 5-star patient feedback."
+            ]
+          ]
+        },
+        "featuresTitle": "What We Handle For Your Clinic",
+        "featuresSubtitle": "We don’t just fill out a profile; we turn your Google Business Profile into a patient-generating machine.",
+        "features": [
+          {
+            "name": "Strategic Category & Keyword Setup",
+            "description": "We map your specific medical specialties (e.g., Dermatologist, Skin Care Clinic) to Google’s algorithm so you rank for the exact treatments you offer."
+          },
+          {
+            "name": "Review Generation Systems",
+            "description": "We help your team legally and ethically collect consistent, positive patient reviews to build massive social proof."
+          },
+          {
+            "name": "Local SEO Boost",
+            "description": "We optimize your business description, services menu, and location data to push your clinic into the coveted \"Map Pack\" top 3."
+          },
+          {
+            "name": "Active Profile Management",
+            "description": "Regular updates, posting clinical hours (including holidays), uploading high-quality photos, and answering patient FAQs."
+          }
+        ],
+        "bottomLine": "A properly optimized Google Business Profile acts like a billboard right at the moment a patient needs your care. Let us handle the algorithm while you handle the patients."
+      },
+      {
         "id": "clinic-awareness",
         "title": "Clinic Awareness & Brand Building",
         "image": "/Offerings/Brand building.png",
@@ -212,55 +261,6 @@
           }
         ],
         "bottomLine": "A strong digital identity doesn’t just attract patients; it builds lasting trust before their first visit."
-      },
-      {
-        "id": "gbp-optimization",
-        "title": "Google Business Profile (GBP) Optimization",
-        "image": "/Offerings/GBP.png",
-        "shortDescription": "Stop losing local patients to your competitors down the street.",
-        "icon": "MapPin",
-        "detailedDescription": "When someone in your neighborhood searches for a \"dentist near me,\" a \"pediatrician in [City],\" or an \"urgent care clinic,\" they rarely look past the top 3 results on Google Maps. If your clinic isn’t there, you are invisible to hundreds of active patients every single month.\n\nWe specialize in optimizing and managing Google Business Profiles specifically for healthcare practices to ensure you rank where patients are looking.",
-        "table": {
-          "headers": [
-            "The Reality",
-            "The Result with Us"
-          ],
-          "rows": [
-            [
-              "80%+ of patients use Google to find local care.",
-              "You appear right at the top when they search."
-            ],
-            [
-              "Friction: Missing hours or wrong phone numbers lose patients.",
-              "Clean, accurate, verified data builds instant trust."
-            ],
-            [
-              "Review Gap: Low or rare reviews push you down the algorithm.",
-              "A systematic approach to getting authentic 5-star patient feedback."
-            ]
-          ]
-        },
-        "featuresTitle": "What We Handle For Your Clinic",
-        "featuresSubtitle": "We don’t just fill out a profile; we turn your Google Business Profile into a patient-generating machine.",
-        "features": [
-          {
-            "name": "Strategic Category & Keyword Setup",
-            "description": "We map your specific medical specialties (e.g., Dermatologist, Skin Care Clinic) to Google’s algorithm so you rank for the exact treatments you offer."
-          },
-          {
-            "name": "Review Generation Systems",
-            "description": "We help your team legally and ethically collect consistent, positive patient reviews to build massive social proof."
-          },
-          {
-            "name": "Local SEO Boost",
-            "description": "We optimize your business description, services menu, and location data to push your clinic into the coveted \"Map Pack\" top 3."
-          },
-          {
-            "name": "Active Profile Management",
-            "description": "Regular updates, posting clinical hours (including holidays), uploading high-quality photos, and answering patient FAQs."
-          }
-        ],
-        "bottomLine": "A properly optimized Google Business Profile acts like a billboard right at the moment a patient needs your care. Let us handle the algorithm while you handle the patients."
       },
       {
         "id": "whatsapp-automation",
@@ -355,14 +355,33 @@
         "id": "starter",
         "name": "Starter Pack",
         "tagline": "Perfect for clinics getting started online",
-        "priceRange": "₹2,999",
-        "features": [
-          "Landing page for digital identity",
-          "Google Business Profile management",
-          "Review reply & rating improvement",
-          "WhatsApp appointment + reminders",
-          "Monthly visibility report",
-          "Basic social content (2–4 posts)"
+        "isCustomizable": true,
+        "basePrice": 0,
+        "addons": [
+          {
+            "name": "Landing page for digital identity",
+            "price": 1000
+          },
+          {
+            "name": "Google Business Profile management",
+            "price": 1000
+          },
+          {
+            "name": "Basic social content (2–4 posts)",
+            "price": 999
+          },
+          {
+            "name": "Review reply & rating improvement",
+            "price": 500
+          },
+          {
+            "name": "WhatsApp appointment + reminders",
+            "price": 1000
+          },
+          {
+            "name": "Monthly visibility report",
+            "price": 500
+          }
         ],
         "color": "from-indigo-100/40 to-indigo-50/20",
         "accent": "bg-indigo-400",
@@ -370,17 +389,15 @@
       },
       {
         "id": "growth",
-        "name": "Growth Pack",
+        "name": "DLabs - LIMS",
+        "isComingSoon": true,
         "tagline": "For clinics ready to scale patient inflow",
         "priceRange": "₹12,000",
         "features": [
-          "Landing page for digital identity (SEO Optimized)",
-          "Everything in Starter",
-          "Lead capture across channels",
-          "Missed call recovery",
-          "WhatsApp automation (flows + follow-ups)",
-          "Simple CRM view",
-          "Review & reputation management"
+          "End-to-end Lab Sample Tracking",
+          "Automated Results Processing",
+          "Quality Control & Compliance",
+          "Integrated Equipment Data Capture"
         ],
         "color": "from-rose-100/40 to-rose-50/20",
         "accent": "bg-rose-400",
@@ -388,17 +405,15 @@
       },
       {
         "id": "orchestration",
-        "name": "Orchestration Pack",
+        "name": "HIMS",
+        "isComingSoon": true,
         "tagline": "End-to-end patient journey management",
         "priceRange": "₹40,000",
         "features": [
-          "Landing page for digital identity (Premium Suite)",
-          "Multi-channel orchestration",
-          "Call center scripts + knowledge base",
-          "Journey design (pre + post OPD)",
-          "Reporting dashboards",
-          "Multi-location support (add-on)",
-          "Specialist clinical workflows"
+          "Complete Hospital Operations Management",
+          "Electronic Medical Records (EMR)",
+          "Billing, Insurance & Revenue Cycle",
+          "Multi-location Clinic Administration"
         ],
         "color": "from-sky-100/40 to-sky-50/20",
         "accent": "bg-sky-400",
@@ -536,7 +551,7 @@
         "contactInfo": [
           "+91 90000 00000"
         ],
-        "email": "bhanu@ottobon.com",
+        "email": "gitika@medcytech.com",
         "address": "Vishakapatnam, Andhra Pradesh, India",
         "modalImage": "/.png/profile2.png",
         "imagePosition": "center 5%"
