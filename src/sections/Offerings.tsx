@@ -90,6 +90,14 @@ const PricingCard = ({ tier }: { tier: any }) => {
           </div>
 
           <div className="flex flex-col flex-1">
+            {tier.promo && (
+              <div className="mb-6 p-3 rounded-xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/30">
+                <p className="text-emerald-300 font-bold text-sm tracking-wide text-center uppercase">
+                  {tier.promo}
+                </p>
+              </div>
+            )}
+
             {tier.isCustomizable ? (
               <div className="flex flex-col mb-6 mt-2">
                 <div className="flex items-baseline gap-2 mb-4">
@@ -141,16 +149,25 @@ const PricingCard = ({ tier }: { tier: any }) => {
                   </div>
                 ))}
               </div>
-            ) : tier.isComingSoon ? (
-              <div className="flex flex-col gap-3 mb-6 mt-2 overflow-y-auto custom-scrollbar max-h-[280px] pr-2">
-                {tier.features?.map((feature: string, idx: number) => (
-                  <div key={idx} className="flex items-start gap-3 group">
-                    <div className="flex items-center justify-center shrink-0 mt-[2px]">
-                      <CheckCircle2 className="w-4 h-4 text-white/40" strokeWidth={3} />
-                    </div>
-                    <span className="text-white/60 font-medium text-sm leading-snug pt-[1px]">{feature}</span>
+            ) : tier.features ? (
+              <div className="flex flex-col mb-6 mt-2">
+                {tier.priceRange && (
+                  <div className="flex items-baseline gap-2 mb-6">
+                    <span className="text-4xl md:text-5xl font-bold text-white tracking-tighter">
+                      {tier.priceRange}
+                    </span>
                   </div>
-                ))}
+                )}
+                <div className="flex flex-col gap-3 overflow-y-auto custom-scrollbar max-h-[280px] pr-2">
+                  {tier.features.map((feature: string, idx: number) => (
+                    <div key={idx} className="flex items-start gap-3 group">
+                      <div className="flex items-center justify-center shrink-0 mt-[2px]">
+                        <CheckCircle2 className="w-4 h-4 text-white/40" strokeWidth={3} />
+                      </div>
+                      <span className="text-white/60 font-medium text-sm leading-snug pt-[1px]">{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : (
               <div className="flex items-baseline gap-2 mb-6 mt-2">
@@ -165,7 +182,15 @@ const PricingCard = ({ tier }: { tier: any }) => {
           </div>
             
           <div className="mt-auto pt-6">
-            {tier.isComingSoon ? (
+            {tier.externalLink ? (
+              <button 
+                onClick={() => window.open(tier.externalLink, '_blank')}
+                className="w-full py-3.5 rounded-xl font-bold text-sm bg-[#4ABFB0] text-[#0f3d32] hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 shadow-[0_8px_30px_rgb(74,191,176,0.2)]"
+              >
+                {tier.buttonText || "Visit"}
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            ) : tier.isComingSoon ? (
               <button 
                 disabled
                 className="w-full py-3.5 rounded-xl font-bold text-sm bg-white/10 text-white/50 cursor-not-allowed flex items-center justify-center gap-2"

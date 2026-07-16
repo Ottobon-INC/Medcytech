@@ -356,15 +356,16 @@
         "name": "Starter Pack",
         "tagline": "Perfect for clinics getting started online",
         "isCustomizable": true,
-        "basePrice": 0,
+        "basePrice": 5000,
+        "promo": "🎉 3 Months Free Trial Included!",
         "addons": [
           {
             "name": "Landing page for digital identity",
-            "price": 1000
+            "price": 0
           },
           {
             "name": "Google Business Profile management",
-            "price": 1000
+            "price": 0
           },
           {
             "name": "Basic social content (2–4 posts)",
@@ -377,7 +378,7 @@
           },
           {
             "name": "WhatsApp appointment + reminders",
-            "price": 1000
+            "price": 0
           },
           {
             "name": "Monthly visibility report",
@@ -391,9 +392,9 @@
       {
         "id": "growth",
         "name": "DLabs - LIMS",
-        "isComingSoon": true,
+        "externalLink": "https://dlabs.medcytech.com/",
+        "buttonText": "Visit DLabs",
         "tagline": "For clinics ready to scale patient inflow",
-        "priceRange": "₹12,000",
         "features": [
           "End-to-end Lab Sample Tracking",
           "Automated Results Processing",
@@ -409,7 +410,6 @@
         "name": "HIMS",
         "isComingSoon": true,
         "tagline": "End-to-end patient journey management",
-        "priceRange": "₹40,000",
         "features": [
           "Complete Hospital Operations Management",
           "Electronic Medical Records (EMR)",
