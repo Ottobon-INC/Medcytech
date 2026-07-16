@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import WhyUs from '../sections/WhyUs';
+import SEO from '../components/SEO';
 
 const WhyUsPage = ({ content }: { content: any }) => {
   const pageData = content.whyUsPage;
   return (
     <main className="pt-24 min-h-screen bg-[#CFE8E5]">
+      <SEO title="Why Choose Medcytech" description={pageData.headerSubtitle} />
       <div className="max-w-7xl mx-auto px-6 pt-12 pb-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

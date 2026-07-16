@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import Offerings from '../sections/Offerings';
+import SEO from '../components/SEO';
 
 const OfferingsPage = ({ content }: { content: any }) => {
   const pageData = content.offeringsPage;
   return (
     <main className="pt-24 min-h-screen bg-[#CFE8E5]">
+      <SEO title="Comprehensive Clinical Solutions" description={pageData.headerSubtitle} />
       <div className="max-w-7xl mx-auto px-6 pt-12 pb-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

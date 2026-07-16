@@ -21,6 +21,7 @@ import WhyUsPage from './pages/WhyUsPage';
 
 import BackToTop from './components/BackToTop';
 import content from './tier3-content/content.json';
+import SEO from './components/SEO';
 
 const Footer = () => (
   <footer className="pt-0 pb-6 border-t border-white/5 bg-background">
@@ -46,6 +47,7 @@ const Footer = () => (
 
 const HomePage = () => (
   <main>
+    <SEO title="Home" description={content.hero.subtitle} />
     <MedcyIvfHero content={content.hero} />
     <CoreSolutions content={content.coreSolutions} />
     <Services content={content.services} />

@@ -1,0 +1,21 @@
+# Medcytech - Health Tech Infrastructure
+
+Medcytech empowers healthcare providers with intelligent Digital Front Office solutions, state-of-the-art DLabs-LIMS, and comprehensive HIMS. Built by founders Dr. B. Sireesha Rani and Bhanu Prasad, Medcytech aims to bridge the gap between healthcare expertise and modern technology.
+
+## Core Solutions
+
+1. **Digital Front Office (DFO)**: An AI-driven patient engagement system that manages inquiries, appointment bookings, and follow-ups. Features include WhatsApp Automation for seamless communication and Google Business Profile (GBP) Optimization to enhance local clinic visibility.
+2. **DLabs-LIMS (Laboratory Information Management System)**: A scalable, secure platform for managing laboratory workflows, designed specifically for the Indian healthcare market.
+3. **HIMS (Hospital Information Management System)**: A comprehensive suite to manage hospital operations from patient records to billing.
+
+## Specialized Brands
+- **Janma Sethu**: Tailored infrastructure and software solutions for IVF and fertility clinics.
+- **Kalpa Sethu**: Advanced management systems for dermatology and aesthetic clinics.
+- **Akshaya Sethu**: Chronic care and geriatric patient management platforms.
+
+## Key Offerings & Services
+- Google Business Profile (GBP) Optimization
+- Clinic Awareness & Brand Building
+- WhatsApp Automation & Patient Management
+
+For sales inquiries or to book a demo, visit our Contact page or reach out directly to our team.

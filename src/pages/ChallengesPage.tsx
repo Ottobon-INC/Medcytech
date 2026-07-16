@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import Challenges from '../sections/Challenges';
+import SEO from '../components/SEO';
 
 const ChallengesPage = ({ content }: { content: any }) => {
   const pageData = content.challengesPage;
   return (
     <main className="pt-24 min-h-screen bg-[#CFE8E5]">
+      <SEO title="Overcoming Clinical Hurdles" description={pageData.headerSubtitle} />
       {/* Extra informative content header */}
       <div className="max-w-7xl mx-auto px-6 pt-12 pb-8">
         <motion.div

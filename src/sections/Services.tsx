@@ -165,6 +165,7 @@ const ServiceCard = ({ service }: { service: any }) => {
 const Services = ({ content }: { content: any }) => {
   return (
     <section id="services" className="pt-0 pb-32 relative overflow-hidden bg-[#CFE8E5]">
+      <h2 className="sr-only">Our Services</h2>
       <div className="max-w-[90rem] mx-auto px-6 relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 pb-8">

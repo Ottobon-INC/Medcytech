@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { submitLead } from '../services/leadService';
 import { CheckCircle2, Loader2 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -90,6 +91,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-32 pb-24 flex items-center justify-center relative overflow-hidden bg-[#d6f2f0]">
+      <SEO title="Contact Us" description="Book an appointment with Medcytech to schedule a call with our medical experts." />
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-[60%] h-[60%] bg-brand-emerald/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-teal/10 blur-[120px] rounded-full pointer-events-none" />
