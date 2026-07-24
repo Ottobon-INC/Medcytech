@@ -355,36 +355,8 @@
         "id": "starter",
         "name": "Starter Pack",
         "tagline": "Perfect for clinics getting started online",
-        "isCustomizable": true,
-        "basePrice": 5000,
+        "priceRange": "₹5,000",
         "promo": "🎉 3 Months Free Trial Included!",
-        "addons": [
-          {
-            "name": "Landing page for digital identity",
-            "price": 0
-          },
-          {
-            "name": "Google Business Profile management",
-            "price": 0
-          },
-          {
-            "name": "Basic social content (2–4 posts)",
-            "price": 0,
-            "isComplementary": true
-          },
-          {
-            "name": "Review reply & rating improvement",
-            "price": 500
-          },
-          {
-            "name": "WhatsApp appointment + reminders",
-            "price": 0
-          },
-          {
-            "name": "Monthly visibility report",
-            "price": 500
-          }
-        ],
         "color": "from-indigo-100/40 to-indigo-50/20",
         "accent": "bg-indigo-400",
         "btn": "bg-[#ede9fe] text-[#6366f1] hover:bg-[#6366f1] hover:text-white"
