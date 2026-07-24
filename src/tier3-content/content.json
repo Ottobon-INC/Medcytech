@@ -355,6 +355,7 @@
         "id": "starter",
         "name": "Starter Pack",
         "tagline": "Perfect for clinics getting started online",
+        "pricePrefix": "Starting from",
         "priceRange": "₹5,000",
         "promo": "🎉 3 Months Free Trial Included!",
         "color": "from-indigo-100/40 to-indigo-50/20",

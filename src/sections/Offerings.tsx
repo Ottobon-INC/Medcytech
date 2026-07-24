@@ -170,13 +170,18 @@ const PricingCard = ({ tier }: { tier: any }) => {
                 </div>
               </div>
             ) : (
-              <div className="flex items-baseline gap-2 mb-6 mt-2">
-                <span className="text-4xl md:text-5xl font-bold text-white tracking-tighter">
-                  {tier.priceRange}
-                </span>
-                <span className="text-white/50 font-bold text-sm uppercase tracking-widest">
-                  / Month
-                </span>
+              <div className="flex flex-col mb-6 mt-2">
+                {tier.pricePrefix && (
+                  <span className="text-white/70 text-sm font-medium mb-1">{tier.pricePrefix}</span>
+                )}
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl md:text-5xl font-bold text-white tracking-tighter">
+                    {tier.priceRange}
+                  </span>
+                  <span className="text-white/50 font-bold text-sm uppercase tracking-widest">
+                    / Month
+                  </span>
+                </div>
               </div>
             )}
           </div>
@@ -252,12 +257,17 @@ const PricingCard = ({ tier }: { tier: any }) => {
                       Multiple Options
                     </span>
                   ) : (
-                    <>
-                      <span className="text-3xl font-bold text-[#0f3d32] tracking-tighter">
-                        {tier.priceRange}
-                      </span>
-                      <span className="text-slate-400 font-bold text-[10px] uppercase tracking-widest mt-1">/ Month</span>
-                    </>
+                    <div className="flex flex-col">
+                      {tier.pricePrefix && (
+                        <span className="text-[#0f3d32]/60 text-xs font-medium mb-0.5">{tier.pricePrefix}</span>
+                      )}
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-3xl font-bold text-[#0f3d32] tracking-tighter">
+                          {tier.priceRange}
+                        </span>
+                        <span className="text-slate-400 font-bold text-[10px] uppercase tracking-widest mt-1">/ Month</span>
+                      </div>
+                    </div>
                   )}
                 </div>
               </div>
