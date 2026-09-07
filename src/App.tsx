@@ -13,6 +13,7 @@ import WhyUs from './sections/WhyUs';
 import Founders from './sections/Founders';
 import Contact from './pages/Contact';
 import Preloader from './components/Preloader';
+import NewHomePage from './pages/NewHomePage';
 
 import ChallengesPage from './pages/ChallengesPage';
 import OfferingsPage from './pages/OfferingsPage';
@@ -45,20 +46,6 @@ const Footer = () => (
   </footer>
 );
 
-const HomePage = () => (
-  <main>
-    <SEO title="Home" description={content.hero.subtitle} />
-    <MedcyIvfHero content={content.hero} />
-    <CoreSolutions content={content.coreSolutions} />
-    <Services content={content.services} />
-    <Brands content={content.brands} />
-    {/* <Challenges content={content.challenges} /> */}
-    <WhyUs content={content.whyUs} />
-    <Offerings content={content.offerings} />
-
-    <Founders content={content.founders} />
-  </main>
-);
 
 const ScrollToTop = () => {
   useEffect(() => {
@@ -108,7 +95,7 @@ const AnimatedRoutes = () => {
       }}
     >
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
+        <Route path="/" element={<PageTransition><NewHomePage /></PageTransition>} />
         <Route path="/challenges" element={<PageTransition><ChallengesPage content={content} /></PageTransition>} />
         <Route path="/offerings" element={<PageTransition><OfferingsPage content={content} /></PageTransition>} />
         <Route path="/why-us" element={<PageTransition><WhyUsPage content={content} /></PageTransition>} />
