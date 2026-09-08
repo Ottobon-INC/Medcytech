@@ -2,9 +2,19 @@ import { BrowserRouter as Router, Routes, Route, useLocation, useNavigationType 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
+import MedcyIvfHero from './components/ui/medcy-ivf-hero';
+import Brands from './sections/Brands';
+import CoreSolutions from './sections/CoreSolutions';
+// import Challenges from './sections/Challenges';
+import Offerings from './sections/Offerings';
+import Services from './sections/Services';
+
+import WhyUs from './sections/WhyUs';
+import Founders from './sections/Founders';
 import Contact from './pages/Contact';
 import Preloader from './components/Preloader';
 import NewHomePage from './pages/NewHomePage';
+
 import ChallengesPage from './pages/ChallengesPage';
 import OfferingsPage from './pages/OfferingsPage';
 import WhyUsPage from './pages/WhyUsPage';
@@ -12,7 +22,7 @@ import WhyUsPage from './pages/WhyUsPage';
 
 import BackToTop from './components/BackToTop';
 import content from './tier3-content/content.json';
-
+import SEO from './components/SEO';
 
 const Footer = () => (
   <footer className="pt-0 pb-6 border-t border-white/5 bg-background">
@@ -65,8 +75,8 @@ const AnimatedRoutes = () => {
   const navType = useNavigationType();
 
   return (
-    <AnimatePresence
-      mode="wait"
+    <AnimatePresence 
+      mode="wait" 
       onExitComplete={() => {
         if (navType === 'POP' || !window.location.hash) {
           window.scrollTo(0, 0);
