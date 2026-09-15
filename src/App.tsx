@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import MedcyIvfHero from './components/ui/medcy-ivf-hero';
+import Partners from './sections/Partners';
 import Brands from './sections/Brands';
 import CoreSolutions from './sections/CoreSolutions';
 // import Challenges from './sections/Challenges';
@@ -49,13 +50,11 @@ const HomePage = () => (
   <main>
     <SEO title="Home" description={content.hero.subtitle} />
     <MedcyIvfHero content={content.hero} />
+    <Partners />
     <CoreSolutions content={content.coreSolutions} />
-    <Services content={content.services} />
-    <Brands content={content.brands} />
     {/* <Challenges content={content.challenges} /> */}
+    <Offerings />
     <WhyUs content={content.whyUs} />
-    <Offerings content={content.offerings} />
-
     <Founders content={content.founders} />
   </main>
 );
@@ -98,7 +97,7 @@ const AnimatedRoutes = () => {
             const id = window.location.hash.substring(1);
             const element = document.getElementById(id);
             if (element) {
-              const navbarOffset = 100;
+              const navbarOffset = 20;
               const elementPosition = element.getBoundingClientRect().top;
               const offsetPosition = elementPosition + window.scrollY - navbarOffset;
               window.scrollTo({ top: offsetPosition, behavior: 'auto' });

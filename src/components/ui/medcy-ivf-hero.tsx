@@ -8,30 +8,73 @@ import { ArrowRight, X, CheckCircle2, Loader2 } from "lucide-react";
 import { submitLead } from "../../services/leadService";
 
 import InteractiveBackground from "./InteractiveBackground";
-import CoreNetwork from "../CoreNetwork/CoreNetwork";
 
-function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?: number }) {
-    const [count, setCount] = useState(0);
+function AnimatedCounter({ value, duration = 1300 }: { value: number; duration?: number }) {
+    const [count, setCount] = useState(1);
+    const [isFinished, setIsFinished] = useState(false);
 
     useEffect(() => {
         let startTime: number | null = null;
+        let animationFrameId: number;
+        setIsFinished(false);
 
         const animate = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / duration, 1);
-            // Ease out quad
-            const easeProgress = progress * (2 - progress);
-            setCount(Math.floor(easeProgress * value));
+            // Exponential ease out for high velocity count up and synchronous landing
+            const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            
+            if (progress >= 1) {
+                setCount(value);
+                setIsFinished(true);
+            } else {
+                setCount(Math.max(1, Math.floor(1 + easeProgress * (value - 1))));
+            }
 
             if (progress < 1) {
-                requestAnimationFrame(animate);
+                animationFrameId = requestAnimationFrame(animate);
             }
         };
 
-        requestAnimationFrame(animate);
+        animationFrameId = requestAnimationFrame(animate);
+
+        return () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+        };
     }, [value, duration]);
 
-    return <>{count.toLocaleString()}</>;
+    return (
+        <span className="inline-flex items-center">
+            <motion.span
+                animate={isFinished ? {
+                    scale: [1, 1.25, 1],
+                    filter: [
+                        "drop-shadow(0 0 0px transparent)",
+                        "drop-shadow(0 0 16px rgba(42,106,90,0.8))",
+                        "drop-shadow(0 0 2px rgba(42,106,90,0.2))"
+                    ]
+                } : {
+                    scale: [1, 1.06, 1],
+                    filter: ["drop-shadow(0 0 6px rgba(42,106,90,0.45))"]
+                }}
+                transition={isFinished ? { duration: 0.6, ease: "easeOut" } : { duration: 0.12, repeat: Infinity, repeatType: "reverse" }}
+                className={`inline-block font-extrabold transition-colors ${
+                    !isFinished ? "text-emerald-700 blur-[0.2px]" : "text-[#2a6a5a]"
+                }`}
+            >
+                {count.toLocaleString()}
+            </motion.span>
+            <motion.span
+                animate={isFinished ? { scale: [1, 1.4, 1], rotate: [0, 15, 0] } : { scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.05 }}
+                className="text-[#2a6a5a] font-extrabold ml-0.5 inline-block"
+            >
+                +
+            </motion.span>
+        </span>
+    );
 }
 
 export default function MedcyIvfHero({ content }: { content: any }) {
@@ -77,21 +120,21 @@ export default function MedcyIvfHero({ content }: { content: any }) {
             className="min-h-0"
             exclusionArea={{ width: '1300px', height: '650px', left: '50%' }}
         >
-            {/* Hero Two-Column Layout */}
-            <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 px-6 md:px-12 lg:px-16 text-left max-w-[1440px] mx-auto w-full pt-28 pb-8 sm:pt-32 md:pt-20 lg:pt-16 lg:pb-6">
-                {/* Left Column: Content */}
+            {/* Hero Centered Layout */}
+            <div className="relative z-10 flex flex-col items-center justify-between text-center px-6 md:px-12 lg:px-16 max-w-5xl mx-auto w-full pt-28 pb-8 sm:pt-32 sm:pb-10 md:pt-32 md:pb-10 min-h-[calc(100vh-1rem)] flex-1">
+                {/* Main Content */}
                 <motion.div
                     initial="hidden"
                     animate="visible"
                     variants={{
                         visible: { transition: { staggerChildren: 0.15 } }
                     }}
-                    className="w-full lg:w-[48%] flex flex-col items-start text-left"
+                    className="w-full flex flex-col items-center my-auto"
                 >
                     {content.badge && (
                         <motion.div 
                             variants={staggerVariants} 
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0f3d32]/5 border border-[#0f3d32]/10 text-[#0f3d32] text-xs sm:text-sm font-bold tracking-widest mb-4 uppercase"
+                            className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-[#0f3d32]/5 border border-[#0f3d32]/10 text-[#0f3d32] text-xs sm:text-sm font-bold tracking-widest mb-4 uppercase shadow-sm backdrop-blur-sm"
                         >
                             <span className="text-[#4ABFB0]">✦</span>
                             {content.badge}
@@ -100,12 +143,12 @@ export default function MedcyIvfHero({ content }: { content: any }) {
 
                     <motion.h1
                         variants={staggerVariants}
-                        className="text-4xl sm:text-[42px] md:text-[64px] lg:text-[76px] leading-[1.1] md:leading-[1.15] mb-4 text-[#38423f] tracking-tight break-words"
+                        className="text-[36px] sm:text-[48px] md:text-[60px] lg:text-[74px] leading-[1.1] mb-4 text-[#38423f] tracking-tight max-w-4xl mx-auto"
                         style={{ fontFamily: "'Playfair Display', serif", fontWeight: 300 }}
                         dangerouslySetInnerHTML={{ __html: content.title }}
                     />
 
-                    <motion.p variants={staggerVariants} className="text-[#5b6e68] text-base md:text-lg lg:text-[19px] max-w-[800px] font-normal leading-[1.7] mb-6 tracking-wide text-left">
+                    <motion.p variants={staggerVariants} className="text-[#5b6e68] text-base sm:text-lg md:text-lg max-w-xl font-normal leading-[1.6] mb-8 tracking-wide text-center mx-auto">
                         {content.subtitle}
                     </motion.p>
 
@@ -114,10 +157,10 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                         variants={staggerVariants}
                         whileHover={{
                             scale: 1.03,
-                            boxShadow: "0 30px 60px rgba(15, 61, 50, 0.45)"
+                            boxShadow: "0 25px 50px rgba(15, 61, 50, 0.4)"
                         }}
                         onClick={() => navigate('/contact')}
-                        className="flex items-center gap-3 px-8 py-4 rounded-full bg-[#0f3d32] text-white font-medium text-lg shadow-[0_20px_40px_rgba(15,61,50,0.35)] transition-all duration-300"
+                        className="flex items-center gap-3 px-9 py-4 rounded-full bg-[#0f3d32] text-white font-medium text-lg lg:text-xl shadow-[0_18px_36px_rgba(15,61,50,0.32)] transition-all duration-300"
                     >
                         {content.ctaText} <ArrowRight className="w-5 h-5" />
                     </motion.button>
@@ -125,7 +168,7 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                     {/* Horizontal Stats Section */}
                     <motion.div
                         variants={staggerVariants}
-                        className="mt-6 sm:mt-8 flex flex-row items-center justify-between sm:justify-start gap-2 sm:gap-8 px-4 sm:px-10 py-4 sm:py-5 rounded-3xl sm:rounded-full bg-white/60 backdrop-blur-md border border-white/40 shadow-sm w-full sm:w-auto"
+                        className="mt-8 sm:mt-10 flex flex-row items-center justify-center gap-3 sm:gap-10 px-6 sm:px-12 py-4.5 rounded-3xl sm:rounded-full bg-white/75 backdrop-blur-xl border border-white/80 shadow-[0_10px_35px_rgba(42,106,90,0.08)] w-full sm:w-auto mx-auto relative overflow-hidden"
                     >
                         {/* Clinics Stat */}
                         <div className="flex items-center gap-1.5 sm:gap-4 flex-1 sm:flex-none">
@@ -145,7 +188,7 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-[15px] sm:text-2xl md:text-[28px] font-bold text-[#2a6a5a] leading-none">
-                                    <AnimatedCounter value={content.stats[0].value} />+
+                                    <AnimatedCounter value={content.stats[0].value} />
                                 </span>
                                 <span className="text-[9px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{content.stats[0].label}</span>
                             </div>
@@ -168,7 +211,7 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-[15px] sm:text-2xl md:text-[28px] font-bold text-[#2a6a5a] leading-none">
-                                    <AnimatedCounter value={content.stats[1].value} />+
+                                    <AnimatedCounter value={content.stats[1].value} />
                                 </span>
                                 <span className="text-[9px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{content.stats[1].label}</span>
                             </div>
@@ -191,7 +234,7 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-[15px] sm:text-2xl md:text-[28px] font-bold text-[#2a6a5a] leading-none">
-                                    <AnimatedCounter value={content.stats[2].value} />+
+                                    <AnimatedCounter value={content.stats[2].value} />
                                 </span>
                                 <span className="text-[9px] sm:text-sm font-semibold text-slate-600 mt-0.5 sm:mt-1">{content.stats[2].label}</span>
                             </div>
@@ -199,16 +242,7 @@ export default function MedcyIvfHero({ content }: { content: any }) {
                     </motion.div>
                 </motion.div>
 
-                {/* Right Column: Interactive 3D Diagram */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95, x: 30 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    className="w-full lg:w-[50%] flex justify-center items-center relative z-20 lg:translate-x-4 mt-8 lg:mt-0 min-h-[500px] sm:min-h-[600px] lg:min-h-0"
-                >
-                    <div className="relative w-full h-full flex justify-center origin-center">
-                        <CoreNetwork />
-                    </div>
-                </motion.div>
+                {/* 3D Component removed */}
             </div>
 
             <AnimatePresence>

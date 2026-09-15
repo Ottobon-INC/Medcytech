@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { waitForIntro, isIntroComplete } from '../utils/introSync';
 
 interface StatItem {
     id: string;
@@ -32,52 +33,110 @@ const stats: StatItem[] = [
     },
 ];
 
-const easeOutCubic = (t: number): number => 1 - Math.pow(1 - t, 3);
+/**
+ * Single digit slot: shows digits 0..target stacked vertically.
+ * Scrolls the column UPWARD so the target digit lands in view.
+ */
+const SlotDigit = ({
+    target,
+    animate,
+    transitionDelay,
+}: {
+    target: number;
+    animate: boolean;
+    transitionDelay: number;
+}) => {
+    const digits = Array.from({ length: target + 1 }, (_, i) => i);
+
+    return (
+        <span
+            style={{
+                display: 'inline-block',
+                overflow: 'hidden',
+                height: '1em',
+                lineHeight: 1,
+            }}
+        >
+            <span
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transform: animate ? `translateY(-${target}em)` : 'translateY(0)',
+                    transition: animate
+                        ? `transform 1.6s cubic-bezier(0.22, 1, 0.36, 1) ${transitionDelay}ms`
+                        : 'none',
+                    willChange: 'transform',
+                }}
+            >
+                {digits.map((d) => (
+                    <span key={d} style={{ display: 'block', height: '1em', lineHeight: 1 }}>
+                        {d}
+                    </span>
+                ))}
+            </span>
+        </span>
+    );
+};
+
+const RollingNumber = ({
+    value,
+    suffix,
+    animate,
+}: {
+    value: number;
+    suffix: string;
+    animate: boolean;
+}) => {
+    const chars = value.toString().split('');
+
+    return (
+        <span style={{ display: 'inline-flex', alignItems: 'flex-end', lineHeight: 1 }}>
+            {chars.map((ch, i) => {
+                const n = parseInt(ch, 10);
+                if (!isNaN(n)) {
+                    return (
+                        <SlotDigit
+                            key={i}
+                            target={n}
+                            animate={animate}
+                            transitionDelay={i * 80}
+                        />
+                    );
+                }
+                return <span key={i}>{ch}</span>;
+            })}
+            <span>{suffix}</span>
+        </span>
+    );
+};
 
 const StatCard = ({ stat, delay }: { stat: StatItem; delay: number }) => {
-    const [displayValue, setDisplayValue] = useState('0');
-    const [isAnimating, setIsAnimating] = useState(false);
-    const [isCompleted, setIsCompleted] = useState(false);
+    const [animate, setAnimate] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
-    const startTimeRef = useRef<number | null>(null);
-    const duration = 2200; // 2.2 seconds (within 2.0-2.5s range)
+    const triggered = useRef(false);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting && !isAnimating && !isCompleted) {
-                    setTimeout(() => {
-                        setIsAnimating(true);
-                        requestAnimationFrame(animate);
-                    }, delay);
-                }
-            },
-            { threshold: 0.3 }
-        );
+        if (triggered.current) return;
 
-        if (cardRef.current) {
-            observer.observe(cardRef.current);
-        }
-
-        const animate = (timestamp: number) => {
-            if (!startTimeRef.current) startTimeRef.current = timestamp;
-            const progress = Math.min((timestamp - startTimeRef.current) / duration, 1);
-            const easedProgress = easeOutCubic(progress);
-            const currentValue = Math.floor(easedProgress * stat.targetValue);
-
-            setDisplayValue(currentValue.toLocaleString());
-
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            } else {
-                setIsAnimating(false);
-                setIsCompleted(true);
-                setDisplayValue(`${stat.targetValue.toLocaleString()}${stat.suffix}`);
-            }
+        const trigger = () => {
+            if (triggered.current) return;
+            triggered.current = true;
+            setTimeout(() => setAnimate(true), delay);
         };
 
-        return () => observer.disconnect();
-    }, [stat, delay, isAnimating, isCompleted]);
+        if (!isIntroComplete()) {
+            // First page load: sync with navbar intro finishing
+            waitForIntro().then(trigger);
+        } else {
+            // Intro already done (subsequent mounts): use IntersectionObserver
+            const observer = new IntersectionObserver(
+                (entries) => { if (entries[0].isIntersecting) trigger(); },
+                { threshold: 0.3 }
+            );
+            if (cardRef.current) observer.observe(cardRef.current);
+            return () => observer.disconnect();
+        }
+    }, [delay]);
 
     return (
         <div
@@ -85,8 +144,12 @@ const StatCard = ({ stat, delay }: { stat: StatItem; delay: number }) => {
             className="bg-white border border-[#2f8f83]/10 rounded-3xl p-8 flex flex-col items-center text-center transition-all duration-500 hover:shadow-[0_20px_50px_rgba(15,61,50,0.12)] group hover:-translate-y-1"
             aria-label={stat.ariaLabel}
         >
-            <span className="text-[48px] md:text-[60px] font-bold text-[#0f3d32] leading-none mb-3 tabular-nums tracking-tight">
-                {displayValue}
+            <span className="text-[48px] md:text-[60px] font-bold text-[#0f3d32] leading-none mb-3">
+                <RollingNumber
+                    value={stat.targetValue}
+                    suffix={stat.suffix}
+                    animate={animate}
+                />
             </span>
             <span className="text-[13px] text-[#5b6e68] uppercase tracking-[0.2em] font-semibold">
                 {stat.label}

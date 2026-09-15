@@ -5,7 +5,7 @@ const WhyUs = ({ content }: { content: any }) => {
     const { retainerModel, outcomeModel } = content;
 
     return (
-        <section id="business-proposition" className="py-32 bg-[#CFE8E5] relative overflow-hidden">
+        <section id="business-proposition" className="pt-12 pb-32 md:pt-16 md:pb-32 bg-[#CFE8E5] relative overflow-hidden">
             {/* Subtle background flair similar to other sections */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-emerald/5 blur-[120px] rounded-full pointer-events-none" />
 

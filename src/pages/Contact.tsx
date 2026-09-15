@@ -104,12 +104,12 @@ const Contact = () => {
           className="flex flex-col md:flex-row gap-16 lg:gap-24 items-center justify-between"
         >
           {/* Left Side - Text */}
-          <motion.div variants={itemVariants} className="md:w-[45%] flex flex-col items-start text-left">
+          <motion.div variants={itemVariants} className="md:w-[45%] flex flex-col items-start text-left md:pl-8 lg:pl-20 md:-mt-16">
             <span className="inline-block text-xs font-bold tracking-[0.2em] uppercase text-[#0f3d32]/60 mb-6 bg-white/50 border border-[#0f3d32]/10 px-6 py-2 rounded-full shadow-sm">
               Contact us
             </span>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#0f3d32] mb-6 leading-tight tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Book Appointment
+              Book Demo
             </h1>
             <p className="text-lg md:text-xl text-[#2a6a5a] font-light leading-relaxed max-w-md">
               Submit the form to schedule a call with our medical experts. We'll respond within a few hours.

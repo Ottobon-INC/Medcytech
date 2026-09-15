@@ -7,10 +7,7 @@ const BackToTop = () => {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            const scrolled = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            // Appear when scrolled halfway down
-            if (scrolled > height / 2) {
+            if (window.scrollY > 250) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
@@ -18,7 +15,6 @@ const BackToTop = () => {
         };
 
         window.addEventListener('scroll', toggleVisibility);
-        // Initial check
         toggleVisibility();
         
         return () => window.removeEventListener('scroll', toggleVisibility);
@@ -38,13 +34,13 @@ const BackToTop = () => {
                     initial={{ opacity: 0, scale: 0.5, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.5, y: 20 }}
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.1, backgroundColor: "#144e40" }}
                     whileTap={{ scale: 0.9 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-[90] p-4 rounded-full bg-[#0f3d32] text-white shadow-[0_20px_45px_rgba(15,61,50,0.45)] border border-white/10 hover:bg-[#4ABFB0] transition-colors group"
+                    className="fixed bottom-8 right-8 z-[90] w-12 h-12 rounded-full bg-[#0f3d32] text-white shadow-[0_10px_30px_rgba(0,0,0,0.3)] border border-white/20 flex items-center justify-center cursor-pointer transition-all duration-300 group"
                     aria-label="Back to top"
                 >
-                    <ChevronUp className="w-6 h-6 transition-transform duration-300 group-hover:-translate-y-0.5" />
+                    <ChevronUp className="w-6 h-6 transition-transform duration-300 group-hover:-translate-y-1" />
                 </motion.button>
             )}
         </AnimatePresence>

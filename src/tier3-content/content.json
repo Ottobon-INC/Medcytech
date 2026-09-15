@@ -1,8 +1,8 @@
 {
   "hero": {
     "badge": "India's first AI-driven platform providing scale",
-    "title": "Your complete <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Health Tech <br className=\"hidden md:block\" /> Infrastructure</span>",
-    "subtitle": "Empowering healthcare with intelligent Digital Front Office, state-of-the-art DLabs-LIMS, and comprehensive HIMS.",
+    "title": "Your complete Health<br /> <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Tech Infrastructure</span>",
+    "subtitle": "One platform to grow, manage, and care — Lead Generation, Digital OP Desk, and Sakhi AI.",
     "ctaText": "Partner with us?",
     "stats": [
       {
@@ -26,42 +26,100 @@
     "sectionSubtitle": "End-to-end solutions designed to seamlessly manage the complete patient journey.",
     "items": [
       {
-        "id": "dfo",
-        "title": "Digital Front Office",
-        "description": "Patient acquisition, conversion & management.",
-        "icon": "Users",
+        "id": "digital-growth",
+        "title": "Lead Generation",
         "image": "/solutions/dfo.png",
-        "bullets": [
-          "Clinic Awareness & Brand Building",
-          "Google Business Profile Optimization",
-          "WhatsApp Automation & Patient Reminders",
-          "Intelligent Patient Triage & CRM"
+        "description": "Helping hospitals, clinics and doctors build a stronger digital presence, attract relevant audiences, convert visitors into enquiries, and automate patient communication.",
+        "subsections": [
+          {
+            "title": "Google Business Profile (GBP) Management & Automation",
+            "image": "/Offerings/GBP.png",
+            "whatItIs": "We manage and optimize a hospital/clinic's Google Business Profile so that it becomes more visible when patients search locally and can generate calls and enquiries.",
+            "problemsSolved": ["Poor local visibility", "Incomplete/poorly optimized Google profile", "Low patient discovery through Google Maps", "Weak review and profile management", "Inactive digital presence"],
+            "whatWeProvide": ["Local SEO optimization", "GBP content and regular posting", "Review generation and management", "Review response management", "Q&A and profile optimization", "Performance monitoring"],
+            "mainOutcome": "More local visibility → More Google Maps discovery → More calls and enquiries."
+          },
+          {
+            "title": "WhatsApp Automation",
+            "image": "/solutions/whatsapp.jpg",
+            "whatItIs": "A system that automates patient communication through WhatsApp.",
+            "problemsSolved": ["Staff spending time on repetitive messages", "Missed appointment reminders", "Manual follow-ups", "Delayed patient communication"],
+            "whatWeProvide": ["Appointment confirmations", "Appointment reminders", "Payment confirmations", "Report-ready notifications", "Cancellation/rescheduling updates", "Automated follow-ups", "Interactive WhatsApp conversations", "Message tracking", "Consent-based communication"],
+            "mainOutcome": "Less manual work → Timely communication → Better patient experience → Fewer missed appointments/follow-ups."
+          },
+          {
+            "title": "Website Design & Development",
+            "image": "/solutions/website.jpg",
+            "whatItIs": "Professional, healthcare-focused websites designed not just to provide information, but to turn visitors into enquiries and appointments.",
+            "problemsSolved": ["Outdated or unprofessional websites", "Patients unable to understand services", "No clear appointment/enquiry path", "Poor mobile experience", "Digital visitors not converting"],
+            "whatWeProvide": ["Professional responsive website", "Service/specialty pages", "Doctor profiles", "Lead/enquiry forms", "WhatsApp and call integration", "Mobile-responsive design", "SEO-friendly structure", "Conversion-focused CTAs"],
+            "mainOutcome": "Build trust → Explain services → Generate enquiries → Increase appointment opportunities."
+          },
+          {
+            "title": "Meta & Google Ads",
+            "image": "/solutions/gbp.jpg",
+            "whatItIs": "Highly targeted paid advertising campaigns on Google, Facebook, and Instagram to instantly drive high-intent patients to your clinic.",
+            "problemsSolved": ["Difficulty reaching the right audience", "Low awareness of specific services", "Lack of measurable lead generation", "Poor campaign performance"],
+            "whatWeProvide": ["Google Search Ads (PPC)", "Meta (Facebook/Instagram) Ads", "Audience targeting & Retargeting", "Ad creatives and copy", "Lead-generation campaigns", "Landing page/WhatsApp integration", "Campaign optimization", "Performance reporting"],
+            "mainOutcome": "Capture high-intent searches on Google → Build awareness on Meta → Drive verified enquiries → Measure campaign ROI."
+          }
         ]
       },
       {
-        "id": "lims",
-        "title": "DLabs - LIMS",
-        "description": "Laboratory Information Management System.",
-        "icon": "Activity",
+        "id": "digital-opd",
+        "title": "Digital OP Desk",
         "image": "/solutions/lims.png",
-        "bullets": [
-          "End-to-end Lab Sample Tracking",
-          "Automated Results Processing",
-          "Quality Control & Compliance",
-          "Integrated Equipment Data Capture"
-        ]
+        "description": [
+          "Digitize the complete outpatient workflow of a hospital or clinic.",
+          "Digital OP Desk replaces paper-based token systems, manual patient registers and fragmented records with one unified digital system. It covers the workflow from patient registration to consultation and prescription.",
+          "Less paperwork, smoother OPD operations, better patient flow, centralized patient information, and better visibility for hospital staff."
+        ],
+        "whatItHelpsManage": ["Patient registration", "Appointment scheduling", "Token & queue management", "Doctor schedules", "Clinical notes", "Digital prescriptions", "Patient vitals", "Allergies & medical history", "Treatment plans", "Patient timeline", "Reports and document management", "Room & bed management", "Patient self-service portal", "Dashboard & analytics", "Staff management"],
+        "workflow": "Booked → Arrived → Waiting → Called → In Consultation → Completed.",
+        "targetAudience": ["Hospitals", "Clinics", "Multi-doctor practices", "Facilities managing OPD operations"]
       },
       {
-        "id": "hims",
-        "title": "HIMS",
-        "description": "Healthcare Information Management System.",
-        "icon": "Building",
-        "image": "/solutions/hims.png",
-        "bullets": [
-          "Complete Hospital Operations Management",
-          "Electronic Medical Records (EMR)",
-          "Billing, Insurance & Revenue Cycle",
-          "Multi-location Clinic Administration"
+        "id": "sakhi-ai",
+        "title": "Sakhi — AI Health Companion",
+        "image": "/solutions/sakhi-ai.jpg",
+        "description": [
+          "Pre-Sakhi: Available through WhatsApp & App to help patients explore health concerns, discover doctors, and book appointments.",
+          "Post-Sakhi: Provides automated post-procedure recovery support, clinical guidance, symptom tracking, and emergency detection."
+        ],
+        "preCare": ["General health guidance", "Symptom-related conversations", "Hospital/doctor discovery", "Appointment booking"],
+        "postCare": ["Recovery support", "Procedure-specific educational information", "Symptom triage", "Emergency detection"],
+        "technicalDetail": "Sakhi uses separate Pre-Care and Post-Care engines, with the system routing conversations according to the patient's treatment status.",
+        "importantPositioning": {
+          "not": "AI that diagnoses patients.",
+          "is": "An AI health companion for guidance, discovery, booking and clinically controlled post-care support. The Post-Care engine follows predefined clinical rules and escalates situations when required rather than guessing."
+        }
+      },
+      {
+        "id": "social-media-management",
+        "title": "Social Media Management",
+        "image": "/solutions/gbp.jpg",
+        "specialOffer": "Special Bonus: Includes our complete Google Business Profile Management & Automation for FREE.",
+        "description": [
+          "Specialized Instagram-first growth strategies designed specifically for healthcare providers.",
+          "We focus heavily on Instagram because we are experts at leveraging it for clinics. We build your brand presence to engage patients, share clinical expertise through high-quality Reels, and generate meaningful healthcare enquiries directly via DMs."
+        ],
+        "subsections": [
+          {
+            "title": "Instagram Profile Optimization",
+            "whatItIs": "We transform your Instagram bio, grid, and highlights to act as a high-converting digital storefront for new patients."
+          },
+          {
+            "title": "Medical Content & Reels Creation",
+            "whatItIs": "We produce high-quality, doctor-led video content and Reels that educate patients, build trust, and drive massive local engagement."
+          },
+          {
+            "title": "Targeted Meta Ads (Instagram Focus)",
+            "whatItIs": "We run highly targeted Instagram ads in your local area to boost visibility and direct verified enquiries to your clinic."
+          },
+          {
+            "title": "DM Automation & Lead Nurturing",
+            "whatItIs": "We manage incoming queries on Instagram, engage with your local community, and funnel interested patients directly to your front desk."
+          }
         ]
       }
     ]
@@ -421,7 +479,7 @@
   },
   "founders": {
     "sectionTag": "The Visionaries",
-    "sectionTitle": "Our Founders",
+    "sectionTitle": "About Us",
     "sectionSubtitle": "A perfect synergy of clinical expertise and engineering excellence, dedicated to building the future of healthcare infrastructure.",
     "items": [
       {
@@ -488,7 +546,7 @@
         "specialization": "Enterprise Architect and Digital Strategist",
         "subtitle": "Enterprise Architect & Technology Leader",
         "image": "/.png/bhanu_sir.png",
-        "cardImage": "/.png/Enterprise Architect & Technology Leader (3).png",
+        "cardImage": "/.png/bhanu_card_clean.png",
         "bio": "Enterprise Architect & Technology Leader with over 20 years of experience in building scalable digital platforms and enterprise ecosystems.",
         "detailedBio": "Bhanu Prasad is a seasoned enterprise architect and technology leader with over 20 years of experience in building scalable digital platforms, enterprise integrations, and end-to-end business solutions. With deep expertise in B2B commerce, CRM, and cloud-based ecosystems, he has consistently driven innovation and revenue growth across global organizations.\n\nCurrently serving as the Founder of Ottobon Inc, he focuses on building next-generation digital solutions that bridge business and technology seamlessly.",
         "expertise": [

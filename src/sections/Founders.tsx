@@ -35,15 +35,26 @@ const Founders = ({ content }: { content: any }) => {
                     >
                         {content.sectionTitle}
                     </motion.h2>
-                    <motion.p
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#2a6a5a] max-w-2xl mx-auto font-light leading-relaxed"
+                        className="max-w-4xl mx-auto"
                     >
-                        {content.sectionSubtitle}
-                    </motion.p>
+                        {/* Our Story tag */}
+                        <div className="flex items-center gap-4 justify-center mb-8">
+                            <div className="h-px w-16 bg-[#0f3d32]/20" />
+                            <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#0f3d32]/50">Our Story</span>
+                            <div className="h-px w-16 bg-[#0f3d32]/20" />
+                        </div>
+
+                        {/* Combined description */}
+                        <p className="text-center text-lg md:text-xl text-[#0f3d32] leading-relaxed font-medium" style={{ fontFamily: "'Playfair Display', serif" }}>
+                            By combining deep medical knowledge with technology-driven thinking, we are building smarter solutions that simplify healthcare, empower providers, and create better experiences for patients — driven by two decades of healthcare experience and two decades of technology expertise, united by one shared vision: to transform healthcare through innovation.
+                        </p>
+
+                    </motion.div>
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-8 md:gap-12 perspective-1000">
