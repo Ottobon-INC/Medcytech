@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import MedcyIvfHero from './components/ui/medcy-ivf-hero';
 import Partners from './sections/Partners';
-import Brands from './sections/Brands';
+
 import CoreSolutions from './sections/CoreSolutions';
 // import Challenges from './sections/Challenges';
 import Offerings from './sections/Offerings';
-import Services from './sections/Services';
+
 
 import WhyUs from './sections/WhyUs';
 import Founders from './sections/Founders';

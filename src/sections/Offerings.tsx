@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, X, ArrowRight, Zap, Activity, MapPin, Monitor, Shield, Star } from 'lucide-react';
+import { CheckCircle2, X, ArrowRight, Zap, Activity, MapPin, Monitor } from 'lucide-react';
 import { submitLead } from '../services/leadService';
 
 const plans = [
@@ -171,7 +171,7 @@ const ContactModal = ({ plan, onClose }: { plan: any; onClose: () => void }) => 
 
 const Offerings = () => {
   const [selectedPlan, setSelectedPlan] = useState<any | null>(null);
-  const [activePlanId, setActivePlanId] = useState<string | null>(null);
+
   const [isBannerExpanded, setIsBannerExpanded] = useState(false);
 
   return (
