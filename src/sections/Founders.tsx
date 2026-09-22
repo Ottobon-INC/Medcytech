@@ -51,7 +51,7 @@ const Founders = ({ content }: { content: any }) => {
 
                         {/* Combined description */}
                         <p className="text-center text-lg md:text-xl text-[#0f3d32] leading-relaxed font-medium" style={{ fontFamily: "'Playfair Display', serif" }}>
-                            By combining deep medical knowledge with technology-driven thinking, we are building smarter solutions that simplify healthcare, empower providers, and create better experiences for patients — driven by two decades of healthcare experience and two decades of technology expertise, united by one shared vision: to transform healthcare through innovation.
+                            Built by doctors and technologists, for modern clinics. We combine 20 years of clinical and digital expertise to solve the exact bottlenecks holding your practice back—empowering you to scale faster and focus on what matters most: world-class patient care.
                         </p>
 
                     </motion.div>

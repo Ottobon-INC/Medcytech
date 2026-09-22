@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, X, ArrowRight, Zap, Activity, MapPin, Monitor } from 'lucide-react';
+import { CheckCircle2, Check, X, ArrowRight, Zap, Activity, MapPin, Monitor } from 'lucide-react';
 import { submitLead } from '../services/leadService';
 
 const plans = [
@@ -17,8 +17,8 @@ const plans = [
       'Professional Website Design & Development',
       'WhatsApp Automation & Reminders',
     ],
-    highlight: true,
-    buttonText: 'Get Started',
+    highlight: false,
+    buttonText: 'Avail this pack',
   },
   {
     id: 'patient-care',
@@ -33,7 +33,7 @@ const plans = [
       'Post-Care Follow-up Automation',
     ],
     highlight: false,
-    buttonText: 'Get Started',
+    buttonText: 'Avail this pack',
   },
   {
     id: 'geotagging',
@@ -49,7 +49,7 @@ const plans = [
       '₹6 per user per month',
     ],
     highlight: false,
-    buttonText: 'Get Started',
+    buttonText: 'Avail this pack',
   },
   {
     id: 'op-desk-only',
@@ -65,7 +65,7 @@ const plans = [
       'No monthly commitment required',
     ],
     highlight: false,
-    buttonText: 'Get Started',
+    buttonText: 'Avail this pack',
   },
 ];
 
@@ -364,9 +364,9 @@ const Offerings = () => {
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch">
           {plans.map((plan, index) => {
-            const Icon = plan.icon;
             return (
               <motion.div
                 key={plan.id}
@@ -374,78 +374,75 @@ const Offerings = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="group cursor-pointer"
+                className={`relative flex flex-col h-full bg-gradient-to-b from-[#326D5D] to-[#357A6C] rounded-2xl border-2 ${plan.highlight ? 'border-[#0f3d32] shadow-2xl z-10 scale-[1.02]' : 'border-white/20 hover:border-white/50 shadow-lg'} overflow-hidden cursor-pointer active:border-white hover:shadow-[0_12px_32px_rgba(50,109,93,0.4)] transition-all duration-300`}
+                onClick={() => setSelectedPlan(plan)}
               >
-                <div
-                  className="relative h-full rounded-[24px] border border-[#0f3d32]/15 hover:border-[#0f3d32] hover:border-2 transition-all duration-300 overflow-hidden p-8 flex flex-col bg-white shadow-[0_10px_30px_rgba(15,61,50,0.05)] hover:shadow-[0_20px_50px_rgba(15,61,50,0.15)] group-hover:-translate-y-1"
-                >
-                  
-                  {plan.highlight && (
-                    <div className="absolute top-0 right-0 bg-[#0f3d32] text-[#4ABFB0] text-xs font-extrabold px-4 py-1.5 rounded-bl-xl rounded-tr-[22px] tracking-wider">
-                      MOST POPULAR
-                    </div>
-                  )}
-
-                  {/* Icon + Name */}
-                  <div className="flex items-center gap-4 mb-6 pt-2">
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 bg-[#CFE8E5]/50 text-[#0f3d32] group-hover:bg-[#0f3d32] group-hover:text-[#4ABFB0] transition-colors duration-300 border border-[#0f3d32]/10">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold tracking-tight text-[#0f3d32]">
-                        {plan.name}
-                      </h3>
-                      <p className="text-sm font-medium mt-0.5 text-[#0f3d32]/60">
-                        {plan.tagline}
-                      </p>
-                    </div>
+                {/* Banner for highlight */}
+                {plan.highlight && (
+                  <div className="bg-[#0f3d32] text-white text-center py-1.5 text-[10px] font-bold tracking-[0.15em] uppercase w-full">
+                    BEST VALUE
+                  </div>
+                )}
+                
+                <div className={`p-6 flex flex-col flex-1 ${plan.highlight ? 'pt-5' : 'pt-6'}`}>
+                  {/* Header */}
+                  <div className="mb-5 h-[76px] flex flex-col">
+                    <h3 className="text-xl md:text-2xl font-semibold text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      {plan.name}
+                    </h3>
+                    <p className="text-[11px] md:text-xs text-[#CFE8E5]/90 font-medium leading-relaxed">
+                      {plan.tagline}
+                    </p>
                   </div>
 
                   {/* Price */}
-                  <div className="mb-6">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-5xl font-bold tracking-tighter text-[#0f3d32]">
+                  <div className="mb-5 h-[68px] flex flex-col justify-end">
+                    <div className="flex items-baseline gap-1 text-white">
+                      <span className="text-3xl md:text-4xl font-bold tracking-tight text-white">
                         {plan.price}
                       </span>
-                      <span className="text-sm font-bold uppercase tracking-widest text-[#0f3d32]/60">
+                      <span className="text-sm font-medium text-[#CFE8E5]">
                         {plan.period}
                       </span>
                     </div>
-                    {plan.priceNote && (
-                      <div className="mt-2 inline-block">
-                        <p className="text-xs font-bold px-2.5 py-1 bg-[#4ABFB0]/15 text-[#0a2921] rounded-md border border-[#4ABFB0]/30 tracking-wide">
-                          {plan.priceNote}
-                        </p>
-                      </div>
+                    {plan.priceNote ? (
+                      <p className="text-[11px] font-semibold text-[#CFE8E5] mt-0.5">
+                        {plan.priceNote}
+                      </p>
+                    ) : (
+                      <p className="text-[11px] font-medium text-transparent mt-0.5 select-none">
+                        Spacer
+                      </p>
                     )}
                   </div>
 
-                  {/* Divider */}
-                  <div className="h-px mb-6 bg-[#0f3d32]/10" />
-
-                  {/* Includes */}
-                  <div className="flex flex-col gap-3 flex-1 mb-8">
-                    {plan.includes.map((item, i) => (
-                      <div key={i} className="group/item flex items-start gap-3 cursor-pointer">
-                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5 text-[#4ABFB0]/70 transition-all duration-300 group-hover/item:text-[#0f3d32] group-hover/item:scale-125 group-hover/item:drop-shadow-[0_0_8px_rgba(74,191,176,0.8)]" strokeWidth={2.5} />
-                        <span className="text-sm font-medium leading-snug text-[#0f3d32]/80 group-hover/item:text-[#0f3d32] transition-colors">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
+                  {/* Plan details */}
+                  <div className="flex-1 mb-6">
+                    <p className="text-[11px] font-bold text-white uppercase tracking-wider mb-3">Plan details:</p>
+                    <ul className="space-y-3">
+                      {plan.includes.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2.5">
+                          <Check className="w-3.5 h-3.5 shrink-0 mt-[1.5px] text-[#CFE8E5]" strokeWidth={3} />
+                          <span className="text-[11.5px] md:text-xs text-white/95 font-medium leading-snug">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* CTA */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedPlan(plan);
-                    }}
-                    className="w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 shadow-md bg-[#0f3d32] text-white hover:bg-[#4ABFB0] hover:text-[#0f3d32]"
-                  >
-                    {plan.buttonText}
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </button>
+                  {/* Button */}
+                  <div className="mt-auto">
+                    <button
+                      onClick={(e) => {
+                         e.stopPropagation();
+                         setSelectedPlan(plan);
+                      }}
+                      className="w-full py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all duration-300 text-center bg-[#0f3d32] text-white hover:bg-white hover:text-[#0f3d32] shadow-sm"
+                    >
+                      {plan.buttonText || 'Find your plan'}
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             );

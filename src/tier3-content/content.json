@@ -1,8 +1,8 @@
 {
   "hero": {
     "badge": "India's first AI-driven platform providing scale",
-    "title": "Your complete Health<br /> <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Tech Infrastructure</span>",
-    "subtitle": "One platform to grow, manage, and care — Lead Generation, Digital OP Desk, and Sakhi AI.",
+    "title": "Your complete<br /> <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Digital Health Solution</span>",
+    "subtitle": "One platform to grow, manage, and care — Digital Presence, Patient Experience, and Admin.",
     "ctaText": "Partner with us?",
     "stats": [
       {
@@ -22,103 +22,200 @@
   },
   "coreSolutions": {
     "sectionTag": "Our Core Offerings",
-    "sectionTitle": "The Infrastructure of Modern Healthcare",
-    "sectionSubtitle": "End-to-end solutions designed to seamlessly manage the complete patient journey.",
+    "sectionTitle": "The Complete Digital Foundation",
+    "sectionSubtitle": "Simple, complete solutions designed to manage the entire patient journey from start to finish.",
     "items": [
       {
         "id": "digital-growth",
-        "title": "Lead Generation",
+        "title": "Digital Presence",
         "image": "/solutions/dfo.png",
         "description": "Helping hospitals, clinics and doctors build a stronger digital presence, attract relevant audiences, convert visitors into enquiries, and automate patient communication.",
+        "sBloom": {
+          "title": "sBloom",
+          "description": [
+            "3 Core Services: We provide complete management for Website/SEO, Viral Video Content Creation, and Targeted Meta Ads.",
+            "Monthly Batching: We shoot and deliver 24-30 high-quality videos to cover your entire content schedule for one complete month, helping you avoid burnout.",
+            "Tailored Audience Gateways: Specialized content strategies for creators, experts, consultants, and institutions to build ethical authority and drive inquiries."
+          ]
+        },
         "subsections": [
           {
-            "title": "Google Business Profile (GBP) Management & Automation",
-            "image": "/Offerings/GBP.png",
-            "whatItIs": "We manage and optimize a hospital/clinic's Google Business Profile so that it becomes more visible when patients search locally and can generate calls and enquiries.",
-            "problemsSolved": ["Poor local visibility", "Incomplete/poorly optimized Google profile", "Low patient discovery through Google Maps", "Weak review and profile management", "Inactive digital presence"],
-            "whatWeProvide": ["Local SEO optimization", "GBP content and regular posting", "Review generation and management", "Review response management", "Q&A and profile optimization", "Performance monitoring"],
-            "mainOutcome": "More local visibility → More Google Maps discovery → More calls and enquiries."
+            "title": "Google Maps & Search Setup",
+            "image": "/solutions/gmaps_clinic_setup.jpg",
+            "whatItIs": [
+              "Complete setup and optimization of your Google Business profile so your clinic appears at the top when patients search nearby.",
+              "Accurate listing of medical specialties, operating hours, emergency contact numbers, and verified clinic address.",
+              "Active review collection strategy to build authentic 5-star patient testimonials that outrank local competitors.",
+              "Precise Google Maps geo-pinning and landmark navigation so first-time visitors reach your clinic effortlessly."
+            ],
+            "problemsSolved": ["Patients can't find you online", "Missing or wrong clinic information", "Few patient reviews", "Competitors appearing above you"],
+            "whatWeProvide": ["Setting up your clinic on Google Maps", "Updating your working hours and photos", "Helping you get more positive reviews from patients", "Answering common patient questions online"],
+            "mainOutcome": "More people see your clinic on Google → You get more patient calls and walk-ins."
           },
           {
-            "title": "WhatsApp Automation",
-            "image": "/solutions/whatsapp.jpg",
-            "whatItIs": "A system that automates patient communication through WhatsApp.",
-            "problemsSolved": ["Staff spending time on repetitive messages", "Missed appointment reminders", "Manual follow-ups", "Delayed patient communication"],
-            "whatWeProvide": ["Appointment confirmations", "Appointment reminders", "Payment confirmations", "Report-ready notifications", "Cancellation/rescheduling updates", "Automated follow-ups", "Interactive WhatsApp conversations", "Message tracking", "Consent-based communication"],
-            "mainOutcome": "Less manual work → Timely communication → Better patient experience → Fewer missed appointments/follow-ups."
+            "title": "Smart WhatsApp Messaging",
+            "image": "/solutions/whatsapp_clinic_chat.png",
+            "whatItIs": [
+              "Automated appointment confirmations and smart reminders to engage patients 24/7 and cut no-show rates.",
+              "Instant delivery of digital prescriptions, lab test reports, and billing receipts directly to patients' WhatsApp.",
+              "Pre-consultation guidance and fasting preparation checklists sent automatically prior to procedures.",
+              "Interactive 1-tap reschedule and cancellation handling that instantly frees up doctor slots for walk-in patients."
+            ],
+            "problemsSolved": ["Staff wasting time typing the same messages", "Patients forgetting their appointments", "Slow replies to patient questions", "Patients not knowing how to prepare for visits"],
+            "whatWeProvide": ["Automatic appointment reminders", "Instant answers to common questions", "Sending lab reports directly to patients' phones", "Sending directions to your clinic"],
+            "mainOutcome": "Less work for your staff → Happy patients → Fewer missed appointments."
           },
           {
-            "title": "Website Design & Development",
-            "image": "/solutions/website.jpg",
-            "whatItIs": "Professional, healthcare-focused websites designed not just to provide information, but to turn visitors into enquiries and appointments.",
-            "problemsSolved": ["Outdated or unprofessional websites", "Patients unable to understand services", "No clear appointment/enquiry path", "Poor mobile experience", "Digital visitors not converting"],
-            "whatWeProvide": ["Professional responsive website", "Service/specialty pages", "Doctor profiles", "Lead/enquiry forms", "WhatsApp and call integration", "Mobile-responsive design", "SEO-friendly structure", "Conversion-focused CTAs"],
-            "mainOutcome": "Build trust → Explain services → Generate enquiries → Increase appointment opportunities."
+            "title": "Clinic Website Creation",
+            "image": "/solutions/clinic_website_showcase.jpg",
+            "whatItIs": [
+              "Modern, mobile-responsive clinic website designed to build patient trust and maximize appointment bookings.",
+              "Doctor credentials showcase highlighting qualifications, surgical specialties, and degrees to foster confidence.",
+              "Direct front-desk appointment booking integration that syncs instantly with clinic calendars.",
+              "Lightning-fast page loading with 1-click 'Call Clinic' and 'Get Directions' floating action buttons."
+            ],
+            "problemsSolved": ["Old or hard-to-use website", "Website doesn't work well on mobile phones", "Patients visit your site but don't call you", "Patients don't understand your specific services"],
+            "whatWeProvide": ["A beautiful, professional website", "Clear pages explaining your treatments", "Easy buttons for patients to contact you", "Profiles showing your doctors' expertise"],
+            "mainOutcome": "Patients trust you more → They understand what you do → They book more visits."
           },
           {
-            "title": "Meta & Google Ads",
-            "image": "/solutions/gbp.jpg",
-            "whatItIs": "Highly targeted paid advertising campaigns on Google, Facebook, and Instagram to instantly drive high-intent patients to your clinic.",
-            "problemsSolved": ["Difficulty reaching the right audience", "Low awareness of specific services", "Lack of measurable lead generation", "Poor campaign performance"],
-            "whatWeProvide": ["Google Search Ads (PPC)", "Meta (Facebook/Instagram) Ads", "Audience targeting & Retargeting", "Ad creatives and copy", "Lead-generation campaigns", "Landing page/WhatsApp integration", "Campaign optimization", "Performance reporting"],
-            "mainOutcome": "Capture high-intent searches on Google → Build awareness on Meta → Drive verified enquiries → Measure campaign ROI."
+            "title": "Online Advertising",
+            "image": "/solutions/online_ads_clinic.png",
+            "whatItIs": [
+              "Targeted Google, Facebook, and Instagram campaigns reaching patients actively searching for medical care.",
+              "Hyper-local geo-targeting focused strictly within your clinic's catchment radius (5–15 km) to avoid wasted spend.",
+              "Condition-specific ad campaigns designed for specialized treatments and high-value clinical procedures.",
+              "Transparent ROI tracking with live reports detailing verified phone calls, patient leads, and acquisition costs."
+            ],
+            "problemsSolved": ["Not enough new patients", "People don't know about your special treatments", "Spending money on ads that don't work", "Empty waiting rooms"],
+            "whatWeProvide": ["Running ads on Google Search", "Running ads on Facebook and Instagram", "Writing the ad text and making images", "Tracking how many patients the ads bring in"],
+            "mainOutcome": "Reach people who need a doctor now → Get more direct calls → See exactly what you get for your money."
+          },
+          {
+            "title": "Search Engine Optimization",
+            "image": "/solutions/clinic_seo_growth.png",
+            "whatItIs": [
+              "Organic search ranking optimization so Google naturally displays your clinic at the top without ongoing ad costs.",
+              "Targeting high-intent local search queries like 'best clinic near me' and specialty doctor searches in your city.",
+              "Medically verified health articles and patient FAQs written in clear language to establish clinical authority.",
+              "Technical medical schema markup and mobile speed optimization to guarantee high Google search visibility."
+            ],
+            "problemsSolved": ["Your website doesn't show up on the first page of Google", "Competitors are getting all the patients", "People searching for your treatments can't find you"],
+            "whatWeProvide": ["Finding what words patients type into Google", "Updating your website to match those words", "Making your website trusted by Google", "Creating helpful health content for your site"],
+            "mainOutcome": "Show up higher on Google → More people visit your website → You get more patients for free."
           }
         ]
       },
       {
         "id": "digital-opd",
-        "title": "Digital OP Desk",
+        "title": "Patient Experience",
         "image": "/solutions/lims.png",
-        "description": [
-          "Digitize the complete outpatient workflow of a hospital or clinic.",
-          "Digital OP Desk replaces paper-based token systems, manual patient registers and fragmented records with one unified digital system. It covers the workflow from patient registration to consultation and prescription.",
-          "Less paperwork, smoother OPD operations, better patient flow, centralized patient information, and better visibility for hospital staff."
+        "description": "Automating the operational journey—from the first appointment to full recovery at home—so doctors can focus entirely on providing excellent patient care.",
+        "subsections": [
+          {
+            "title": "Digital OP",
+            "whatItIs": [
+              "A completely paperless system at the clinic to manage registrations, tokens, and consultations smoothly without long wait times.",
+              "Real-time token display and automated queue tracking to eliminate waiting room crowding and keep patients informed.",
+              "Seamless doctor-desk synchronization for fast vitals recording, digital prescription generation, and instant billing handoff."
+            ],
+            "image": "/solutions/digital_op_reception.jpg?v=2"
+          },
+          {
+            "title": "Sakhi — AI Health Companion",
+            "whatItIs": [
+              "Round-the-clock guidance and support via WhatsApp.",
+              "PRE-CARE: Answering patient questions, helping prepare for visits, and assisting with doctor discovery and appointment booking.",
+              "POST-CARE: Staying connected at home with procedure-specific education, symptom triage, and emergency detection."
+            ],
+            "image": "/solutions/sakhi_patient_companion.jpg?v=2"
+          }
         ],
-        "whatItHelpsManage": ["Patient registration", "Appointment scheduling", "Token & queue management", "Doctor schedules", "Clinical notes", "Digital prescriptions", "Patient vitals", "Allergies & medical history", "Treatment plans", "Patient timeline", "Reports and document management", "Room & bed management", "Patient self-service portal", "Dashboard & analytics", "Staff management"],
-        "workflow": "Booked → Arrived → Waiting → Called → In Consultation → Completed.",
         "targetAudience": ["Hospitals", "Clinics", "Multi-doctor practices", "Facilities managing OPD operations"]
       },
       {
         "id": "sakhi-ai",
-        "title": "Sakhi — AI Health Companion",
-        "image": "/solutions/sakhi-ai.jpg",
-        "description": [
-          "Pre-Sakhi: Available through WhatsApp & App to help patients explore health concerns, discover doctors, and book appointments.",
-          "Post-Sakhi: Provides automated post-procedure recovery support, clinical guidance, symptom tracking, and emergency detection."
+        "title": "Admin",
+        "image": "/solutions/sakhi-ai.jpg?v=2",
+        "description": "Comprehensive clinic administration tools to manage your staff, locations, and internal operations efficiently.",
+        "subsections": [
+          {
+            "title": "Geo Tagging & Attendance Tracking",
+            "image": "/solutions/geotagging_attendance.jpg?v=4",
+            "whatItIs": [
+              "GPS-Verified Attendance: Location-based check-ins with selfie proof and geofence validation for accurate attendance.",
+              "Field Visit Tracking: Easily assign and track patient visits, deliveries, or sample collections with configurable boundaries.",
+              "Geo-Stamped Photo Proof: Capture GPS coordinates, timestamps, and photos to ensure reliable evidence for compliance and audits.",
+              "Live Route Visibility: Provide managers with a real-time map view of field operations, route progress, and travel times.",
+              "Location Timeline & Events: Enable field teams to drop categorized pins and set temporary geofences for medical camps or off-site events.",
+              "Accountability & Data Security: Maintain a secure, auditable history of location events while capturing data only during active business tasks."
+            ]
+          },
+          {
+            "title": "Comprehensive HRMS",
+            "image": "/solutions/clinic_hrms_desk.jpg",
+            "whatItIs": [
+              "Role-Based Access Control: Secure user portals tailored for Admins, Clinic Staff, and Field Employees to manage their specific tasks.",
+              "Core HR Modules: All-in-one suite covering employee profiles, attendance logs, leave requests, shift scheduling, and secure payroll.",
+              "Automated Payroll Processing: Advanced engines that seamlessly integrate attendance and geofencing data directly into accurate payroll.",
+              "Field Force Management: Integrated GPS tracking and geofence validation to monitor remote staff operations and mobile units.",
+              "Data Centralization & Security: A robust, centralized database that securely manages all sensitive employee records and audit logs.",
+              "Cross-Module Workflows: Intelligent automations that eliminate manual data entry by linking attendance and leave to salary slips."
+            ]
+          }
         ],
-        "preCare": ["General health guidance", "Symptom-related conversations", "Hospital/doctor discovery", "Appointment booking"],
-        "postCare": ["Recovery support", "Procedure-specific educational information", "Symptom triage", "Emergency detection"],
-        "technicalDetail": "Sakhi uses separate Pre-Care and Post-Care engines, with the system routing conversations according to the patient's treatment status.",
-        "importantPositioning": {
-          "not": "AI that diagnoses patients.",
-          "is": "An AI health companion for guidance, discovery, booking and clinically controlled post-care support. The Post-Care engine follows predefined clinical rules and escalates situations when required rather than guessing."
-        }
+        "targetAudience": ["Clinic Administrators", "Hospital Management"]
       },
       {
         "id": "social-media-management",
-        "title": "Social Media Management",
-        "image": "/solutions/gbp.jpg",
-        "specialOffer": "Special Bonus: Includes our complete Google Business Profile Management & Automation for FREE.",
-        "description": [
-          "Specialized Instagram-first growth strategies designed specifically for healthcare providers.",
-          "We focus heavily on Instagram because we are experts at leveraging it for clinics. We build your brand presence to engage patients, share clinical expertise through high-quality Reels, and generate meaningful healthcare enquiries directly via DMs."
-        ],
+        "title": "Infrastructure Development",
+        "image": "/solutions/gbp.jpg?v=2",
+        "description": "Powering the digital system for your clinic with reliable, secure, and fully managed infrastructure.",
         "subsections": [
           {
-            "title": "Instagram Profile Optimization",
-            "whatItIs": "We transform your Instagram bio, grid, and highlights to act as a high-converting digital storefront for new patients."
+            "title": "WhatsApp",
+            "image": "/solutions/whatsapp_infrastructure.jpg?v=4",
+            "whatItIs": [
+              "Official WhatsApp Business API integration for seamless patient communication.",
+              "Automated appointment confirmations, instant reschedule requests, and broadcast health alerts sent directly to patient phones.",
+              "Secure delivery of digital prescriptions, lab reports, and pre-procedure preparation guidelines without manual staff effort."
+            ]
           },
           {
-            "title": "Medical Content & Reels Creation",
-            "whatItIs": "We produce high-quality, doctor-led video content and Reels that educate patients, build trust, and drive massive local engagement."
+            "title": "Domain Management",
+            "image": "/solutions/domain_management.jpg",
+            "whatItIs": [
+              "Registration, renewal, and complete management of your clinic's web domain.",
+              "Protection against domain expiration and hijacking with automated DNS configuration and brand name locking.",
+              "Custom professional email address setup (e.g., doctor@yourclinic.com) to reinforce clinic credibility and patient trust."
+            ]
           },
           {
-            "title": "Targeted Meta Ads (Instagram Focus)",
-            "whatItIs": "We run highly targeted Instagram ads in your local area to boost visibility and direct verified enquiries to your clinic."
+            "title": "Web Hosting & Server",
+            "image": "/solutions/web_hosting.jpg?v=4",
+            "whatItIs": [
+              "High-performance, secure servers tailored to keep your clinic's digital services running 24/7.",
+              "99.9% uptime guarantee with ultra-fast page load speeds optimized for mobile visitors searching for nearby care.",
+              "Scalable cloud infrastructure that effortlessly handles high patient traffic spikes during outreach and marketing campaigns."
+            ]
           },
           {
-            "title": "DM Automation & Lead Nurturing",
-            "whatItIs": "We manage incoming queries on Instagram, engage with your local community, and funnel interested patients directly to your front desk."
+            "title": "SSL Certificate & Website Security",
+            "image": "/solutions/ssl_certificate.jpg?v=4",
+            "whatItIs": [
+              "End-to-end encryption and robust security protocols to protect patient data and clinic reputation.",
+              "Dedicated HTTPS SSL certificates that display the trusted padlock icon to reassure patients booking visits.",
+              "Active firewall defense, malware scanning, and automated DDoS protection to defend clinic systems against cyber threats."
+            ]
+          },
+          {
+            "title": "Website Maintenance & Technical Support",
+            "image": "/solutions/website_maintenance.jpg?v=4",
+            "whatItIs": [
+              "Ongoing updates, backups, and priority support to ensure everything works flawlessly.",
+              "Daily automated cloud backups ensuring patient records and website data are instantly restorable in any emergency.",
+              "Routine plugin, framework, and security patch updates with proactive monitoring to prevent downtime before it occurs."
+            ]
           }
         ]
       }

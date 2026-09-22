@@ -41,14 +41,14 @@ const WhyUs = ({ content }: { content: any }) => {
                 </div>
 
                 {/* Grid Layout (2 columns for models) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
                     {/* Retainer Model */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="p-8 md:p-12 rounded-[32px] bg-white border border-[#0f3d32]/10 flex flex-col justify-between shadow-[0_15px_40px_rgba(15,61,50,0.08)] h-full"
+                        className="p-6 md:p-8 rounded-[32px] bg-white border border-[#0f3d32]/10 flex flex-col justify-between shadow-[0_15px_40px_rgba(15,61,50,0.08)] h-full"
                     >
                         <div>
                             <div className="inline-block px-4 py-1.5 rounded-full bg-[#0f3d32]/5 text-[#0f3d32]/70 text-sm font-bold uppercase tracking-widest mb-6">
@@ -90,7 +90,7 @@ const WhyUs = ({ content }: { content: any }) => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="relative p-8 md:p-12 rounded-[32px] overflow-hidden bg-[#0f3d32] text-white flex flex-col justify-between shadow-[0_20px_50px_rgba(15,61,50,0.3)] h-full"
+                        className="relative p-6 md:p-8 rounded-[32px] overflow-hidden bg-[#0f3d32] text-white flex flex-col justify-between shadow-[0_20px_50px_rgba(15,61,50,0.3)] h-full"
                     >
                         {/* Glow effect */}
                         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#4ABFB0]/20 blur-[80px] rounded-full pointer-events-none transform translate-x-1/3 -translate-y-1/3" />

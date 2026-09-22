@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import MedcyIvfHero from './components/ui/medcy-ivf-hero';
+import ProblemsSolutions from './sections/ProblemsSolutions';
 import Partners from './sections/Partners';
 
 import CoreSolutions from './sections/CoreSolutions';
@@ -18,40 +19,21 @@ import Preloader from './components/Preloader';
 import ChallengesPage from './pages/ChallengesPage';
 import OfferingsPage from './pages/OfferingsPage';
 import WhyUsPage from './pages/WhyUsPage';
+import SolutionDetailsPage from './pages/SolutionDetailsPage';
 
 
 import BackToTop from './components/BackToTop';
 import content from './tier3-content/content.json';
 import SEO from './components/SEO';
-
-const Footer = () => (
-  <footer className="pt-0 pb-6 border-t border-white/5 bg-background">
-    <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-      <div className="flex items-center">
-        <img
-          src="/.png/Group 97.png"
-          alt="Medcy Logo"
-          className="h-12 md:h-16 w-auto object-contain"
-        />
-      </div>
-
-      <div className="flex gap-8 text-sm text-slate-500 font-medium">
-        <a href="#" className="hover:text-brand-teal transition-colors">Privacy Policy</a>
-        <a href="#" className="hover:text-brand-teal transition-colors">Terms of Service</a>
-        <a href="#" className="hover:text-brand-teal transition-colors">Cookies</a>
-      </div>
-
-      <p className="text-sm text-slate-400">© 2026 Medcy health Tech. Built for the future of care.</p>
-    </div>
-  </footer>
-);
+import Footer from './components/Footer';
 
 const HomePage = () => (
   <main>
     <SEO title="Home" description={content.hero.subtitle} />
     <MedcyIvfHero content={content.hero} />
-    <Partners />
+    <ProblemsSolutions />
     <CoreSolutions content={content.coreSolutions} />
+    <Partners />
     {/* <Challenges content={content.challenges} /> */}
     <Offerings />
     <WhyUs content={content.whyUs} />
@@ -111,6 +93,7 @@ const AnimatedRoutes = () => {
         <Route path="/challenges" element={<PageTransition><ChallengesPage content={content} /></PageTransition>} />
         <Route path="/offerings" element={<PageTransition><OfferingsPage content={content} /></PageTransition>} />
         <Route path="/why-us" element={<PageTransition><WhyUsPage content={content} /></PageTransition>} />
+        <Route path="/solutions/:id" element={<PageTransition><SolutionDetailsPage /></PageTransition>} />
 
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>

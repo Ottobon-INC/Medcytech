@@ -31,5 +31,15 @@ Medcytech offers tailored pricing packages designed to scale with your clinic or
 - Advanced analytics and revenue cycle management
 **Pricing:** Scalable enterprise licensing. Custom implementation and training fees apply.
 
+## 4. HRMS (Human Resource Management System)
+**Ideal for:** Clinics and hospitals needing to manage staff, payroll, and field operations efficiently.
+**Key Features (Architecture):**
+- **Users & Access:** Roles for Admin, Employee, and Field Employee.
+- **HRMS Modules:** Features like Employee Management, Attendance & Leave, Tasks, and Payroll.
+- **Core Business Services:** Geofencing, GPS Validation, Payroll Calculation Engine, and Authentication.
+- **Data Layer:** Centralized PostgreSQL database for all employee and event records.
+- **Cross-Module Flows:** Automated flows from Attendance/Geofencing directly to the Payroll engine.
+**Pricing:** Custom pricing based on module selection and workforce size.
+
 ### Book a Demo
 For detailed pricing tailored to your specific requirements, please visit our [Contact Page](https://medcytech.com/contact) to schedule a consultation with our experts.

@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { markIntroComplete } from '../utils/introSync';
 
-const navLinks = ["Partners", "Offerings", "Pricing", "About Us"];
+const navLinks = ["Challenges", "Clients", "Offerings", "Pricing", "About Us"];
 const getNavPath = (link: string) => {
-  if (link === "Partners") return "/#partners";
+  if (link === "Clients") return "/#partners";
+  if (link === "Challenges") return "/#challenges";
   if (link === "Offerings") return "/#core-solutions";
   if (link === "Pricing") return "/#pricing";
   if (link === "About Us") return "/#our-founders";
@@ -186,12 +187,12 @@ const Navbar = () => {
             className="flex items-center gap-2 shrink-0"
           >
             <motion.button
-              whileHover={{ scale: 1.03, boxShadow: "0 25px 50px rgba(15,61,50,0.45)", backgroundColor: "#08241e" }}
+              whileHover={{ scale: 1.03, boxShadow: "0 25px 50px rgba(18,148,167,0.45)", backgroundColor: "#0e7685" }}
               whileTap={{ scale: 0.97 }}
               onClick={() => navigate('/contact')}
-              className="group hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#0f3d32] text-white text-sm font-semibold transition-all shadow-[0_15px_30px_rgba(15,61,50,0.35)] whitespace-nowrap"
+              className="group hidden sm:flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#1294a7] text-white text-sm font-semibold transition-all shadow-[0_15px_30px_rgba(18,148,167,0.35)] whitespace-nowrap"
             >
-              Partner with us? <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+              Book a Demo <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
             </motion.button>
 
             <button
@@ -244,9 +245,9 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 onClick={() => { navigate('/contact'); setIsMobileMenuOpen(false); }}
-                className="mt-8 flex items-center justify-between p-6 rounded-3xl bg-[#0f3d32] text-white text-xl font-medium group"
+                className="mt-8 flex items-center justify-between p-6 rounded-3xl bg-[#1294a7] text-white text-xl font-medium group"
               >
-                Partner with us?
+                Book a Demo
                 <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-2" />
               </motion.button>
             </div>

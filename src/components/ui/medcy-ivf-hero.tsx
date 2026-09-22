@@ -120,6 +120,30 @@ export default function MedcyIvfHero({ content }: { content: any }) {
             className="min-h-0"
             exclusionArea={{ width: '1300px', height: '650px', left: '50%' }}
         >
+            {/* Half Lotus Brand Motif with Gold (Left Side - Bottom 70% Only) */}
+            <div className="absolute left-0 bottom-0 h-[70vh] sm:h-[70%] max-h-[70vh] pointer-events-none select-none z-[4] flex items-end justify-start overflow-hidden">
+                <motion.img 
+                    src="/lotus_with_gold_half_right.png" 
+                    alt="Medcy Brand Motif Left" 
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 0.38, x: 0 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="h-full w-auto max-h-[70vh] object-contain object-left-bottom"
+                />
+            </div>
+
+            {/* Half Lotus Brand Motif with Gold (Right Side - Top 70% Only) */}
+            <div className="absolute right-0 top-0 h-[70vh] sm:h-[70%] max-h-[70vh] pointer-events-none select-none z-[4] flex items-start justify-end overflow-hidden">
+                <motion.img 
+                    src="/lotus_with_gold_half_left.png" 
+                    alt="Medcy Brand Motif Right" 
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 0.38, x: 0 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="h-full w-auto max-h-[70vh] object-contain object-right-top"
+                />
+            </div>
+
             {/* Hero Centered Layout */}
             <div className="relative z-10 flex flex-col items-center justify-between text-center px-6 md:px-12 lg:px-16 max-w-5xl mx-auto w-full pt-28 pb-8 sm:pt-32 sm:pb-10 md:pt-32 md:pb-10 min-h-[calc(100vh-1rem)] flex-1">
                 {/* Main Content */}

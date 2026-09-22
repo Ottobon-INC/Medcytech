@@ -59,7 +59,7 @@ const Partners = () => {
             className="text-4xl md:text-5xl font-medium mb-5 text-[#0f3d32] tracking-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Our Partners
+            Our Clients
           </h2>
           <p className="text-[#0f3d32]/80 max-w-xl mx-auto font-medium leading-relaxed text-sm md:text-base">
             Collaborating with leading clinics and healthcare organizations to build a unified ecosystem that elevates patient care.
