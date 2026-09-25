@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const challenges = [
   {
@@ -32,27 +32,51 @@ const challenges = [
   },
 ];
 
-
-
 const ProblemsSolutions = () => {
-  const [activeTab, setActiveTab] = useState(challenges[0].id);
-  const activeChallenge = challenges.find((c) => c.id === activeTab) || challenges[0];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const animFrameId = useRef<number | null>(null);
+
+  const handleScroll = () => {
+    if (animFrameId.current !== null) return;
+    animFrameId.current = requestAnimationFrame(() => {
+      animFrameId.current = null;
+      const container = scrollContainerRef.current;
+      if (!container) return;
+      const scrollTop = container.scrollTop;
+      const itemHeight = container.clientHeight;
+      if (itemHeight > 0) {
+        const index = Math.round(scrollTop / itemHeight);
+        if (index >= 0 && index < challenges.length && index !== activeIndex) {
+          setActiveIndex(index);
+        }
+      }
+    });
+  };
+
+  useEffect(() => {
+    return () => {
+      if (animFrameId.current !== null) {
+        cancelAnimationFrame(animFrameId.current);
+      }
+    };
+  }, []);
 
   return (
-    <section id="challenges" className="py-24 relative overflow-hidden">
+    <section id="challenges" className="py-20 md:py-28 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-5 bg-[#0f3d32]/5 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full">
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-4 bg-[#0f3d32]/5 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full">
             What We Do
           </span>
           <h2
-            className="text-4xl md:text-5xl font-medium mb-5 text-[#0f3d32] tracking-tight"
+            className="text-4xl md:text-5xl font-medium mb-4 text-[#0f3d32] tracking-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             A Better Way Forward
@@ -62,35 +86,21 @@ const ProblemsSolutions = () => {
           </p>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch">
+        <div className="flex flex-col md:flex-row gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch">
           
-          {/* Left Side: Tabs */}
-          <div className="w-full md:w-1/3 flex flex-col gap-3 relative">
-            {challenges.map((challenge) => {
-              const isActive = activeTab === challenge.id;
+          {/* Left Side: Display-only Problem Cards */}
+          <div className="w-full md:w-1/3 flex flex-col justify-between gap-3 relative h-[340px] sm:h-[360px] md:h-[370px]">
+            {challenges.map((challenge, index) => {
+              const isActive = activeIndex === index;
               return (
-                <button
+                <div
                   key={challenge.id}
-                  onClick={() => setActiveTab(challenge.id)}
-                  onMouseEnter={() => setActiveTab(challenge.id)}
-                  className={`group relative text-left p-5 rounded-xl transition-all duration-300 border overflow-hidden ${
+                  className={`group relative text-left px-5 py-3 rounded-xl transition-all duration-300 border overflow-hidden flex-1 flex flex-col justify-center select-none ${
                     isActive 
-                      ? 'border-[#0f3d32] translate-x-1 md:translate-x-2 shadow-lg shadow-[#0f3d32]/10' 
-                      : 'bg-white/40 backdrop-blur-sm border-[#0f3d32]/10 hover:border-[#4ABFB0]/50 hover:bg-white/70 hover:translate-x-1'
+                      ? 'bg-[#0f3d32] border-[#0f3d32] translate-x-1 md:translate-x-2 shadow-lg shadow-[#0f3d32]/10' 
+                      : 'bg-white/40 backdrop-blur-sm border-[#0f3d32]/10'
                   }`}
                 >
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeTabBackground"
-                      className="absolute inset-0 bg-[#0f3d32]"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  {/* Hover Background for inactive tabs */}
-                  {!isActive && (
-                    <div className="absolute inset-0 bg-slate-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  )}
                   <div className="relative z-10 flex items-baseline gap-3">
                     <span className={`text-sm font-bold transition-colors duration-300 ${isActive ? 'text-[#4ABFB0]' : 'text-[#4ABFB0]/70'}`}>
                       {challenge.id}.
@@ -99,72 +109,89 @@ const ProblemsSolutions = () => {
                       {challenge.title}
                     </h3>
                   </div>
-                </button>
+                </div>
               );
             })}
           </div>
 
-          {/* Right Side: Content */}
-          <div className="w-full md:w-2/3 bg-white/40 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-[#0f3d32]/10 shadow-[0_8px_40px_rgb(0,0,0,0.06)] relative overflow-hidden flex flex-col min-h-[320px]">
-            {/* Animated decorative blobs */}
+          {/* Right Side: Details Box Container */}
+          <div className="w-full md:w-2/3 bg-[#e8f5f1]/60 backdrop-blur-md rounded-3xl border border-[#0f3d32]/15 shadow-[0_8px_30px_rgb(15,61,50,0.06)] relative overflow-hidden flex flex-col h-[340px] sm:h-[360px] md:h-[370px]">
+            
+            {/* Animated decorative background glow */}
             <motion.div 
-              className="absolute -top-[30%] -right-[10%] w-[60%] h-[70%] rounded-full bg-[#4ABFB0]/15 blur-3xl pointer-events-none"
+              className="absolute -top-[30%] -right-[10%] w-[60%] h-[70%] rounded-full bg-[#4ABFB0]/20 blur-3xl pointer-events-none z-0"
               animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.5, 0.8, 0.5],
-                x: [0, -30, 0],
               }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.div 
-              className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#0f3d32]/5 blur-3xl pointer-events-none"
-              animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.3, 0.6, 0.3],
-                x: [0, 30, 0],
+
+            {/* Medcy Lotus Motif Top Right Inside Box */}
+            <div className="absolute top-0 right-0 pointer-events-none select-none z-0 w-44 sm:w-56 md:w-64 h-44 sm:h-56 md:h-64 overflow-hidden flex items-start justify-end">
+              <img 
+                src="/lotus_with_gold_half_left.png" 
+                alt="Medcy Logo Motif" 
+                className="w-full h-auto max-h-full object-contain object-right-top opacity-35"
+              />
+            </div>
+
+            {/* Scroll Indicator Badge at Top Right */}
+            <div className="absolute top-4 right-5 z-20 flex items-center gap-1.5 text-xs font-medium text-[#0f3d32]/70 bg-white/60 backdrop-blur-sm px-3 py-1 rounded-full border border-[#0f3d32]/15 shadow-sm pointer-events-none">
+              <span>Scroll box</span>
+              <span className="animate-bounce text-[#0f3d32] font-bold">↓</span>
+            </div>
+
+            {/* Inner Native Scroll Container */}
+            <div 
+              ref={scrollContainerRef}
+              onScroll={handleScroll}
+              className="w-full h-full overflow-y-auto snap-y snap-mandatory overscroll-contain relative z-10"
+              style={{
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
               }}
-              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            />
-
-            {/* Decorative top line */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0]" />
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col h-full flex-1 relative z-10"
-              >
-                <div className="flex items-baseline gap-3 mb-6">
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#0f3d32] tracking-tight">{activeChallenge.title}</h3>
-                </div>
-
-                <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 flex-1">
-                  <span className="block mb-3">{activeChallenge.problem}</span>
-                  <span className="block text-[#0f3d32] font-medium">{activeChallenge.solution}</span>
-                </p>
-
-                <div className="pt-6 border-t border-slate-200/60 mt-auto flex items-center">
-                  <div className="flex items-center gap-4">
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Offering</span>
-                    <a 
-                      href={
-                        activeChallenge.offering === 'Digital Presence' ? '#digital-growth' :
-                        activeChallenge.offering === 'Patient Experience' ? '#digital-opd' :
-                        activeChallenge.offering === 'Admin' ? '#sakhi-ai' :
-                        '#social-media-management'
-                      }
-                      className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#4ABFB0]/10 text-[#4ABFB0] text-sm font-bold border border-[#4ABFB0]/20 shadow-sm hover:bg-[#4ABFB0]/20 hover:-translate-y-0.5 transition-all cursor-pointer"
+            >
+              {challenges.map((challenge) => (
+                <div 
+                  key={challenge.id} 
+                  className="w-full h-full shrink-0 snap-start flex flex-col justify-between p-6 sm:p-7 md:p-8 box-border relative overflow-hidden"
+                >
+                  <div className="pr-16 sm:pr-20">
+                    <h3 
+                      className="text-lg sm:text-xl md:text-2xl font-semibold text-[#0f3d32] tracking-tight mb-3 sm:mb-4 leading-tight"
+                      style={{ fontFamily: "'Playfair Display', serif" }}
                     >
-                      {activeChallenge.offering}
-                    </a>
+                      {challenge.title}
+                    </h3>
+
+                    <div className="space-y-2.5 sm:space-y-3 text-[#0f3d32]/90 text-sm sm:text-base leading-relaxed font-normal">
+                      <p>{challenge.problem}</p>
+                      <p>{challenge.solution}</p>
+                    </div>
+                  </div>
+
+                  {/* Bottom Row */}
+                  <div className="pt-3 flex items-center justify-between mt-auto border-t border-[#0f3d32]/10">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs font-bold text-[#0f3d32]/50 uppercase tracking-widest">OFFERING</span>
+                      <a 
+                        href={
+                          challenge.offering === 'Digital Presence' ? '#digital-growth' :
+                          challenge.offering === 'Patient Experience' ? '#digital-opd' :
+                          challenge.offering === 'Admin' ? '#sakhi-ai' :
+                          '#social-media-management'
+                        }
+                        className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#4ABFB0]/20 text-[#0f3d32] text-xs sm:text-sm font-semibold border border-[#4ABFB0]/30 shadow-xs hover:bg-[#4ABFB0]/30 transition-all cursor-pointer"
+                      >
+                        {challenge.offering}
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
+              ))}
+            </div>
+
           </div>
 
         </div>
@@ -174,3 +201,5 @@ const ProblemsSolutions = () => {
 };
 
 export default ProblemsSolutions;
+
+

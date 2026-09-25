@@ -13,7 +13,33 @@ export interface Lead {
 
 export const submitLead = async (leadData: Lead, googleSheetsData?: any) => {
     try {
-        // 1. Submit to Google Sheets if Webhook is configured
+        // 1. Submit to Web3Forms (Instant Email Notification)
+        const web3FormsKey = "cfacfc4e-2717-440f-996b-1200fbf64a1c";
+        try {
+            await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    access_key: web3FormsKey,
+                    subject: `New Lead: ${leadData.name} (${leadData.organization || 'Website Inquiry'})`,
+                    from_name: "Medcy Health Tech Website",
+                    name: leadData.name,
+                    email: leadData.email,
+                    phone: leadData.phone || 'N/A',
+                    organization: leadData.organization || 'N/A',
+                    role: leadData.role || 'N/A',
+                    message: leadData.message || 'N/A',
+                    ...(googleSheetsData || {})
+                })
+            });
+        } catch (emailErr) {
+            console.error("Error sending email via Web3Forms:", emailErr);
+        }
+
+        // 2. Submit to Google Sheets if Webhook is configured
         const googleSheetsUrl = import.meta.env.VITE_GOOGLE_SHEETS_WEBHOOK;
         if (googleSheetsUrl) {
             try {

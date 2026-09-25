@@ -162,7 +162,7 @@ const Footer = () => {
                     >
                       9281011683
                     </a>
-                    <span className="text-[10px] text-[#CFE8E5]/70 leading-tight">Mon–Sat · 9AM–7PM</span>
+                    <span className="text-[10px] text-[#CFE8E5]/70 leading-tight">Mon–Fri · 9AM–6PM</span>
                   </div>
                 </div>
               </div>

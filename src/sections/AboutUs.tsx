@@ -25,20 +25,23 @@ const AboutUs = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#4ABFB0] mb-5 bg-[#4ABFB0]/10 border border-[#4ABFB0]/20 px-4 py-1.5 rounded-full">
-              Our Journey
+              Our Story
             </span>
             <h2 
               className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6 text-white tracking-tight leading-tight"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              20 Years of <br className="hidden md:block" />
-              <span className="text-[#4ABFB0] italic">Healthcare Innovation</span>
+              Where Technology <br className="hidden md:block" />
+              <span className="text-[#4ABFB0] italic">Meets Healthcare</span>
             </h2>
-            <p className="text-white/70 text-base md:text-lg leading-relaxed font-medium mb-8">
-              What started two decades ago as a mission to provide exceptional patient care has evolved into a technological revolution. We have spent the last 20 years on the frontlines of healthcare, understanding exactly what clinics need to thrive.
+            <p className="text-white/80 text-base md:text-lg leading-relaxed font-medium mb-6">
+              Medcy Health Tech was born from the coming together of two professionals with over 20 years of experience—one with deep expertise in technology and software, and the other with extensive experience in the medical field.
             </p>
-            <p className="text-white/60 text-sm md:text-base leading-relaxed mb-12">
-              Medcy Tech wasn't built in a silicon valley boardroom. It was forged in waiting rooms, operation theaters, and consultation desks. We combined our deep clinical legacy with cutting-edge artificial intelligence to create the infrastructure of modern healthcare.
+            <p className="text-white/70 text-sm md:text-base leading-relaxed mb-6">
+              Their combined experience revealed a common challenge in healthcare: while doctors and healthcare institutions provide quality care, many struggle to build a strong digital presence, reach the right patients, and create a seamless experience throughout the patient journey. That’s where Medcy Health Tech began.
+            </p>
+            <p className="text-white/70 text-sm md:text-base leading-relaxed mb-10">
+              We brought together healthcare expertise and technology to help hospitals, clinics, and healthcare professionals become more visible, accessible, and connected in the digital world. By combining technology, digital marketing, automation, and healthcare understanding, we help healthcare providers attract more relevant enquiries, improve patient engagement, and drive greater patient footfall.
             </p>
             
             <div className="grid grid-cols-2 gap-6">

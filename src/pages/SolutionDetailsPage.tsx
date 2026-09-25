@@ -244,10 +244,6 @@ const SolutionDetailsPage = () => {
   const offering: any = (content as any).coreSolutions.items.find((item: any) => item.id === id);
 
   useEffect(() => {
-    setActiveSubsectionIdx(0);
-  }, [offering]);
-
-  useEffect(() => {
     if (!offering) {
       navigate('/');
     }
@@ -274,11 +270,33 @@ const SolutionDetailsPage = () => {
 
       <div className="w-full max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16 relative z-10 pt-8 md:pt-4">
 
-        <div className="rounded-[32px] overflow-hidden">
+        <div className="rounded-[32px] overflow-hidden bg-white/40 backdrop-blur-sm border border-[#0f3d32]/10 shadow-[0_8px_40px_rgba(15,61,50,0.08)] relative">
+          {/* Animated decorative blobs */}
+          <motion.div 
+            className="absolute -top-[20%] -right-[10%] w-[50%] h-[60%] rounded-full bg-[#4ABFB0]/15 blur-3xl pointer-events-none"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.5, 0.8, 0.5],
+              x: [0, -30, 0],
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#0f3d32]/5 blur-3xl pointer-events-none"
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.3, 0.6, 0.3],
+              x: [0, 30, 0],
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+
+          {/* Decorative top line */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0]" />
           
           {/* Header */}
-          <div className="px-6 py-4 md:px-10 md:py-6 border-b border-[#0f3d32]/10 bg-transparent">
-            <h1 className="text-2xl md:text-4xl font-bold text-[#0f3d32] tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <div className="px-6 py-3.5 md:px-10 md:py-4 border-b border-[#0f3d32]/10 bg-transparent relative z-10">
+            <h1 className="text-xl md:text-2xl font-bold text-[#0f3d32] tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
               {offering.title}
             </h1>
           </div>
@@ -340,60 +358,56 @@ const SolutionDetailsPage = () => {
                   </motion.div>
                 </motion.div>
               )}
-              <div className="mb-4 md:mb-6">
-                <h4 className="text-xl md:text-2xl font-bold mb-3">Core Idea</h4>
-                <div className="mb-4">
-                  {Array.isArray(offering.description) ? (
-                    <ul className="space-y-3">
-                      {offering.description.map((point: string, i: number) => (
-                        <li key={i} className="group/item flex items-start gap-4 text-base md:text-lg font-normal text-[#0f3d32]/90 leading-relaxed cursor-pointer">
-                          <CheckCircle2 className="w-6 h-6 text-[#4ABFB0]/70 shrink-0 mt-0.5 transition-all duration-300 group-hover/item:text-[#0f3d32] group-hover/item:scale-125 group-hover/item:drop-shadow-[0_0_8px_rgba(74,191,176,0.8)]" />
-                          <span className="group-hover/item:text-[#0f3d32] transition-colors">{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-[#0f3d32]/90 leading-relaxed text-base md:text-lg font-normal">{offering.description}</p>
-                  )}
+              <div className="mb-2 md:mb-3">
+                <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-3 mb-2">
+                  <h4 className="text-base md:text-lg font-bold text-[#0f3d32] shrink-0 whitespace-nowrap">Core Idea :</h4>
+                  <div className="flex-1">
+                    {Array.isArray(offering.description) ? (
+                      <ul className="space-y-2">
+                        {offering.description.map((point: string, i: number) => (
+                          <li key={i} className="group/item flex items-start gap-3 text-base md:text-lg font-normal text-[#0f3d32]/90 leading-relaxed cursor-pointer">
+                            <CheckCircle2 className="w-5 h-5 text-[#4ABFB0]/70 shrink-0 mt-1 transition-all duration-300 group-hover/item:text-[#0f3d32] group-hover/item:scale-125 group-hover/item:drop-shadow-[0_0_8px_rgba(74,191,176,0.8)]" />
+                            <span className="group-hover/item:text-[#0f3d32] transition-colors">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-[#0f3d32]/90 leading-relaxed text-base md:text-lg font-normal">{offering.description}</p>
+                    )}
+                  </div>
                 </div>
                 {offering.coreIdea && offering.coreIdea.includes('→') ? (
-                  <InteractiveWorkflowSteps rawSteps={offering.coreIdea} label="Core Idea Process" />
+                  <div className="mt-2">
+                    <InteractiveWorkflowSteps rawSteps={offering.coreIdea} label="Core Idea Process" />
+                  </div>
                 ) : offering.coreIdea ? (
-                  <p className="text-[#0f3d32]/90 font-normal text-base md:text-lg leading-relaxed">{offering.coreIdea}</p>
+                  <p className="text-[#0f3d32]/90 font-normal text-base md:text-lg leading-relaxed mt-2">{offering.coreIdea}</p>
                 ) : null}
               </div>
 
               {offering.subsections && (
-                <div className="mt-6 pt-6 border-t border-[#0f3d32]/10">
-                  <h4 className="text-xl md:text-2xl font-bold mb-5 text-[#0f3d32]">We Deliver</h4>
+                <div className="mt-4 pt-4 border-t border-[#0f3d32]/10">
+                  <h4 className="text-base md:text-lg font-bold mb-3 text-[#0f3d32]">We Deliver</h4>
                   <div className="flex flex-col gap-3 w-full items-stretch">
                     
-                    {/* Top Side: Tabs */}
+                    {/* Top Side: Touch Interactive Tabs */}
                     <div className="w-full flex flex-row flex-wrap gap-3 relative pb-2 md:pb-4">
                       {offering.subsections.map((sub: any, i: number) => {
                         const isActive = activeSubsectionIdx === i;
                         return (
                           <button
                             key={i}
-                            onClick={() => setActiveSubsectionIdx(i)}
+                            type="button"
+                            onTouchStart={() => setActiveSubsectionIdx(i)}
+                            onPointerDown={() => setActiveSubsectionIdx(i)}
                             onMouseEnter={() => setActiveSubsectionIdx(i)}
-                            className={`group relative text-left p-4 md:px-5 md:py-4 rounded-xl transition-all duration-300 border overflow-hidden shrink-0 flex-1 min-w-[180px] md:min-w-[200px] ${
+                            onClick={() => setActiveSubsectionIdx(i)}
+                            className={`group relative text-left p-4 md:px-5 md:py-4 rounded-xl transition-all duration-300 border overflow-hidden shrink-0 flex-1 min-w-[180px] md:min-w-[200px] select-none cursor-pointer focus:outline-none ${
                               isActive 
-                                ? 'border-[#0f3d32] -translate-y-1 shadow-lg shadow-[#0f3d32]/10' 
-                                : 'bg-white/40 backdrop-blur-sm border-[#0f3d32]/10 hover:bg-white/70 hover:border-[#4ABFB0]/50 hover:-translate-y-1'
+                                ? 'bg-[#0f3d32] border-[#0f3d32] -translate-y-1 shadow-lg shadow-[#0f3d32]/10' 
+                                : 'bg-white/40 backdrop-blur-sm border-[#0f3d32]/10 hover:bg-white/70'
                             }`}
                           >
-                            {isActive && (
-                              <motion.div
-                                layoutId="activeSubsectionTabBackground"
-                                className="absolute inset-0 bg-[#0f3d32]"
-                                initial={false}
-                                transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                              />
-                            )}
-                            {!isActive && (
-                              <div className="absolute inset-0 bg-slate-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            )}
                             <div className="relative z-10 flex items-center gap-3">
                               <CheckCircle2 className={`w-5 h-5 shrink-0 transition-colors duration-300 ${isActive ? 'text-[#4ABFB0]' : 'text-[#4ABFB0]/70'}`} />
                               <h5 className={`font-bold text-sm md:text-base transition-colors duration-300 ${isActive ? 'text-white' : 'text-[#0f3d32]'}`}>
@@ -405,49 +419,68 @@ const SolutionDetailsPage = () => {
                       })}
                     </div>
 
-                    {/* Bottom Side: Content */}
-                    <div className="w-full bg-white/40 backdrop-blur-sm rounded-[24px] p-6 md:p-8 xl:p-10 border border-[#0f3d32]/10 shadow-[0_8px_40px_rgba(15,61,50,0.08)] relative overflow-hidden flex flex-col min-h-[320px]">
+                    {/* Bottom Side: Active Subsection Details Box (No Internal Scroll) */}
+                    <div className="w-full bg-white/40 backdrop-blur-sm rounded-[24px] border border-[#0f3d32]/10 shadow-[0_8px_40px_rgba(15,61,50,0.08)] relative overflow-hidden flex flex-col min-h-[360px] md:min-h-[380px]">
                       {/* Decorative top line */}
-                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0]" />
+                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] z-20" />
 
                       <AnimatePresence mode="wait">
-                        <motion.div
-                          key={activeSubsectionIdx}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -20 }}
-                          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                          className="flex flex-col h-full flex-1 relative z-10"
-                        >
-                          <div className="flex flex-col xl:flex-row gap-6 md:gap-8 mb-4 flex-1">
-                            <div className="flex-1">
-                              <h4 className="text-2xl md:text-3xl font-bold text-[#0f3d32] mb-6">{offering.subsections[activeSubsectionIdx].title}</h4>
-                              {offering.subsections[activeSubsectionIdx].whatItIs && (
-                                Array.isArray(offering.subsections[activeSubsectionIdx].whatItIs) ? (
-                                  <ul className="space-y-4">
-                                    {offering.subsections[activeSubsectionIdx].whatItIs.map((point: string, idx: number) => (
-                                      <li key={idx} className="flex items-start gap-3 text-base md:text-lg text-[#0f3d32]/90 leading-relaxed font-normal">
-                                        <span className="text-[#4ABFB0] mt-1 text-xl leading-none">•</span>
-                                        <span>{point}</span>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                ) : (
-                                  <p className="text-base md:text-lg text-[#0f3d32]/90 leading-relaxed font-normal">
-                                    {offering.subsections[activeSubsectionIdx].whatItIs}
-                                  </p>
-                                )
-                              )}
-                            </div>
-                            
-                            {offering.subsections[activeSubsectionIdx].image && (
-                              <div className="w-full md:w-64 xl:w-80 shrink-0 rounded-[16px] overflow-hidden shadow-[0_4px_20px_rgba(15,61,50,0.08)] border border-[#0f3d32]/5 bg-slate-50 aspect-[4/3] flex items-center justify-center p-1 self-start mt-2">
-                                <img src={offering.subsections[activeSubsectionIdx].image} alt={offering.subsections[activeSubsectionIdx].title} className="w-full h-full object-cover rounded-[12px]" />
+                        {offering.subsections[activeSubsectionIdx] && (() => {
+                          const sub = offering.subsections[activeSubsectionIdx];
+                          return (
+                            <motion.div 
+                              key={activeSubsectionIdx}
+                              initial={{ opacity: 0, y: 8 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -8 }}
+                              transition={{ duration: 0.2, ease: "easeInOut" }}
+                              className="w-full h-full flex flex-col justify-between p-6 md:p-8 xl:p-10 box-border relative z-10"
+                            >
+                              <div className="flex flex-col xl:flex-row gap-6 md:gap-8 flex-1 items-start justify-between">
+                                <div className="flex-1 pr-4">
+                                  <h4 className="text-lg md:text-xl font-bold text-[#0f3d32] mb-3">{sub.title}</h4>
+                                  {sub.whatItIs && (
+                                    Array.isArray(sub.whatItIs) ? (
+                                      <ul className="space-y-2.5 sm:space-y-3">
+                                        {sub.whatItIs.map((point: string, pIdx: number) => (
+                                          <li key={pIdx} className="flex items-start gap-3 text-sm md:text-base text-[#0f3d32]/90 leading-relaxed font-normal">
+                                            <span className="text-[#4ABFB0] mt-0.5 text-lg leading-none">•</span>
+                                            <span>{point}</span>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    ) : (
+                                      <p className="text-sm md:text-base text-[#0f3d32]/90 leading-relaxed font-normal">
+                                        {sub.whatItIs}
+                                      </p>
+                                    )
+                                  )}
+                                </div>
+                                
+                                {sub.image && (
+                                  <div
+                                    className="rounded-[20px] overflow-hidden shadow-[0_4px_20px_rgba(15,61,50,0.08)] border border-[#0f3d32]/5 self-center shrink-0 hidden sm:block"
+                                    style={{ width: '380px', maxWidth: '100%', height: '260px' }}
+                                  >
+                                    <img
+                                      src={sub.image}
+                                      alt={sub.title}
+                                      loading="lazy"
+                                      decoding="async"
+                                      style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        display: 'block',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center 38%',
+                                      }}
+                                    />
+                                  </div>
+                                )}
                               </div>
-                            )}
-                          </div>
-
-                        </motion.div>
+                            </motion.div>
+                          );
+                        })()}
                       </AnimatePresence>
                     </div>
 

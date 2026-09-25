@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Check, X, ArrowRight, Zap, Activity, MapPin, Monitor } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { submitLead } from '../services/leadService';
 
 const plans = [
@@ -36,17 +37,17 @@ const plans = [
     buttonText: 'Avail this pack',
   },
   {
-    id: 'geotagging',
+    id: 'geotagging-hrms',
     icon: MapPin,
-    name: 'Geotagging',
-    tagline: 'Per-user location intelligence at scale',
+    name: 'Geotagging & HRMS',
+    tagline: 'Location tracking & staff management',
     price: '₹2,000',
-    period: '/ Month',
-    priceNote: '₹6 per user · up to 20 users',
+    period: '/ Month each',
+    priceNote: '₹2,000/mo Geotagging · ₹2,000/mo HRMS',
     includes: [
-      'Real-time staff geotagging',
-      'Coverage for up to 20 users',
-      '₹6 per user per month',
+      'Real-time staff geotagging (₹2,000/mo)',
+      'Complete HRMS suite (₹2,000/mo)',
+      'Coverage for up to 20 users (₹6/user)',
     ],
     highlight: false,
     buttonText: 'Avail this pack',
@@ -81,17 +82,36 @@ const ContactModal = ({ plan, onClose }: { plan: any; onClose: () => void }) => 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    const { error } = await submitLead({
+
+    try {
+      await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "cfacfc4e-2717-440f-996b-1200fbf64a1c",
+          subject: `Package Inquiry: ${plan.name}`,
+          package_name: plan.name,
+          package_price: `${plan.price} ${plan.period}`,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone
+        })
+      });
+    } catch (emailErr) {
+      console.error("Web3Forms Email Error:", emailErr);
+    }
+
+    await submitLead({
       ...formData,
       message: `Interested in Plan: ${plan.name} — ${plan.price}${plan.period}`,
       role: 'Clinic Owner',
     });
-    if (error) {
-      setStatus('error');
-    } else {
-      setStatus('success');
-      setTimeout(() => { onClose(); }, 2000);
-    }
+
+    setStatus('success');
+    setTimeout(() => { onClose(); }, 2000);
   };
 
   return createPortal(
@@ -170,6 +190,7 @@ const ContactModal = ({ plan, onClose }: { plan: any; onClose: () => void }) => 
 };
 
 const Offerings = () => {
+  const navigate = useNavigate();
   const [selectedPlan, setSelectedPlan] = useState<any | null>(null);
 
   const [isBannerExpanded, setIsBannerExpanded] = useState(false);
@@ -192,12 +213,40 @@ const Offerings = () => {
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-5 bg-[#0f3d32]/5 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full">
             Pricing
           </span>
-          <h2
-            className="text-4xl md:text-5xl font-medium mb-5 text-[#0f3d32] tracking-tight"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            Simple, Transparent Pricing
-          </h2>
+
+          <div className="relative w-full mx-auto flex items-center justify-center mb-5">
+            <h2
+              className="text-4xl md:text-5xl font-medium text-[#0f3d32] tracking-tight text-center"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Simple, Transparent Pricing
+            </h2>
+
+            <motion.button
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05, boxShadow: "0 15px 35px rgba(18,148,167,0.4)", backgroundColor: "#0e7685" }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => navigate('/contact')}
+              className="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 group items-center gap-2 px-5 py-2.5 rounded-full bg-[#1294a7] text-white text-xs sm:text-sm font-semibold transition-all shadow-[0_10px_25px_rgba(18,148,167,0.3)] whitespace-nowrap cursor-pointer"
+            >
+              Book a Demo
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+            </motion.button>
+          </div>
+
+          {/* Mobile button */}
+          <div className="md:hidden flex justify-center mb-4">
+            <button
+              onClick={() => navigate('/contact')}
+              className="group inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#1294a7] text-white text-xs font-semibold shadow-md cursor-pointer"
+            >
+              Book a Demo
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          </div>
+
           <p className="text-[#0f3d32]/80 max-w-xl mx-auto font-medium leading-relaxed text-sm md:text-base">
             Choose the plan that fits your clinic. No hidden fees, no long-term lock-ins.
           </p>
@@ -386,8 +435,8 @@ const Offerings = () => {
                 
                 <div className={`p-6 flex flex-col flex-1 ${plan.highlight ? 'pt-5' : 'pt-6'}`}>
                   {/* Header */}
-                  <div className="mb-5 h-[76px] flex flex-col">
-                    <h3 className="text-xl md:text-2xl font-semibold text-white mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  <div className="mb-4 min-h-[76px] flex flex-col justify-start">
+                    <h3 className="text-xl md:text-2xl font-semibold text-white mb-1 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
                       {plan.name}
                     </h3>
                     <p className="text-[11px] md:text-xs text-[#CFE8E5]/90 font-medium leading-relaxed">
@@ -396,8 +445,8 @@ const Offerings = () => {
                   </div>
 
                   {/* Price */}
-                  <div className="mb-5 h-[68px] flex flex-col justify-end">
-                    <div className="flex items-baseline gap-1 text-white">
+                  <div className="mb-5 min-h-[64px] flex flex-col justify-end">
+                    <div className="flex items-baseline flex-wrap gap-1 text-white">
                       <span className="text-3xl md:text-4xl font-bold tracking-tight text-white">
                         {plan.price}
                       </span>
@@ -406,11 +455,11 @@ const Offerings = () => {
                       </span>
                     </div>
                     {plan.priceNote ? (
-                      <p className="text-[11px] font-semibold text-[#CFE8E5] mt-0.5">
+                      <p className="text-[11px] font-semibold text-[#CFE8E5] mt-1 leading-normal">
                         {plan.priceNote}
                       </p>
                     ) : (
-                      <p className="text-[11px] font-medium text-transparent mt-0.5 select-none">
+                      <p className="text-[11px] font-medium text-transparent mt-1 select-none">
                         Spacer
                       </p>
                     )}

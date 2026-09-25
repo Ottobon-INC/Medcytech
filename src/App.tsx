@@ -12,7 +12,6 @@ import Offerings from './sections/Offerings';
 
 
 import WhyUs from './sections/WhyUs';
-import Founders from './sections/Founders';
 import Contact from './pages/Contact';
 import Preloader from './components/Preloader';
 
@@ -20,6 +19,7 @@ import ChallengesPage from './pages/ChallengesPage';
 import OfferingsPage from './pages/OfferingsPage';
 import WhyUsPage from './pages/WhyUsPage';
 import SolutionDetailsPage from './pages/SolutionDetailsPage';
+import AboutUsPage from './pages/AboutUsPage';
 
 
 import BackToTop from './components/BackToTop';
@@ -37,7 +37,7 @@ const HomePage = () => (
     {/* <Challenges content={content.challenges} /> */}
     <Offerings />
     <WhyUs content={content.whyUs} />
-    <Founders content={content.founders} />
+    {/* <Founders content={content.founders} /> */}
   </main>
 );
 
@@ -92,9 +92,10 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
         <Route path="/challenges" element={<PageTransition><ChallengesPage content={content} /></PageTransition>} />
         <Route path="/offerings" element={<PageTransition><OfferingsPage content={content} /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><AboutUsPage content={content} /></PageTransition>} />
+        <Route path="/about-us" element={<PageTransition><AboutUsPage content={content} /></PageTransition>} />
         <Route path="/why-us" element={<PageTransition><WhyUsPage content={content} /></PageTransition>} />
         <Route path="/solutions/:id" element={<PageTransition><SolutionDetailsPage /></PageTransition>} />
-
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>
     </AnimatePresence>
@@ -108,7 +109,7 @@ const App = () => {
     <>
       {loading && <Preloader onComplete={() => setLoading(false)} />}
       {!loading && (
-        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-[#0f3d32] selection:text-white transition-opacity duration-700 opacity-100">
+        <div className="min-h-screen bg-[#0f3d32] text-foreground font-sans selection:bg-[#0f3d32] selection:text-white transition-opacity duration-700 opacity-100 flex flex-col justify-between">
           <Router>
             <ScrollToTop />
             {/* Background Mesh Overlay */}
@@ -117,7 +118,9 @@ const App = () => {
             <Navbar />
             <BackToTop />
 
-            <AnimatedRoutes />
+            <div className="flex-1 bg-[#CFE8E5]">
+              <AnimatedRoutes />
+            </div>
 
             <Footer />
           </Router>

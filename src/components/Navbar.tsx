@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { markIntroComplete } from '../utils/introSync';
 
-const navLinks = ["Challenges", "Clients", "Offerings", "Pricing", "About Us"];
+const navLinks = ["About Us", "Challenges", "Offerings", "Clients", "Pricing"];
 const getNavPath = (link: string) => {
+  if (link === "About Us") return "/about";
   if (link === "Clients") return "/#partners";
   if (link === "Challenges") return "/#challenges";
   if (link === "Offerings") return "/#core-solutions";
   if (link === "Pricing") return "/#pricing";
-  if (link === "About Us") return "/#our-founders";
   return "/";
 };
 

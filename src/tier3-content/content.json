@@ -2,7 +2,7 @@
   "hero": {
     "badge": "India's first AI-driven platform providing scale",
     "title": "Your complete<br /> <span class=\"bg-gradient-to-r from-[#0f3d32] to-[#4ABFB0] bg-clip-text text-transparent font-medium\">Digital Health Solution</span>",
-    "subtitle": "One platform to grow, manage, and care — Digital Presence, Patient Experience, and Admin.",
+    "subtitle": "One platform to grow, manage, and care — Digital Presence, Patient Experience, Admin, and Infrastructure Development.",
     "ctaText": "Partner with us?",
     "stats": [
       {
@@ -41,7 +41,7 @@
         "subsections": [
           {
             "title": "Google Maps & Search Setup",
-            "image": "/solutions/gmaps_clinic_setup.jpg",
+            "image": "/solutions/google_maps_clinic_new.jpg",
             "whatItIs": [
               "Complete setup and optimization of your Google Business profile so your clinic appears at the top when patients search nearby.",
               "Accurate listing of medical specialties, operating hours, emergency contact numbers, and verified clinic address.",
@@ -54,7 +54,7 @@
           },
           {
             "title": "Smart WhatsApp Messaging",
-            "image": "/solutions/whatsapp_clinic_chat.png",
+            "image": "/images/images/whatsapp_appointment_chat_hd.jpg",
             "whatItIs": [
               "Automated appointment confirmations and smart reminders to engage patients 24/7 and cut no-show rates.",
               "Instant delivery of digital prescriptions, lab test reports, and billing receipts directly to patients' WhatsApp.",
@@ -67,7 +67,7 @@
           },
           {
             "title": "Clinic Website Creation",
-            "image": "/solutions/clinic_website_showcase.jpg",
+            "image": "/images/images/clinic_website_creation_hd.jpg",
             "whatItIs": [
               "Modern, mobile-responsive clinic website designed to build patient trust and maximize appointment bookings.",
               "Doctor credentials showcase highlighting qualifications, surgical specialties, and degrees to foster confidence.",
@@ -80,7 +80,7 @@
           },
           {
             "title": "Online Advertising",
-            "image": "/solutions/online_ads_clinic.png",
+            "image": "/images/images/online advert.png",
             "whatItIs": [
               "Targeted Google, Facebook, and Instagram campaigns reaching patients actively searching for medical care.",
               "Hyper-local geo-targeting focused strictly within your clinic's catchment radius (5–15 km) to avoid wasted spend.",
@@ -93,7 +93,7 @@
           },
           {
             "title": "Search Engine Optimization",
-            "image": "/solutions/clinic_seo_growth.png",
+            "image": "/solutions/seo_image.png",
             "whatItIs": [
               "Organic search ranking optimization so Google naturally displays your clinic at the top without ongoing ad costs.",
               "Targeting high-intent local search queries like 'best clinic near me' and specialty doctor searches in your city.",
@@ -109,7 +109,7 @@
       {
         "id": "digital-opd",
         "title": "Patient Experience",
-        "image": "/solutions/lims.png",
+        "image": "/solutions/patient_experience.jpg?v=4",
         "description": "Automating the operational journey—from the first appointment to full recovery at home—so doctors can focus entirely on providing excellent patient care.",
         "subsections": [
           {
@@ -119,7 +119,7 @@
               "Real-time token display and automated queue tracking to eliminate waiting room crowding and keep patients informed.",
               "Seamless doctor-desk synchronization for fast vitals recording, digital prescription generation, and instant billing handoff."
             ],
-            "image": "/solutions/digital_op_reception.jpg?v=2"
+            "image": "/solutions/patient_experience.jpg?v=4"
           },
           {
             "title": "Sakhi — AI Health Companion",
@@ -136,12 +136,12 @@
       {
         "id": "sakhi-ai",
         "title": "Admin",
-        "image": "/solutions/sakhi-ai.jpg?v=2",
+        "image": "/images/images/field_sales_management.jpg",
         "description": "Comprehensive clinic administration tools to manage your staff, locations, and internal operations efficiently.",
         "subsections": [
           {
             "title": "Geo Tagging & Attendance Tracking",
-            "image": "/solutions/geotagging_attendance.jpg?v=4",
+            "image": "/images/images/field_sales_management.jpg",
             "whatItIs": [
               "GPS-Verified Attendance: Location-based check-ins with selfie proof and geofence validation for accurate attendance.",
               "Field Visit Tracking: Easily assign and track patient visits, deliveries, or sample collections with configurable boundaries.",
@@ -169,12 +169,12 @@
       {
         "id": "social-media-management",
         "title": "Infrastructure Development",
-        "image": "/solutions/gbp.jpg?v=2",
+        "image": "/images/images/infrastructure_dev_final.jpg",
         "description": "Powering the digital system for your clinic with reliable, secure, and fully managed infrastructure.",
         "subsections": [
           {
             "title": "WhatsApp",
-            "image": "/solutions/whatsapp_infrastructure.jpg?v=4",
+            "image": "/images/images/whatsapp_infrastructure_api_hd.jpg",
             "whatItIs": [
               "Official WhatsApp Business API integration for seamless patient communication.",
               "Automated appointment confirmations, instant reschedule requests, and broadcast health alerts sent directly to patient phones.",
@@ -192,7 +192,7 @@
           },
           {
             "title": "Web Hosting & Server",
-            "image": "/solutions/web_hosting.jpg?v=4",
+            "image": "/images/images/web_hosting_server_hd.jpg",
             "whatItIs": [
               "High-performance, secure servers tailored to keep your clinic's digital services running 24/7.",
               "99.9% uptime guarantee with ultra-fast page load speeds optimized for mobile visitors searching for nearby care.",
@@ -201,7 +201,7 @@
           },
           {
             "title": "SSL Certificate & Website Security",
-            "image": "/solutions/ssl_certificate.jpg?v=4",
+            "image": "/images/images/ssl_security_hd.jpg",
             "whatItIs": [
               "End-to-end encryption and robust security protocols to protect patient data and clinic reputation.",
               "Dedicated HTTPS SSL certificates that display the trusted padlock icon to reassure patients booking visits.",
@@ -210,7 +210,7 @@
           },
           {
             "title": "Website Maintenance & Technical Support",
-            "image": "/solutions/website_maintenance.jpg?v=4",
+            "image": "/images/images/website_maintenance_hd.jpg",
             "whatItIs": [
               "Ongoing updates, backups, and priority support to ensure everything works flawlessly.",
               "Daily automated cloud backups ensuring patient records and website data are instantly restorable in any emergency.",

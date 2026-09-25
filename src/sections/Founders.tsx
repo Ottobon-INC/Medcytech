@@ -10,69 +10,117 @@ interface Founder {
 }
 
 const Founders = ({ content }: { content: any }) => {
-    const founders: Founder[] = content.items;
+    const founders: Founder[] = content?.items || [];
+    const founder1 = founders[0];
+    const founder2 = founders[1];
 
     return (
-        <section id="our-founders" className="pt-16 pb-32 relative overflow-hidden bg-[#CFE8E5]">
+        <section id="our-founders" className="pt-16 pb-28 relative overflow-hidden bg-[#CFE8E5]">
+            {/* Ambient background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand-emerald/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="text-center mb-16">
-                    <motion.span
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-4 bg-[#0f3d32]/5 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full"
-                    >
-                        {content.sectionTag}
-                    </motion.span>
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                {/* ─── SECTION HEADER ─── */}
+                <div className="text-center mb-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-medium mb-4 text-[#0f3d32]"
+                        className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#0f3d32]"
                         style={{ fontFamily: "'Playfair Display', serif" }}
                     >
-                        {content.sectionTitle}
+                        {content?.sectionTitle || "About Us"}
                     </motion.h2>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="max-w-4xl mx-auto"
-                    >
-                        {/* Our Story tag */}
-                        <div className="flex items-center gap-4 justify-center mb-8">
-                            <div className="h-px w-16 bg-[#0f3d32]/20" />
-                            <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#0f3d32]/50">Our Story</span>
-                            <div className="h-px w-16 bg-[#0f3d32]/20" />
-                        </div>
+                </div>
 
-                        {/* Combined description */}
-                        <p className="text-center text-lg md:text-xl text-[#0f3d32] leading-relaxed font-medium" style={{ fontFamily: "'Playfair Display', serif" }}>
-                            Built by doctors and technologists, for modern clinics. We combine 20 years of clinical and digital expertise to solve the exact bottlenecks holding your practice back—empowering you to scale faster and focus on what matters most: world-class patient care.
+                {/* ─── FOUNDERS IMAGES ON TOP (SIDE-BY-SIDE, REDUCED SIZE) ─── */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-12 mb-12">
+                    
+                    {/* Founder 1 (Dr. B. Sireesha Rani) */}
+                    {founder1 && (
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            className="w-full max-w-[280px] sm:max-w-[310px] md:max-w-[340px] lg:max-w-[360px] group"
+                        >
+                            <img
+                                src={founder1.cardImage || founder1.image}
+                                alt={founder1.name}
+                                className="w-full h-auto rounded-[26px] shadow-[0_12px_30px_rgba(15,61,50,0.14)] group-hover:scale-[1.02] transition-transform duration-300 object-cover"
+                            />
+                        </motion.div>
+                    )}
+
+                    {/* Founder 2 (Bhanu Prasad Bonu) */}
+                    {founder2 && (
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.1 }}
+                            className="w-full max-w-[280px] sm:max-w-[310px] md:max-w-[340px] lg:max-w-[360px] group"
+                        >
+                            <img
+                                src={founder2.cardImage || founder2.image}
+                                alt={founder2.name}
+                                className="w-full h-auto rounded-[26px] shadow-[0_12px_30px_rgba(15,61,50,0.14)] group-hover:scale-[1.02] transition-transform duration-300 object-cover"
+                            />
+                        </motion.div>
+                    )}
+
+                </div>
+
+                {/* ─── STORY MATTER BELOW THE FOUNDERS IMAGES ─── */}
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-4xl mx-auto text-center space-y-6 text-[#0f3d32]/90 text-[17px] md:text-[19px] leading-relaxed font-medium"
+                >
+                    {/* Story Header Badge */}
+                    <div className="flex items-center gap-3 justify-center mb-8">
+                        <div className="h-px w-10 sm:w-16 bg-[#0f3d32]/20" />
+                        <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#0f3d32]">
+                            Our Story & Journey
+                        </span>
+                        <div className="h-px w-10 sm:w-16 bg-[#0f3d32]/20" />
+                    </div>
+
+                    <p>
+                        Medcy Health Tech was born from the coming together of two professionals with over 20 years of experience—one in software technology and the other in frontline medicine. Their combined insight revealed a shared challenge: while healthcare providers deliver quality care, many struggle to build a strong digital presence and connect with patients seamlessly.
+                    </p>
+
+                    <p>
+                        Recognizing this critical gap, we set out to build a comprehensive ecosystem tailored specifically for the healthcare industry. We bridge this gap by uniting clinical understanding with digital marketing, automation, and tech infrastructure.
+                    </p>
+
+                    <p>
+                        From online discovery and enquiry management to appointment booking and ongoing care, our solutions help hospitals and clinics expand their reach, increase patient footfall, and preserve the essential human touch in healthcare.
+                    </p>
+
+                    <p>
+                        By streamlining operations and automating routine tasks, we empower healthcare professionals to focus on what they do best: providing exceptional patient care. Our technology serves as a seamless extension of your practice.
+                    </p>
+
+                    <p>
+                        Built upon the strong clinical foundation established by Dr. Sireesha Rani through Medcy IVF and the enterprise technology vision of Bhanu Prasad Bonu, Medcy Health Tech is dedicated to shaping the future of digital healthcare infrastructure.
+                    </p>
+
+                    {/* OUR CORE VISION AT THE ENDING */}
+                    <div className="pt-10 mt-8 border-t border-[#0f3d32]/20 text-center max-w-3xl mx-auto">
+                        <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#1294a7] block mb-3">
+                            Our Core Vision
+                        </span>
+                        <p className="text-[19px] sm:text-[22px] font-semibold text-[#0f3d32] italic leading-snug">
+                            "Our vision is simple: transform healthcare through innovation, strengthen digital presence, and create better experiences for both healthcare providers and their patients."
                         </p>
+                    </div>
+                </motion.div>
 
-                    </motion.div>
-                </div>
-
-                <div className="flex flex-wrap justify-center gap-8 md:gap-12 perspective-1000">
-                    {/* Actual Founders */}
-                    {founders.map((founder, i) => (
-                        <motion.img
-                            key={founder.id}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-40px" }}
-                            transition={{ duration: 0.6, delay: i * 0.2, ease: "easeOut" }}
-                            whileHover={{ y: -10, scale: 1.02, boxShadow: "0 20px 40px -10px rgba(15, 61, 50, 0.2)" }}
-                            src={founder.cardImage || founder.image}
-                            alt={founder.name}
-                            className="w-full max-w-[320px] md:max-w-[360px] rounded-[32px] shadow-[0_15px_40px_rgba(15,61,50,0.15)]"
-                        />
-                    ))}
-                </div>
             </div>
         </section>
     );

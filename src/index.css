@@ -32,6 +32,14 @@
   --color-foreground: #0f3d32;
 }
 
+html, body {
+  overscroll-behavior-y: none;
+}
+
+html {
+  background-color: #0f3d32;
+}
+
 body {
   margin: 0;
   padding: 0;

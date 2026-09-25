@@ -29,34 +29,45 @@ const ServiceCard = ({ service }: { service: any }) => {
       <div className="w-full h-full min-h-[350px] flex flex-col">
         <motion.div
           whileHover={{ y: -8 }}
-          className="relative w-full rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(15,61,50,0.05)] hover:shadow-[0_25px_50px_rgba(15,61,50,0.15)] transition-all duration-300 border border-[#0f3d32]/10 p-6 sm:p-8 flex flex-col h-full cursor-pointer group"
+          className="relative w-full min-h-[380px] rounded-[24px] overflow-hidden shadow-[0_15px_30px_rgba(15,61,50,0.08)] hover:shadow-[0_25px_50px_rgba(15,61,50,0.18)] transition-all duration-300 border border-[#0f3d32]/10 p-6 sm:p-8 flex flex-col justify-between h-full cursor-pointer group bg-gradient-to-b from-[#F0F9F8] to-[#CFE8E5]"
           onClick={() => setIsModalOpen(true)}
         >
-          {service.image ? (
-            <>
-              <div 
-                className="absolute inset-0 bg-cover bg-center z-0 transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url('${service.image}')` }}
+          {service.image && (
+            <div 
+              className="absolute bottom-0 left-0 right-0 h-[82%] z-0 pointer-events-none overflow-hidden"
+              style={{
+                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)',
+                maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)'
+              }}
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f3d32] via-[#0f3d32]/80 to-[#0f3d32]/40 z-0 transition-opacity duration-300 group-hover:opacity-90" />
-            </>
-          ) : (
-            <div className="absolute inset-0 bg-white z-0" />
+              {/* Green tint overlay matching 2nd screenshot */}
+              <div className="absolute inset-0 bg-[#0f3d32]/20 mix-blend-multiply z-[1]" />
+              <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#0f3d32] via-[#0f3d32]/70 to-transparent z-[2]" />
+            </div>
           )}
 
-          <div className="relative z-10 flex flex-col h-full justify-end">
-
-            <h3 className={`text-xl sm:text-2xl font-medium ${service.image ? 'text-white' : 'text-[#0f3d32]'} tracking-tight mb-3 sm:mb-4 mt-auto`} style={{ fontFamily: "'Playfair Display', serif" }}>
+          <div className="relative z-10 pointer-events-none">
+            <h3
+              className="text-2xl sm:text-3xl font-semibold text-[#0f3d32] tracking-tight leading-tight"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
               {service.title}
             </h3>
-            <p className={`${service.image ? 'text-white/80' : 'text-[#5b6e68]'} text-sm font-medium leading-relaxed mb-8`}>
-              {service.shortDescription}
-            </p>
-            <div className={`flex items-center gap-2 text-sm font-bold ${service.image ? 'text-white' : 'text-[#0f3d32]'}`}>
+          </div>
+
+          <div className="relative z-10 flex items-center justify-between pointer-events-none mt-auto pt-6">
+            <span className="text-white font-bold text-sm tracking-wide drop-shadow-md">
               Read Full Details
-              <div className={`w-8 h-8 rounded-full ${service.image ? 'bg-white/20 text-white group-hover:bg-white group-hover:text-[#0f3d32]' : 'bg-[#0f3d32]/5 text-[#0f3d32] group-hover:bg-[#0f3d32] group-hover:text-white'} flex items-center justify-center transition-colors`}>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </div>
+            </span>
+            <div className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm text-white group-hover:bg-white group-hover:text-[#0f3d32] flex items-center justify-center transition-all duration-300 shadow-sm">
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </div>
           </div>
         </motion.div>
