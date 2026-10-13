@@ -23,6 +23,51 @@
   animation-play-state: paused;
 }
 
+@keyframes marquee-logos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-logos {
+  display: flex;
+  width: max-content;
+  animation: marquee-logos 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-logos:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-logos {
+    animation-play-state: paused;
+  }
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+/* Dedicated sizing class for ORCA client logo to increase its visual presence by 1.6x - 1.8x */
+.orca-client-logo {
+  height: 80px !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .orca-client-logo {
+    height: 126px !important;
+    width: auto !important;
+    max-height: none !important;
+    max-width: none !important;
+  }
+}
+
 
 
 :root {

@@ -5,44 +5,63 @@ const partners = [
     id: "medcy-hospitals", 
     imageUrl: "/partners/medcy_hospitals_nobg.png",
     alt: "Medcy Hospitals Logo",
-    sizeClass: "h-[50px] md:h-[80px] w-auto"
+    sizeClass: "h-[44px] md:h-[68px] w-auto"
   },
   { 
     id: "vizag-ivf", 
     imageUrl: "/partners/vizagivf_logo_nobg.png",
     alt: "Vizag IVF Centre Logo",
-    sizeClass: "h-[55px] md:h-[90px] w-auto"
+    sizeClass: "h-[46px] md:h-[72px] w-auto"
   },
   { 
     id: "medcy-ivf", 
     imageUrl: "/partners/medcy_ivf_nobg.png",
     alt: "Medcy IVF Logo",
-    sizeClass: "h-[50px] md:h-[80px] w-auto"
+    sizeClass: "h-[44px] md:h-[68px] w-auto"
   },
   { 
     id: "orca", 
-    imageUrl: "/partners/orca_logo.png",
+    imageUrl: "/partners/orca_logo_nobg.png",
     alt: "ORCA Logo",
-    sizeClass: "h-[70px] md:h-[110px] w-auto scale-[1.3] translate-y-2",
-    blend: true
+    sizeClass: "orca-client-logo h-[80px] md:h-[126px] w-auto"
   },
   { 
     id: "sri-venkateswara", 
-    imageUrl: "/partners/sri_venkateswara_logo.png",
+    imageUrl: "/partners/sri_venkateswara_logo_nobg.png",
     alt: "Sri Venkateswara Hospital Logo",
-    sizeClass: "h-[65px] md:h-[105px] w-auto scale-[1.2]",
-    blend: true
+    sizeClass: "h-[48px] md:h-[74px] w-auto"
+  },
+  { 
+    id: "kavety-hospital", 
+    imageUrl: "/partners/kavety_hospital_logo.png",
+    alt: "Kavety Multispeciality Hospital Logo",
+    sizeClass: "h-[48px] md:h-[74px] w-auto"
+  },
+  { 
+    id: "global-physio", 
+    imageUrl: "/partners/global_physio_logo.png",
+    alt: "Global Physio Logo",
+    sizeClass: "h-[48px] md:h-[74px] w-auto"
+  },
+  { 
+    id: "vd-clinic", 
+    imageUrl: "/partners/vd_clinic_logo.png",
+    alt: "VD Clinic Logo",
+    sizeClass: "h-[48px] md:h-[74px] w-auto"
   },
 ];
 
+// Duplicated list to ensure track width extends beyond wide screens for a seamless loop
+const duplicatedPartners = [...partners, ...partners];
+
 const Partners = () => {
   return (
-    <section id="partners" className="pt-20 pb-8 md:pt-28 md:pb-12 bg-[#CFE8E5] overflow-hidden relative">
+    <section id="partners" className="pt-20 pb-12 md:pt-28 md:pb-16 bg-[#CFE8E5] overflow-hidden relative">
 
       {/* Subtle radial background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-emerald/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative">
+      <div className="max-w-6xl mx-auto px-6 relative mb-12 md:mb-16">
 
         {/* Section Header */}
         <motion.div
@@ -50,7 +69,7 @@ const Partners = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-16"
+          className="text-center"
         >
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#0f3d32]/60 mb-5 bg-[#0f3d32]/5 border border-[#0f3d32]/10 px-4 py-1.5 rounded-full">
             Trusted By
@@ -66,29 +85,47 @@ const Partners = () => {
           </p>
         </motion.div>
 
-        {/* Partner Logos - Direct on green background, scale up on touch/hover */}
-        <div className="grid grid-cols-5 gap-3 md:gap-10 items-center justify-items-center w-full">
-          {partners.map((partner, index) => (
-            <motion.div
-              key={partner.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ scale: 1.12, y: -4 }}
-              whileTap={{ scale: 1.12 }}
-              className={`w-full flex items-center justify-center cursor-pointer ${partner.blend ? 'mix-blend-multiply' : ''}`}
-            >
-              <img
-                src={partner.imageUrl}
-                alt={partner.alt}
-                className={`${partner.sizeClass} object-contain transition-transform duration-300 ${partner.blend ? '' : 'drop-shadow-sm hover:drop-shadow-md'}`}
-              />
-            </motion.div>
-          ))}
-        </div>
-
       </div>
+
+      {/* Single Horizontal Row - Smooth Infinite Leftward-Scrolling Marquee */}
+      <div className="w-full overflow-hidden marquee-mask relative py-4 select-none">
+        <div className="flex w-max animate-marquee-logos items-center flex-nowrap whitespace-nowrap">
+          {/* Half 1 */}
+          <div className="flex items-center flex-nowrap shrink-0 gap-8 md:gap-14 pr-8 md:pr-14">
+            {duplicatedPartners.map((partner, index) => (
+              <div
+                key={`p1-${partner.id}-${index}`}
+                className="flex items-center justify-center shrink-0 h-28 md:h-36 px-4 md:px-6 cursor-pointer transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src={partner.imageUrl}
+                  alt={partner.alt}
+                  className={`${partner.sizeClass} ${partner.id === 'orca' ? '' : 'max-w-[180px] md:max-w-[260px]'} object-contain drop-shadow-sm hover:drop-shadow-md transition-all duration-300`}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Half 2 (Exact Duplicate for Seamless Infinite Loop) */}
+          <div className="flex items-center flex-nowrap shrink-0 gap-8 md:gap-14 pr-8 md:pr-14" aria-hidden="true">
+            {duplicatedPartners.map((partner, index) => (
+              <div
+                key={`p2-${partner.id}-${index}`}
+                className="flex items-center justify-center shrink-0 h-28 md:h-36 px-4 md:px-6 cursor-pointer transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src={partner.imageUrl}
+                  alt={partner.alt}
+                  className={`${partner.sizeClass} ${partner.id === 'orca' ? '' : 'max-w-[180px] md:max-w-[260px]'} object-contain drop-shadow-sm hover:drop-shadow-md transition-all duration-300`}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
     </section>
   );
 };
