@@ -5,49 +5,55 @@ const partners = [
     id: "medcy-hospitals", 
     imageUrl: "/partners/medcy_hospitals_nobg.png",
     alt: "Medcy Hospitals Logo",
-    sizeClass: "h-[44px] md:h-[68px] w-auto"
+    sizeClass: "h-[40px] md:h-[60px] w-auto"
   },
   { 
     id: "vizag-ivf", 
     imageUrl: "/partners/vizagivf_logo_nobg.png",
     alt: "Vizag IVF Centre Logo",
-    sizeClass: "h-[46px] md:h-[72px] w-auto"
+    sizeClass: "h-[42px] md:h-[64px] w-auto"
   },
   { 
     id: "medcy-ivf", 
     imageUrl: "/partners/medcy_ivf_nobg.png",
     alt: "Medcy IVF Logo",
-    sizeClass: "h-[44px] md:h-[68px] w-auto"
+    sizeClass: "h-[42px] md:h-[62px] w-auto"
   },
   { 
     id: "orca", 
     imageUrl: "/partners/orca_logo_nobg.png",
     alt: "ORCA Logo",
-    sizeClass: "orca-client-logo h-[80px] md:h-[126px] w-auto"
+    sizeClass: "h-[38px] md:h-[58px] w-auto"
   },
   { 
     id: "sri-venkateswara", 
     imageUrl: "/partners/sri_venkateswara_logo_nobg.png",
     alt: "Sri Venkateswara Hospital Logo",
-    sizeClass: "h-[48px] md:h-[74px] w-auto"
+    sizeClass: "h-[44px] md:h-[66px] w-auto"
   },
   { 
     id: "kavety-hospital", 
     imageUrl: "/partners/kavety_hospital_logo.png",
     alt: "Kavety Multispeciality Hospital Logo",
-    sizeClass: "h-[48px] md:h-[74px] w-auto"
+    sizeClass: "h-[42px] md:h-[64px] w-auto"
   },
   { 
     id: "global-physio", 
     imageUrl: "/partners/global_physio_logo.png",
     alt: "Global Physio Logo",
-    sizeClass: "h-[48px] md:h-[74px] w-auto"
+    sizeClass: "h-[44px] md:h-[66px] w-auto"
   },
   { 
     id: "vd-clinic", 
     imageUrl: "/partners/vd_clinic_logo.png",
     alt: "VD Clinic Logo",
-    sizeClass: "h-[48px] md:h-[74px] w-auto"
+    sizeClass: "h-[42px] md:h-[62px] w-auto"
+  },
+  { 
+    id: "surya-hospital", 
+    imageUrl: "/partners/surya_hospital_logo.png",
+    alt: "Surya Hospital Logo",
+    sizeClass: "h-[40px] md:h-[60px] w-auto"
   },
 ];
 
@@ -95,12 +101,12 @@ const Partners = () => {
             {duplicatedPartners.map((partner, index) => (
               <div
                 key={`p1-${partner.id}-${index}`}
-                className="flex items-center justify-center shrink-0 h-28 md:h-36 px-4 md:px-6 cursor-pointer transition-transform duration-300 hover:scale-110"
+                className="flex items-center justify-center shrink-0 h-24 md:h-28 px-4 md:px-6 cursor-pointer transition-transform duration-300 hover:scale-110"
               >
                 <img
                   src={partner.imageUrl}
                   alt={partner.alt}
-                  className={`${partner.sizeClass} ${partner.id === 'orca' ? '' : 'max-w-[180px] md:max-w-[260px]'} object-contain drop-shadow-sm hover:drop-shadow-md transition-all duration-300`}
+                  className={`${partner.sizeClass} max-w-[180px] md:max-w-[260px] object-contain drop-shadow-sm hover:drop-shadow-md transition-all duration-300`}
                   loading="lazy"
                 />
               </div>
@@ -112,12 +118,12 @@ const Partners = () => {
             {duplicatedPartners.map((partner, index) => (
               <div
                 key={`p2-${partner.id}-${index}`}
-                className="flex items-center justify-center shrink-0 h-28 md:h-36 px-4 md:px-6 cursor-pointer transition-transform duration-300 hover:scale-110"
+                className="flex items-center justify-center shrink-0 h-24 md:h-28 px-4 md:px-6 cursor-pointer transition-transform duration-300 hover:scale-110"
               >
                 <img
                   src={partner.imageUrl}
                   alt={partner.alt}
-                  className={`${partner.sizeClass} ${partner.id === 'orca' ? '' : 'max-w-[180px] md:max-w-[260px]'} object-contain drop-shadow-sm hover:drop-shadow-md transition-all duration-300`}
+                  className={`${partner.sizeClass} max-w-[180px] md:max-w-[260px] object-contain drop-shadow-sm hover:drop-shadow-md transition-all duration-300`}
                   loading="lazy"
                 />
               </div>
