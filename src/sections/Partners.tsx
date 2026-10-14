@@ -55,6 +55,12 @@ const partners = [
     alt: "Surya Hospital Logo",
     sizeClass: "h-[40px] md:h-[60px] w-auto"
   },
+  { 
+    id: "sai-diagnostics", 
+    imageUrl: "/partners/sai_diagnostics_logo.png",
+    alt: "Sai Diagnostics Fetal Medicine Center Logo",
+    sizeClass: "h-[36px] md:h-[54px] w-auto"
+  },
 ];
 
 // Duplicated list to ensure track width extends beyond wide screens for a seamless loop
